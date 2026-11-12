@@ -1,0 +1,37 @@
+[
+  [
+    "/workspace/.venv/bin/cmake",
+    "-S",
+    "/workspace",
+    "-B",
+    "/workspace/bench_results/v152_next_20261112/native-lt-component/build",
+    "-G",
+    "Ninja",
+    "-DCMAKE_BUILD_TYPE=Release",
+    "-DVLLM_TARGET_DEVICE=cuda",
+    "-DVLLM_PYTHON_EXECUTABLE=/workspace/.venv/bin/python",
+    "-DCMAKE_CUDA_COMPILER=/usr/local/cuda/bin/nvcc",
+    "-DVLLM_FLASH_ATTN_SM70=ON",
+    "-DVLLM_SM70_79T_PREFILL=ON",
+    "-DFETCHCONTENT_BASE_DIR=/workspace/bench_results/v152_next_20261112/native-lt-component/deps",
+    "-DCMAKE_INSTALL_PREFIX=/workspace/bench_results/v152_next_20261112/native-lt-component/install",
+    "-DNVCC_THREADS=1",
+    "-DFETCHCONTENT_SOURCE_DIR_TRITON_KERNELS=/pinned-deps/triton_kernels-src"
+  ],
+  [
+    "/workspace/.venv/bin/cmake",
+    "--build",
+    "/workspace/bench_results/v152_next_20261112/native-lt-component/build",
+    "--target",
+    "_C",
+    "-j",
+    "4"
+  ],
+  [
+    "/workspace/.venv/bin/cmake",
+    "--install",
+    "/workspace/bench_results/v152_next_20261112/native-lt-component/build",
+    "--component",
+    "_C"
+  ]
+]

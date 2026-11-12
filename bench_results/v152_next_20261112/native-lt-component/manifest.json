@@ -1,0 +1,15 @@
+{
+  "source_commit": "d904f562861721c5a6138dd1306ecc54415d0805",
+  "source_identity": {
+    "root": "/workspace",
+    "commit": "d904f562861721c5a6138dd1306ecc54415d0805",
+    "tree": "14afd067c741610b2aaa7c2a710fea466e6af038",
+    "is_shallow": true,
+    "tracked_dirty_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "library": "/workspace/bench_results/v152_next_20261112/native-lt-component/install/vllm/_C.abi3.so",
+  "library_sha256": "c5567901bb4a4b542756e861e004af9153ac97fc9eefdfd19d1dd18381c00ed7",
+  "complete": true,
+  "target": "_C",
+  "scope": "standard CMake component, model admission pending"
+}

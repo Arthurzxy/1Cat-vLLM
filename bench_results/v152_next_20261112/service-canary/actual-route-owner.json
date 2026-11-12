@@ -1,0 +1,26 @@
+{
+  "complete": true,
+  "counts": [
+    {
+      "rank": 0,
+      "fixed_policy_calls": 2048,
+      "trace_sha256": "468aab11ee107ff87c62b2303856b06ac95050e05efd313a6a94693bc1b39e03"
+    },
+    {
+      "rank": 1,
+      "fixed_policy_calls": 2048,
+      "trace_sha256": "4cd846f55b29a340b15caa658f7b4d6300d5884d15ceeb6392e7f0118aa24745"
+    },
+    {
+      "rank": 2,
+      "fixed_policy_calls": 2048,
+      "trace_sha256": "83db285ecc2c747def9b111271fed35d677c418c6292bec6de129b3c2afccc9c"
+    },
+    {
+      "rank": 3,
+      "fixed_policy_calls": 2048,
+      "trace_sha256": "15c56d959f6dd6dd15635fdd4934cb6a9dcaba04e90bed3bc0c6c8a7cc072aa4"
+    }
+  ],
+  "scope": "One complete cold131K request, normal configuration. Profile durations are diagnostic only."
+}

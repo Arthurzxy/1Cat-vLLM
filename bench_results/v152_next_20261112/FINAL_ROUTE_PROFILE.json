@@ -1,0 +1,953 @@
+{
+  "complete": true,
+  "ranks": [
+    {
+      "rank": 0,
+      "trace_sha256": "468aab11ee107ff87c62b2303856b06ac95050e05efd313a6a94693bc1b39e03",
+      "fixed_policy_cpu_calls": 2048,
+      "exact_external_id_gpu_matches": 2048,
+      "all_profile_kernel_count": 76324,
+      "all_profile_gpu_kernel_sum_ms": 39519.220392999996,
+      "fixed_policy_kernel_sum_ms": 11650.819502,
+      "selected_shapes": [
+        {
+          "projection": "full_attention_qkv",
+          "m": 8192,
+          "k": 5120,
+          "n": 3584,
+          "stage": "early",
+          "kernel_count": 64,
+          "gpu_kernel_sum_ms": 213.037763,
+          "symbols": {
+            "volta_fp16_s884gemm_fp16_256x128_ldg8_f2f_nn": 64
+          },
+          "registers_per_thread": [
+            250
+          ],
+          "shared_memory_bytes": [
+            65536
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "full_attention_qkv",
+          "m": 8192,
+          "k": 5120,
+          "n": 3584,
+          "stage": "late",
+          "kernel_count": 64,
+          "gpu_kernel_sum_ms": 218.12326199999998,
+          "symbols": {
+            "volta_fp16_s884gemm_fp16_256x128_ldg8_f2f_nn": 64
+          },
+          "registers_per_thread": [
+            250
+          ],
+          "shared_memory_bytes": [
+            65536
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "full_attention_qkv",
+          "m": 8192,
+          "k": 5120,
+          "n": 3584,
+          "stage": "middle",
+          "kernel_count": 128,
+          "gpu_kernel_sum_ms": 432.956572,
+          "symbols": {
+            "volta_fp16_s884gemm_fp16_256x128_ldg8_f2f_nn": 128
+          },
+          "registers_per_thread": [
+            250
+          ],
+          "shared_memory_bytes": [
+            65536
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "gdn_qkvzba_padded4128",
+          "m": 8192,
+          "k": 5120,
+          "n": 4128,
+          "stage": "early",
+          "kernel_count": 192,
+          "gpu_kernel_sum_ms": 735.058657,
+          "symbols": {
+            "void cutlass::Kernel2<cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8>(cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8::Params)": 192
+          },
+          "registers_per_thread": [
+            226
+          ],
+          "shared_memory_bytes": [
+            49152
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "gdn_qkvzba_padded4128",
+          "m": 8192,
+          "k": 5120,
+          "n": 4128,
+          "stage": "late",
+          "kernel_count": 192,
+          "gpu_kernel_sum_ms": 753.036032,
+          "symbols": {
+            "void cutlass::Kernel2<cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8>(cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8::Params)": 192
+          },
+          "registers_per_thread": [
+            226
+          ],
+          "shared_memory_bytes": [
+            49152
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "gdn_qkvzba_padded4128",
+          "m": 8192,
+          "k": 5120,
+          "n": 4128,
+          "stage": "middle",
+          "kernel_count": 384,
+          "gpu_kernel_sum_ms": 1492.309102,
+          "symbols": {
+            "void cutlass::Kernel2<cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8>(cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8::Params)": 384
+          },
+          "registers_per_thread": [
+            226
+          ],
+          "shared_memory_bytes": [
+            49152
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "mlp_gate_up",
+          "m": 8192,
+          "k": 5120,
+          "n": 8704,
+          "stage": "early",
+          "kernel_count": 256,
+          "gpu_kernel_sum_ms": 1925.709894,
+          "symbols": {
+            "void cutlass::Kernel2<cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8>(cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8::Params)": 256
+          },
+          "registers_per_thread": [
+            226
+          ],
+          "shared_memory_bytes": [
+            49152
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "mlp_gate_up",
+          "m": 8192,
+          "k": 5120,
+          "n": 8704,
+          "stage": "late",
+          "kernel_count": 256,
+          "gpu_kernel_sum_ms": 1972.064405,
+          "symbols": {
+            "void cutlass::Kernel2<cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8>(cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8::Params)": 256
+          },
+          "registers_per_thread": [
+            226
+          ],
+          "shared_memory_bytes": [
+            49152
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "mlp_gate_up",
+          "m": 8192,
+          "k": 5120,
+          "n": 8704,
+          "stage": "middle",
+          "kernel_count": 512,
+          "gpu_kernel_sum_ms": 3908.523815,
+          "symbols": {
+            "void cutlass::Kernel2<cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8>(cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8::Params)": 512
+          },
+          "registers_per_thread": [
+            226
+          ],
+          "shared_memory_bytes": [
+            49152
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "rank": 1,
+      "trace_sha256": "4cd846f55b29a340b15caa658f7b4d6300d5884d15ceeb6392e7f0118aa24745",
+      "fixed_policy_cpu_calls": 2048,
+      "exact_external_id_gpu_matches": 2048,
+      "all_profile_kernel_count": 76324,
+      "all_profile_gpu_kernel_sum_ms": 39484.902707999994,
+      "fixed_policy_kernel_sum_ms": 11944.127777,
+      "selected_shapes": [
+        {
+          "projection": "full_attention_qkv",
+          "m": 8192,
+          "k": 5120,
+          "n": 3584,
+          "stage": "early",
+          "kernel_count": 64,
+          "gpu_kernel_sum_ms": 218.60373800000002,
+          "symbols": {
+            "volta_fp16_s884gemm_fp16_256x128_ldg8_f2f_nn": 64
+          },
+          "registers_per_thread": [
+            250
+          ],
+          "shared_memory_bytes": [
+            65536
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "full_attention_qkv",
+          "m": 8192,
+          "k": 5120,
+          "n": 3584,
+          "stage": "late",
+          "kernel_count": 64,
+          "gpu_kernel_sum_ms": 225.765057,
+          "symbols": {
+            "volta_fp16_s884gemm_fp16_256x128_ldg8_f2f_nn": 64
+          },
+          "registers_per_thread": [
+            250
+          ],
+          "shared_memory_bytes": [
+            65536
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "full_attention_qkv",
+          "m": 8192,
+          "k": 5120,
+          "n": 3584,
+          "stage": "middle",
+          "kernel_count": 128,
+          "gpu_kernel_sum_ms": 446.30890000000005,
+          "symbols": {
+            "volta_fp16_s884gemm_fp16_256x128_ldg8_f2f_nn": 128
+          },
+          "registers_per_thread": [
+            250
+          ],
+          "shared_memory_bytes": [
+            65536
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "gdn_qkvzba_padded4128",
+          "m": 8192,
+          "k": 5120,
+          "n": 4128,
+          "stage": "early",
+          "kernel_count": 192,
+          "gpu_kernel_sum_ms": 751.520875,
+          "symbols": {
+            "void cutlass::Kernel2<cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8>(cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8::Params)": 192
+          },
+          "registers_per_thread": [
+            226
+          ],
+          "shared_memory_bytes": [
+            49152
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "gdn_qkvzba_padded4128",
+          "m": 8192,
+          "k": 5120,
+          "n": 4128,
+          "stage": "late",
+          "kernel_count": 192,
+          "gpu_kernel_sum_ms": 770.6480720000001,
+          "symbols": {
+            "void cutlass::Kernel2<cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8>(cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8::Params)": 192
+          },
+          "registers_per_thread": [
+            226
+          ],
+          "shared_memory_bytes": [
+            49152
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "gdn_qkvzba_padded4128",
+          "m": 8192,
+          "k": 5120,
+          "n": 4128,
+          "stage": "middle",
+          "kernel_count": 384,
+          "gpu_kernel_sum_ms": 1528.424884,
+          "symbols": {
+            "void cutlass::Kernel2<cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8>(cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8::Params)": 384
+          },
+          "registers_per_thread": [
+            226
+          ],
+          "shared_memory_bytes": [
+            49152
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "mlp_gate_up",
+          "m": 8192,
+          "k": 5120,
+          "n": 8704,
+          "stage": "early",
+          "kernel_count": 256,
+          "gpu_kernel_sum_ms": 1973.457572,
+          "symbols": {
+            "void cutlass::Kernel2<cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8>(cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8::Params)": 256
+          },
+          "registers_per_thread": [
+            226
+          ],
+          "shared_memory_bytes": [
+            49152
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "mlp_gate_up",
+          "m": 8192,
+          "k": 5120,
+          "n": 8704,
+          "stage": "late",
+          "kernel_count": 256,
+          "gpu_kernel_sum_ms": 2020.653671,
+          "symbols": {
+            "void cutlass::Kernel2<cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8>(cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8::Params)": 256
+          },
+          "registers_per_thread": [
+            226
+          ],
+          "shared_memory_bytes": [
+            49152
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "mlp_gate_up",
+          "m": 8192,
+          "k": 5120,
+          "n": 8704,
+          "stage": "middle",
+          "kernel_count": 512,
+          "gpu_kernel_sum_ms": 4008.745008,
+          "symbols": {
+            "void cutlass::Kernel2<cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8>(cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8::Params)": 512
+          },
+          "registers_per_thread": [
+            226
+          ],
+          "shared_memory_bytes": [
+            49152
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "trace_sha256": "83db285ecc2c747def9b111271fed35d677c418c6292bec6de129b3c2afccc9c",
+      "fixed_policy_cpu_calls": 2048,
+      "exact_external_id_gpu_matches": 2048,
+      "all_profile_kernel_count": 76324,
+      "all_profile_gpu_kernel_sum_ms": 39475.311097000005,
+      "fixed_policy_kernel_sum_ms": 12033.052693,
+      "selected_shapes": [
+        {
+          "projection": "full_attention_qkv",
+          "m": 8192,
+          "k": 5120,
+          "n": 3584,
+          "stage": "early",
+          "kernel_count": 64,
+          "gpu_kernel_sum_ms": 220.50109099999997,
+          "symbols": {
+            "volta_fp16_s884gemm_fp16_256x128_ldg8_f2f_nn": 64
+          },
+          "registers_per_thread": [
+            250
+          ],
+          "shared_memory_bytes": [
+            65536
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "full_attention_qkv",
+          "m": 8192,
+          "k": 5120,
+          "n": 3584,
+          "stage": "late",
+          "kernel_count": 64,
+          "gpu_kernel_sum_ms": 225.317182,
+          "symbols": {
+            "volta_fp16_s884gemm_fp16_256x128_ldg8_f2f_nn": 64
+          },
+          "registers_per_thread": [
+            250
+          ],
+          "shared_memory_bytes": [
+            65536
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "full_attention_qkv",
+          "m": 8192,
+          "k": 5120,
+          "n": 3584,
+          "stage": "middle",
+          "kernel_count": 128,
+          "gpu_kernel_sum_ms": 447.159881,
+          "symbols": {
+            "volta_fp16_s884gemm_fp16_256x128_ldg8_f2f_nn": 128
+          },
+          "registers_per_thread": [
+            250
+          ],
+          "shared_memory_bytes": [
+            65536
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "gdn_qkvzba_padded4128",
+          "m": 8192,
+          "k": 5120,
+          "n": 4128,
+          "stage": "early",
+          "kernel_count": 192,
+          "gpu_kernel_sum_ms": 758.221439,
+          "symbols": {
+            "void cutlass::Kernel2<cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8>(cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8::Params)": 192
+          },
+          "registers_per_thread": [
+            226
+          ],
+          "shared_memory_bytes": [
+            49152
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "gdn_qkvzba_padded4128",
+          "m": 8192,
+          "k": 5120,
+          "n": 4128,
+          "stage": "late",
+          "kernel_count": 192,
+          "gpu_kernel_sum_ms": 776.06576,
+          "symbols": {
+            "void cutlass::Kernel2<cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8>(cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8::Params)": 192
+          },
+          "registers_per_thread": [
+            226
+          ],
+          "shared_memory_bytes": [
+            49152
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "gdn_qkvzba_padded4128",
+          "m": 8192,
+          "k": 5120,
+          "n": 4128,
+          "stage": "middle",
+          "kernel_count": 384,
+          "gpu_kernel_sum_ms": 1539.16308,
+          "symbols": {
+            "void cutlass::Kernel2<cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8>(cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8::Params)": 384
+          },
+          "registers_per_thread": [
+            226
+          ],
+          "shared_memory_bytes": [
+            49152
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "mlp_gate_up",
+          "m": 8192,
+          "k": 5120,
+          "n": 8704,
+          "stage": "early",
+          "kernel_count": 256,
+          "gpu_kernel_sum_ms": 1991.441155,
+          "symbols": {
+            "void cutlass::Kernel2<cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8>(cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8::Params)": 256
+          },
+          "registers_per_thread": [
+            226
+          ],
+          "shared_memory_bytes": [
+            49152
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "mlp_gate_up",
+          "m": 8192,
+          "k": 5120,
+          "n": 8704,
+          "stage": "late",
+          "kernel_count": 256,
+          "gpu_kernel_sum_ms": 2035.884977,
+          "symbols": {
+            "void cutlass::Kernel2<cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8>(cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8::Params)": 256
+          },
+          "registers_per_thread": [
+            226
+          ],
+          "shared_memory_bytes": [
+            49152
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "mlp_gate_up",
+          "m": 8192,
+          "k": 5120,
+          "n": 8704,
+          "stage": "middle",
+          "kernel_count": 512,
+          "gpu_kernel_sum_ms": 4039.298128,
+          "symbols": {
+            "void cutlass::Kernel2<cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8>(cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8::Params)": 512
+          },
+          "registers_per_thread": [
+            226
+          ],
+          "shared_memory_bytes": [
+            49152
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "trace_sha256": "15c56d959f6dd6dd15635fdd4934cb6a9dcaba04e90bed3bc0c6c8a7cc072aa4",
+      "fixed_policy_cpu_calls": 2048,
+      "exact_external_id_gpu_matches": 2048,
+      "all_profile_kernel_count": 76324,
+      "all_profile_gpu_kernel_sum_ms": 39512.844684,
+      "fixed_policy_kernel_sum_ms": 11409.219499,
+      "selected_shapes": [
+        {
+          "projection": "full_attention_qkv",
+          "m": 8192,
+          "k": 5120,
+          "n": 3584,
+          "stage": "early",
+          "kernel_count": 64,
+          "gpu_kernel_sum_ms": 208.892561,
+          "symbols": {
+            "volta_fp16_s884gemm_fp16_256x128_ldg8_f2f_nn": 64
+          },
+          "registers_per_thread": [
+            250
+          ],
+          "shared_memory_bytes": [
+            65536
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "full_attention_qkv",
+          "m": 8192,
+          "k": 5120,
+          "n": 3584,
+          "stage": "late",
+          "kernel_count": 64,
+          "gpu_kernel_sum_ms": 213.308316,
+          "symbols": {
+            "volta_fp16_s884gemm_fp16_256x128_ldg8_f2f_nn": 64
+          },
+          "registers_per_thread": [
+            250
+          ],
+          "shared_memory_bytes": [
+            65536
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "full_attention_qkv",
+          "m": 8192,
+          "k": 5120,
+          "n": 3584,
+          "stage": "middle",
+          "kernel_count": 128,
+          "gpu_kernel_sum_ms": 424.317292,
+          "symbols": {
+            "volta_fp16_s884gemm_fp16_256x128_ldg8_f2f_nn": 128
+          },
+          "registers_per_thread": [
+            250
+          ],
+          "shared_memory_bytes": [
+            65536
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "gdn_qkvzba_padded4128",
+          "m": 8192,
+          "k": 5120,
+          "n": 4128,
+          "stage": "early",
+          "kernel_count": 192,
+          "gpu_kernel_sum_ms": 720.792893,
+          "symbols": {
+            "void cutlass::Kernel2<cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8>(cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8::Params)": 192
+          },
+          "registers_per_thread": [
+            226
+          ],
+          "shared_memory_bytes": [
+            49152
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "gdn_qkvzba_padded4128",
+          "m": 8192,
+          "k": 5120,
+          "n": 4128,
+          "stage": "late",
+          "kernel_count": 192,
+          "gpu_kernel_sum_ms": 736.713004,
+          "symbols": {
+            "void cutlass::Kernel2<cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8>(cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8::Params)": 192
+          },
+          "registers_per_thread": [
+            226
+          ],
+          "shared_memory_bytes": [
+            49152
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "gdn_qkvzba_padded4128",
+          "m": 8192,
+          "k": 5120,
+          "n": 4128,
+          "stage": "middle",
+          "kernel_count": 384,
+          "gpu_kernel_sum_ms": 1463.318811,
+          "symbols": {
+            "void cutlass::Kernel2<cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8>(cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8::Params)": 384
+          },
+          "registers_per_thread": [
+            226
+          ],
+          "shared_memory_bytes": [
+            49152
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "mlp_gate_up",
+          "m": 8192,
+          "k": 5120,
+          "n": 8704,
+          "stage": "early",
+          "kernel_count": 256,
+          "gpu_kernel_sum_ms": 1885.5923160000002,
+          "symbols": {
+            "void cutlass::Kernel2<cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8>(cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8::Params)": 256
+          },
+          "registers_per_thread": [
+            226
+          ],
+          "shared_memory_bytes": [
+            49152
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "mlp_gate_up",
+          "m": 8192,
+          "k": 5120,
+          "n": 8704,
+          "stage": "late",
+          "kernel_count": 256,
+          "gpu_kernel_sum_ms": 1927.786193,
+          "symbols": {
+            "void cutlass::Kernel2<cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8>(cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8::Params)": 256
+          },
+          "registers_per_thread": [
+            226
+          ],
+          "shared_memory_bytes": [
+            49152
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "projection": "mlp_gate_up",
+          "m": 8192,
+          "k": 5120,
+          "n": 8704,
+          "stage": "middle",
+          "kernel_count": 512,
+          "gpu_kernel_sum_ms": 3828.498113,
+          "symbols": {
+            "void cutlass::Kernel2<cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8>(cutlass_70_tensorop_f16_s884gemm_relu_f16_256x128_nn_align8::Params)": 512
+          },
+          "registers_per_thread": [
+            226
+          ],
+          "shared_memory_bytes": [
+            49152
+          ],
+          "blocks": [
+            [
+              256,
+              1,
+              1
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "scope": "One complete cold131072-input/64-output canary with final maxseq8 geometry. Timings are profiler diagnostics. Four ranks are reported separately.",
+  "window_definition": "Target fixed-policy GEMMs alone, indexed by128 target calls per8192-token chunk. Early chunks0-3, middle4-11, late12-15. No claim that a target-kernel sum is a complete request critical path.",
+  "source_owner": "Qpn2NvFp4LinearKernel.apply_qpn2 -> installed _C.nvfp4_qpn2_tm_dispatch_sm70_out -> sm70_nvfp4_prefill_lt -> cuBLASLt fixed row-major K,N plan.",
+  "layout_contract": "FP16 contiguous[M,5120] times FP16 contiguous[5120,N], FP32 accumulation, zero workspace. Captured checkpoint weight/scale ownership is in REAL_PROJECTION_INPUTS.json."
+}

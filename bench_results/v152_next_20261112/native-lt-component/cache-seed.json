@@ -1,0 +1,6 @@
+{
+  "source_commit": "d904f562861721c5a6138dd1306ecc54415d0805",
+  "cmake_cache_seed": "CMAKE_CUDA_ARCHITECTURES:STRING=70\nFETCHCONTENT_SOURCE_DIR_CUTLASS:PATH=/workspace/bench_results/v152_opt_20261111/bsrc-fa2/deps/cutlass-src\nFETCHCONTENT_SOURCE_DIR_VLLM-FLASH-ATTN:PATH=/workspace/bench_results/v152_opt_20261111/bsrc-fa2/deps/vllm-flash-attn-src\n",
+  "sha256": "16b57eeae9acce8d2f439c1edfc86ef05a2324106df412d22bcada2ecf949783",
+  "scope": "Read-reuse pinned dependency source caches. Fresh standard CMake _C component prefix, original qualified objects and libraries preserved."
+}

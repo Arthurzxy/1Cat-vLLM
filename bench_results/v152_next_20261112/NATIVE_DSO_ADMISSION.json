@@ -1,0 +1,8 @@
+{
+  "complete": true,
+  "cases_per_arm": 60,
+  "candidate_native_sha256": "c5567901bb4a4b542756e861e004af9153ac97fc9eefdfd19d1dd18381c00ed7",
+  "byte_equal_cases": 60,
+  "route_owner_checks": 20,
+  "scope": "Actual shipped native registration, original and rebuilt DSOs in independent processes. Service A/B admission still pending."
+}

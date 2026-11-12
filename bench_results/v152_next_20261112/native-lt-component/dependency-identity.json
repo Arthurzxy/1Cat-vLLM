@@ -1,0 +1,6 @@
+{
+  "triton": {
+    "path": "/pinned-deps/triton_kernels-src",
+    "commit": "0add68262ab0a2e33b84524346cb27cbb2787356"
+  }
+}

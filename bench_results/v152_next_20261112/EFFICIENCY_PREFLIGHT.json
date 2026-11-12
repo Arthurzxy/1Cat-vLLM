@@ -1,0 +1,45 @@
+{
+  "complete": true,
+  "compiled_helpers": [
+    "run_next_efficiency_services.py",
+    "next_efficiency_worker.py",
+    "next_scheduler_observer.py",
+    "next_cache_fixed_client.py",
+    "run_next_quality_services.py",
+    "run_next_quality_client.py",
+    "compare_next_quality.py",
+    "summarize_next_service.py",
+    "summarize_next_route_profile.py",
+    "package_next_artifacts.py",
+    "verify_next_archive.py"
+  ],
+  "cache_arms": [
+    "original-window-logic on Bsafe",
+    "partial-only on Bsafe",
+    "checkpoint-only on Bsafe",
+    "combined on Bsafe"
+  ],
+  "cache_diagnostic": "Four arms use per-group observer. Their times are diagnostic. Fixed1024-output trace-off131K/250K sequences and natural-EOS pressure/revisit run on the final selected kernel image.",
+  "async_profiles": [
+    {
+      "chunk": 8192,
+      "target_ms": 250,
+      "min_tokens": 0
+    },
+    {
+      "chunk": 4096,
+      "target_ms": 250,
+      "min_tokens": 0
+    },
+    {
+      "chunk": 8192,
+      "target_ms": 250,
+      "min_tokens": 4096
+    }
+  ],
+  "mechanism": "Reuse existing inherited async-capable affine mixed-prefill feedback, first validate actual feedback/age with an opt-in scheduler observer, then run formal trace-off configuration ablations. No upstream sync-only scheduler port.",
+  "selection_before_results": "At least5% lower empirical short-request p95 and at most5% observed regression in resident max chunk gap, inserted32K TTFT and whole-workload output throughput. Confirm a promising profile in a second independent process paired with a second baseline.",
+  "main_contract": "Default8192 main kernel qualification is independent of optional efficiency presets.",
+  "sampling_limits": "36 short requests per formal process, three mixed trials. Counts are empirical, with fresh service process as independent unit. No stable p99 claim.",
+  "resources": "Serial TP4 on6-9 after full kernel quality runs. Existing MinerU and ComfyUI remain running."
+}

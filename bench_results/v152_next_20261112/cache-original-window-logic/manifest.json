@@ -1,0 +1,10 @@
+{
+  "image_id": "sha256:20bb1be569b31ff88709b9001f4f02a9c5d7f6a23ea1211dff9c8ffd8f5a55df",
+  "image_tag": "1cat-vllm:v152-next-cache-original-window-logic-20261112",
+  "parent_image_id": "sha256:1c11cf5139e67f42a76d68bb40d3a8dcb68b8e9643338f4bd24ec823e463a026",
+  "files": {
+    "vllm/v1/core/kv_cache_coordinator.py": "ae9edad15fb65e5acd220a0aa7600ae638cbad1e6292300285f460835fd8485b",
+    "vllm/v1/core/single_type_kv_cache_manager.py": "1d460ac01c5433c3ffc4c4576d034b42b6de0847c49caca4e723164e6bc610bb"
+  },
+  "scope": "Only two cache lookup/window Python files at B0. Resample guard and all other Bsafe repairs and native binaries remain inherited."
+}
