@@ -1,0 +1,99 @@
+{
+  "status": "Correctness stage admitted, performance stage pending",
+  "bprev_commit": "0a9ca74bc4897b8a8c3a2b9cbf7c345a77d063b9",
+  "bprev_image": "sha256:0850a9d5267c92e5efe21a229cfbd6d9e7b2748b0f9f5b362c67d9cec2f22c15",
+  "bsafe_next": {
+    "image_id": "sha256:1c11cf5139e67f42a76d68bb40d3a8dcb68b8e9643338f4bd24ec823e463a026",
+    "source_commit": "1c56d045dca02a72453dd27c104d9dd0a88c9979",
+    "base_image_id": "sha256:0850a9d5267c92e5efe21a229cfbd6d9e7b2748b0f9f5b362c67d9cec2f22c15",
+    "runtime_overlay": {
+      "vllm/v1/worker/gpu/spec_decode/rejection_sampler_utils.py": "766d0ff8e745a065ba643c32784f839636d51cbbddd2737332c4e3404a500361"
+    },
+    "native_scope": "All native libraries inherited unchanged from the qualified Bprev image, including the page2048 FA2 binary.",
+    "scope": "Release-dependency overlay. Independent60-case unit qualification complete, production startup/cancel integration pending.",
+    "build_frontend": "DOCKER_BUILDKIT=0 to resolve the local immutable base configuration ID",
+    "base_source": "Qualified image retained on v100_llm. Obtain it by docker image save with the recorded immutable ID. Bprev build/source identities are in the previous evidence archive."
+  },
+  "resample": {
+    "baseline_tests_passed": 60,
+    "fixed_tests_passed": 60,
+    "baseline_race_reproduced": false,
+    "scope": "q1-8, ragged boundaries, greedy/sampled point-mass independent oracle, each rejection position, ordinary/dense/reference and graph replay. The launch guard is selected from upstream1464."
+  },
+  "cpu_tests": {
+    "cli_source_identity_sse": 15,
+    "observer_keyword_and_state_columns": 2
+  },
+  "production_startup": {
+    "sampled_concurrencies": [
+      1,
+      2,
+      3
+    ],
+    "sampler_graph_buckets": 3,
+    "scope": "Fresh service capture through normal entry points. No pytest RNG-priming fixture."
+  },
+  "cancellation": {
+    "reference_output_tokens": 64,
+    "followup_output_tokens": 64,
+    "output_tokens_equal": true,
+    "nonempty_chunks_before_cancel": 3,
+    "rank_checks": [
+      {
+        "rank": 0,
+        "reused_slot": 6,
+        "old_removed_before_new_add": true,
+        "state_hashes_equal": true
+      },
+      {
+        "rank": 1,
+        "reused_slot": 3,
+        "old_removed_before_new_add": true,
+        "state_hashes_equal": true
+      },
+      {
+        "rank": 2,
+        "reused_slot": 2,
+        "old_removed_before_new_add": true,
+        "state_hashes_equal": true
+      },
+      {
+        "rank": 3,
+        "reused_slot": 3,
+        "old_removed_before_new_add": true,
+        "state_hashes_equal": true
+      }
+    ],
+    "state_scope": "One actual GDN layer per rank. Canonical conv history and accepted temporal column match the clean reference bitwise. Worker counters may contain work beyond final API truncation and are not relabeled as strict engine-committed counts.",
+    "diagnostic_failures": [
+      "Attempt1 observer keyword mismatch",
+      "Attempt2 observer selected an unused scratch conv block"
+    ],
+    "failure_records_preserved": true
+  },
+  "history_correction": {
+    "shallow_repository": "true",
+    "shallow_boundaries": [
+      "2bb8c2b9cd7c1696630b6be464052027f0dd0147",
+      "2bb8c2b9cd7c1696630b6be464052027f0dd0147"
+    ],
+    "actual_commit_parents": [
+      "9f970d62885d4d73698d9e7a9859632a65704985"
+    ],
+    "interpretation": "B0 is an explicit shallow boundary with a parent in the commit object. Missing traversable ancestry is not proof of a genuine root commit."
+  },
+  "next_performance_owners": [
+    "q8 E4M3 finite pair conversion replacing shared LUT reads",
+    "Volta nvfp4_qpn4_sm70.cu contiguous[K,N] dense dequant then mm_out"
+  ],
+  "co_residency": "All pre-existing services retained, including MinerU and ComfyUI.",
+  "next_stage_limits": "At most two active performance candidates. Existing3 marker omissions remain. Original artifacts retain their historical interpretations, with corrections recorded here.",
+  "source_hashes": {
+    "benchmarks/functional_v152.py": "ccff2a7673bfc96571c6940ee92ed4cb09c165d18f921c24cb5a6b038bc0dd26",
+    "benchmarks/v152_validation.py": "386cdd40b1d3214b70cffe60553fb9b371ff73f2d63e03487a71fd8ac4ffd2df",
+    "benchmarks/v152_worker_probe.py": "120bdabb88b6dcaaf299e3733e37c47d6d68b392f8272d26a8be302a226fea91",
+    "benchmarks/functional_v152_cancel_state.py": "3ef16d7e8f02ddebce9fbb96f9762c71d1f4464040b23fb4e2096dfa3f99eb42",
+    "tests/benchmarks/test_v152_state_probe.py": "4ba17c64b838c32b725e9a1104c138bb446e36c9417b0f21c5a05e345fe5e3fe",
+    "tests/benchmarks/test_v152_accounting.py": "df7a2211be2b5ce5a5a5170f2c9a18d8822de0d18c2e362a51f0ea2a10a6a7c7"
+  }
+}

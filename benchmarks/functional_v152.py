@@ -14,6 +14,7 @@ import zlib
 from pathlib import Path
 
 import pybase64 as base64
+from v152_validation import has_generated_text
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--output", type=Path, required=True)
@@ -191,13 +192,23 @@ for index in range(12):
         data=json.dumps(payload).encode(),
         headers={"Content-Type": "application/json"},
     )
+    observed_generation = False
     with urllib.request.urlopen(req, timeout=120) as response:
         for raw in response:
-            if b'"content"' in raw:
+            line = raw.decode().strip()
+            if not line.startswith("data: ") or line == "data: [DONE]":
+                continue
+            if has_generated_text(json.loads(line[6:])):
+                observed_generation = True
                 break
     marker = f"FRESH_{index:02d}"
     value = chat("Return exactly " + marker + ". No other text.", max_tokens=64)
-    add("cancel-slot-reuse-" + str(index), marker in text(value), value)
+    value["cancel_observed_nonempty_text"] = observed_generation
+    add(
+        "cancel-slot-reuse-" + str(index),
+        observed_generation and marker in text(value),
+        value,
+    )
 
 
 def ragged(index):

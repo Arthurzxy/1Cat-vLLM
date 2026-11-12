@@ -164,3 +164,28 @@ def test_wrong_expected_commit_is_rejected_before_build(tmp_path):
     assert result.returncode != 0
     assert "differs from expected" in result.stderr
     assert not destination.exists()
+
+
+@pytest.mark.parametrize(
+    "event, expected",
+    [
+        ({"choices": [{"delta": {"role": "assistant"}}]}, False),
+        ({"choices": [{"delta": {"content": ""}}]}, False),
+        ({"choices": [{"delta": {"content": None}}]}, False),
+        ({"choices": [{"delta": {"content": "token"}}]}, True),
+        ({"choices": [{"delta": {"reasoning": "thinking"}}]}, True),
+        ({"choices": [{"delta": {"reasoning_content": "thinking"}}]}, True),
+        ({"choices": [{"text": "generated"}]}, True),
+        ({"choices": [], "usage": {"completion_tokens": 1}}, False),
+    ],
+)
+def test_generated_text_excludes_role_and_empty_events(event, expected):
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location(
+        "v152_validation", ROOT / "benchmarks/v152_validation.py"
+    )
+    assert spec is not None and spec.loader is not None
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    assert module.has_generated_text(event) is expected

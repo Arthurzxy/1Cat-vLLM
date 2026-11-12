@@ -209,3 +209,180 @@ class LongctxWorkerProbe:
                 if key.startswith("NCCL_")
             },
         }
+
+    def _v152_request_snapshot(self, request_id):
+        import hashlib
+
+        import torch
+
+        runner = self.model_runner
+        states = runner.req_states
+        slot = states.req_id_to_index.get(request_id)
+        if slot is None:
+            matches = [
+                key for key in states.req_id_to_index if key.startswith(request_id)
+            ]
+            if len(matches) == 1:
+                request_id = matches[0]
+                slot = states.req_id_to_index[request_id]
+        if slot is None:
+            return None
+        groups = runner.kv_cache_config.kv_cache_groups
+        group_id = next(
+            index
+            for index, group in enumerate(groups)
+            if type(group.kv_cache_spec).__name__ == "MambaSpec"
+        )
+        block_count = int(runner.block_tables.num_blocks.np[group_id, slot])
+        blocks = (
+            runner.block_tables.block_tables[group_id]
+            .gpu[slot, :block_count]
+            .cpu()
+            .tolist()
+        )
+        live_blocks = [block for block in blocks if block != 0]
+        result = {
+            "request_id": request_id,
+            "slot": slot,
+            "prompt_tokens": int(states.prompt_len.np[slot]),
+            "computed_tokens_cpu": int(states.num_computed_tokens_np[slot]),
+            "computed_tokens_gpu": int(states.num_computed_tokens.gpu[slot].cpu()),
+            "total_tokens_gpu": int(states.total_len.gpu[slot].cpu()),
+            "last_sampled": states.last_sampled_tokens[slot].cpu().tolist(),
+            "draft_tokens": states.draft_tokens[slot].cpu().tolist(),
+            "mamba_blocks": blocks,
+        }
+        if live_blocks:
+            layer_name = groups[group_id].layer_names[0]
+            layer = self.vllm_config.compilation_config.static_forward_context[
+                layer_name
+            ]
+            cache = layer.kv_cache
+            model_state = runner.model_state
+            assert model_state._align_mode, "State probe requires the active align path"
+            state_col = int(model_state._mamba_state_idx_gpu[slot].cpu())
+            accepted = int(model_state.num_accepted_tokens_gpu[slot].cpu())
+            token_bias = max(accepted - 1, 0)
+            ssm_col = (
+                state_col
+                if model_state._spec_replay is not None
+                else state_col + token_bias
+            )
+            assert 0 <= state_col < len(blocks) and 0 <= ssm_col < len(blocks)
+            physical = {"conv": blocks[state_col], "ssm": blocks[ssm_col]}
+            tensors = {}
+            for name, tensor in zip(("conv", "ssm"), cache):
+                value = tensor[physical[name]].detach().contiguous().cpu()
+                if name == "conv":
+                    channels = layer.conv1d.weight.shape[0]
+                    history = layer.conv1d.weight.shape[-1] - 1
+                    time_axis = 0 if value.shape[-1] == channels else 1
+                    assert value.shape[1 - time_axis] == channels
+                    value = value.narrow(time_axis, token_bias, history).contiguous()
+                tensors[name] = {
+                    "dtype": str(value.dtype),
+                    "shape": list(value.shape),
+                    "sha256": hashlib.sha256(value.numpy().tobytes()).hexdigest(),
+                    "nonzero": int(torch.count_nonzero(value)),
+                    "finite": bool(torch.isfinite(value).all()),
+                    "sum": float(value.double().sum()),
+                    "max_abs": float(value.abs().max()),
+                }
+            result["gdn_state"] = {
+                "layer": layer_name,
+                "physical_blocks": physical,
+                "running_state_column": state_col,
+                "accepted_tokens": accepted,
+                "temporal_column": ssm_col,
+                "conv_token_bias": token_bias,
+                "scope": (
+                    "Align-mode next-input state selected by the production "
+                    "accepted-slot contract. GPU acceptance can extend past a "
+                    "client max-token truncation."
+                ),
+                "tensors": tensors,
+            }
+        return result
+
+    def v152_begin_request_state_trace(self):
+        import time
+
+        if getattr(self, "_v152_request_trace_installed", False):
+            self._v152_request_events.clear()
+            return {"rank": self.rank, "enabled": True}
+        self._v152_request_trace_installed = True
+        self._v152_request_events = []
+        states = self.model_runner.req_states
+        model_state = self.model_runner.model_state
+        original_add = states.add_request
+        original_remove = states.remove_request
+        original_model_add = model_state.add_request
+
+        def append(event):
+            event["sequence"] = len(self._v152_request_events)
+            event["time"] = time.monotonic()
+            self._v152_request_events.append(event)
+
+        def add(req_id, *args, **kwargs):
+            original_add(req_id, *args, **kwargs)
+            slot = states.req_id_to_index[req_id]
+            append(
+                {
+                    "event": "add",
+                    "request_id": req_id,
+                    "slot": slot,
+                    "initial_computed_tokens": int(states.num_computed_tokens_np[slot]),
+                    "prompt_tokens": int(states.prompt_len.np[slot]),
+                    "draft_zero": bool((states.draft_tokens[slot] == 0).all().cpu()),
+                }
+            )
+
+        def remove(req_id):
+            snapshot = self._v152_request_snapshot(req_id)
+            slot = original_remove(req_id)
+            if slot is not None:
+                append(
+                    {
+                        "event": "remove",
+                        "request_id": req_id,
+                        "slot": slot,
+                        "snapshot": snapshot,
+                        "free_indices": list(states.free_indices),
+                    }
+                )
+            return slot
+
+        def model_add(req_index, new_req_data):
+            original_model_add(req_index, new_req_data)
+            append(
+                {
+                    "event": "model_add",
+                    "slot": req_index,
+                    "request_id": new_req_data.req_id,
+                    "accepted_neutral": int(
+                        model_state.num_accepted_tokens_gpu[req_index].cpu()
+                    ),
+                    "align_state_index": int(
+                        model_state._mamba_state_idx_gpu[req_index].cpu()
+                    )
+                    if getattr(model_state, "_align_mode", False)
+                    else None,
+                }
+            )
+
+        states.add_request = add
+        states.remove_request = remove
+        model_state.add_request = model_add
+        return {"rank": self.rank, "enabled": True}
+
+    def v152_request_state_trace(self, request_id=None):
+        states = self.model_runner.req_states
+        return {
+            "rank": self.rank,
+            "requests": dict(states.req_id_to_index),
+            "free_indices": list(states.free_indices),
+            "events": list(getattr(self, "_v152_request_events", [])),
+            "active_snapshot": self._v152_request_snapshot(request_id)
+            if request_id is not None
+            else None,
+        }
