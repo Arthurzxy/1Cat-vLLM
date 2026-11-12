@@ -1,0 +1,161 @@
+{
+  "status": "Candidate implemented, component build and service admission pending",
+  "source_anchor": "8de61a1691e3268e3912c1c1e1d91c9bb6330ca1",
+  "selected_shapes": [
+    {
+      "m": 8192,
+      "k": 5120,
+      "n": 3584,
+      "prefix": "language_model.model.layers.3.self_attn.qkv_proj",
+      "selection": {
+        "m": 8192,
+        "k": 5120,
+        "n": 3584,
+        "enabled": true,
+        "tactic": {
+          "id": 3,
+          "tile": 24,
+          "stages": 0,
+          "split_k": 1,
+          "reduction": 0,
+          "swizzle": 1,
+          "custom": 0
+        },
+        "workspace_bytes": 0,
+        "screen_latency_reduction": 0.17607694361720339,
+        "heuristic_query_budget": 0
+      },
+      "latency_reduction": 0.17754500663122286
+    },
+    {
+      "m": 4096,
+      "k": 5120,
+      "n": 3584,
+      "prefix": "language_model.model.layers.3.self_attn.qkv_proj",
+      "selection": {
+        "m": 4096,
+        "k": 5120,
+        "n": 3584,
+        "enabled": true,
+        "tactic": {
+          "id": 3,
+          "tile": 24,
+          "stages": 0,
+          "split_k": 1,
+          "reduction": 0,
+          "swizzle": 1,
+          "custom": 0
+        },
+        "workspace_bytes": 0,
+        "screen_latency_reduction": 0.23825668907850683,
+        "heuristic_query_budget": 0
+      },
+      "latency_reduction": 0.23331496218857006
+    },
+    {
+      "m": 8192,
+      "k": 5120,
+      "n": 4128,
+      "prefix": "language_model.model.layers.0.linear_attn.in_proj_qkvz",
+      "selection": {
+        "m": 8192,
+        "k": 5120,
+        "n": 4128,
+        "enabled": true,
+        "tactic": {
+          "id": 21,
+          "tile": 24,
+          "stages": 0,
+          "split_k": 1,
+          "reduction": 0,
+          "swizzle": 0,
+          "custom": 0
+        },
+        "workspace_bytes": 0,
+        "screen_latency_reduction": 0.040127817720049364,
+        "heuristic_query_budget": 33554432
+      },
+      "latency_reduction": 0.04398486686931846
+    },
+    {
+      "m": 4096,
+      "k": 5120,
+      "n": 4128,
+      "prefix": "language_model.model.layers.0.linear_attn.in_proj_qkvz",
+      "selection": {
+        "m": 4096,
+        "k": 5120,
+        "n": 4128,
+        "enabled": true,
+        "tactic": {
+          "id": 21,
+          "tile": 24,
+          "stages": 0,
+          "split_k": 1,
+          "reduction": 0,
+          "swizzle": 0,
+          "custom": 0
+        },
+        "workspace_bytes": 0,
+        "screen_latency_reduction": 0.044279325023314775,
+        "heuristic_query_budget": 33554432
+      },
+      "latency_reduction": 0.04942902482398015
+    },
+    {
+      "m": 8192,
+      "k": 5120,
+      "n": 8704,
+      "prefix": "language_model.model.layers.0.mlp.gate_up_proj",
+      "selection": {
+        "m": 8192,
+        "k": 5120,
+        "n": 8704,
+        "enabled": true,
+        "tactic": {
+          "id": 21,
+          "tile": 24,
+          "stages": 0,
+          "split_k": 1,
+          "reduction": 0,
+          "swizzle": 0,
+          "custom": 0
+        },
+        "workspace_bytes": 0,
+        "screen_latency_reduction": 0.050220746272679806,
+        "heuristic_query_budget": 33554432
+      },
+      "latency_reduction": 0.04309991678963143
+    },
+    {
+      "m": 4096,
+      "k": 5120,
+      "n": 8704,
+      "prefix": "language_model.model.layers.0.mlp.gate_up_proj",
+      "selection": {
+        "m": 4096,
+        "k": 5120,
+        "n": 8704,
+        "enabled": true,
+        "tactic": {
+          "id": 21,
+          "tile": 24,
+          "stages": 0,
+          "split_k": 1,
+          "reduction": 0,
+          "swizzle": 0,
+          "custom": 0
+        },
+        "workspace_bytes": 0,
+        "screen_latency_reduction": 0.04785891345447424,
+        "heuristic_query_budget": 33554432
+      },
+      "latency_reduction": 0.050919271236854025
+    }
+  ],
+  "guard": "SM70, cuBLASLt12.8, contiguous FP16 M4096/8192 K5120 N3584/4128/8704, zero workspace, fixed FP32 tactics, capability check fallback.",
+  "excluded_down": "K4352/N5120 failed frozen relative-L2 gate on scaled-small real activations. Retain original route despite bitwise agreement in sampled comparisons.",
+  "excluded_gdn_output": "K1536/N5120 has insufficient synthetic benefit for this shortlist.",
+  "shared_lut32": "800 bitwise checks pass, full attention+combine slows0.8-1.3%. Withdrawn.",
+  "scope": "No model speedup or final qualification claimed yet."
+}

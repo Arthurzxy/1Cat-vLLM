@@ -690,6 +690,16 @@ void nvfp4_qpn4_dequantize_sm70_out(torch::Tensor out, torch::Tensor codes,
                                          use_scale_code);
 }
 
+#ifdef VLLM_QPN4_STANDALONE
+bool sm70_nvfp4_prefill_lt_out(torch::Tensor out, torch::Tensor input,
+                               torch::Tensor weight) {
+  return false;
+}
+#else
+bool sm70_nvfp4_prefill_lt_out(torch::Tensor out, torch::Tensor input,
+                               torch::Tensor weight);
+#endif
+
 void nvfp4_prefill_fp32_mm_out(torch::Tensor out, torch::Tensor input,
                                torch::Tensor weight) {
   const c10::cuda::CUDAGuard guard(input.device());
@@ -752,7 +762,9 @@ void nvfp4_qpn4_prefill_sm70_impl(torch::Tensor out, int64_t dense_weight_ptr,
     if (m <= 1024) {
       nvfp4_prefill_fp32_mm_out(out, input, dense_weight);
     } else {
-      at::mm_out(out, input, dense_weight);
+      if (!sm70_nvfp4_prefill_lt_out(out, input, dense_weight)) {
+        at::mm_out(out, input, dense_weight);
+      }
     }
     return;
   }
@@ -761,7 +773,9 @@ void nvfp4_qpn4_prefill_sm70_impl(torch::Tensor out, int64_t dense_weight_ptr,
   if (m <= 1024) {
     nvfp4_prefill_fp32_mm_out(gate_up, input, dense_weight);
   } else {
-    at::mm_out(gate_up, input, dense_weight);
+    if (!sm70_nvfp4_prefill_lt_out(gate_up, input, dense_weight)) {
+      at::mm_out(gate_up, input, dense_weight);
+    }
   }
   constexpr int kThreads = 256;
   nvfp4_qpn4_silu_and_mul_sm70_kernel<<<static_cast<int>(m), kThreads, 0,

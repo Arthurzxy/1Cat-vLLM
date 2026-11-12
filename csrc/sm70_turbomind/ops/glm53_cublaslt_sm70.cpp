@@ -2,10 +2,15 @@
 // Copyright contributors to the vLLM project
 
 #include <ATen/cuda/CUDAContext.h>
+#include <ATen/record_function.h>
 #include <c10/cuda/CUDAGuard.h>
 #include <c10/cuda/CUDAStream.h>
 #include <cublasLt.h>
 #include <torch/all.h>
+
+#include <map>
+#include <memory>
+#include <tuple>
 
 namespace {
 
@@ -148,4 +153,108 @@ void sm70_glm53_tp8_cublaslt_out(torch::Tensor out, torch::Tensor input,
                      resources.output, &checked.algo, nullptr, 0,
                      c10::cuda::getCurrentCUDAStream(input.get_device())),
       "cublasLtMatmul");
+}
+
+namespace {
+
+// Six zero-workspace plans qualified on contiguous [K,N] NVFP4 prefill.
+// MatmulResources also owns the existing GLM descriptors in this file.
+struct Nvfp4PrefillLtPlan {
+  MatmulResources resources;
+  cublasLtMatmulAlgo_t algorithm{};
+  bool supported = false;
+
+  void initialize(cublasLtHandle_t handle, int64_t m, int64_t n) {
+    // Failed capability checks retain the original at::mm_out route.
+    try {
+      check_cublaslt(cublasLtMatmulDescCreate(&resources.operation,
+                                              CUBLAS_COMPUTE_32F, CUDA_R_32F),
+                     "NVFP4 prefill matmul descriptor");
+      cublasOperation_t no_transpose = CUBLAS_OP_N;
+      for (auto attribute :
+           {CUBLASLT_MATMUL_DESC_TRANSA, CUBLASLT_MATMUL_DESC_TRANSB}) {
+        check_cublaslt(
+            cublasLtMatmulDescSetAttribute(resources.operation, attribute,
+                                           &no_transpose, sizeof(no_transpose)),
+            "NVFP4 prefill transpose");
+      }
+      create_row_major_layout(&resources.input, m, 5120);
+      create_row_major_layout(&resources.weight, 5120, n);
+      create_row_major_layout(&resources.output, m, n);
+      const bool attention_qkv = n == 3584;
+      check_cublaslt(
+          cublasLtMatmulAlgoInit(handle, CUBLAS_COMPUTE_32F, CUDA_R_32F,
+                                 CUDA_R_16F, CUDA_R_16F, CUDA_R_16F, CUDA_R_16F,
+                                 attention_qkv ? 3 : 21, &algorithm),
+          "NVFP4 prefill fixed algorithm");
+      set_algorithm_attribute(&algorithm, CUBLASLT_ALGO_CONFIG_TILE_ID,
+                              uint32_t{24});
+      set_algorithm_attribute(&algorithm, CUBLASLT_ALGO_CONFIG_STAGES_ID,
+                              uint32_t{0});
+      set_algorithm_attribute(&algorithm, CUBLASLT_ALGO_CONFIG_SPLITK_NUM,
+                              int32_t{1});
+      set_algorithm_attribute(&algorithm, CUBLASLT_ALGO_CONFIG_REDUCTION_SCHEME,
+                              uint32_t{CUBLASLT_REDUCTION_SCHEME_NONE});
+      set_algorithm_attribute(&algorithm, CUBLASLT_ALGO_CONFIG_CTA_SWIZZLING,
+                              uint32_t{attention_qkv ? 1U : 0U});
+      set_algorithm_attribute(&algorithm, CUBLASLT_ALGO_CONFIG_CUSTOM_OPTION,
+                              uint32_t{0});
+      cublasLtMatmulHeuristicResult_t checked{};
+      const auto status = cublasLtMatmulAlgoCheck(
+          handle, resources.operation, resources.input, resources.weight,
+          resources.output, resources.output, &algorithm, &checked);
+      supported = status == CUBLAS_STATUS_SUCCESS &&
+                  checked.state == CUBLAS_STATUS_SUCCESS &&
+                  checked.workspaceSize == 0;
+    } catch (const c10::Error&) {
+      supported = false;
+    }
+  }
+};
+
+}  // namespace
+
+bool sm70_nvfp4_prefill_lt_out(torch::Tensor out, torch::Tensor input,
+                               torch::Tensor weight) {
+  const int64_t m = input.size(0);
+  const int64_t n = weight.size(1);
+  if ((m != 4096 && m != 8192) || input.size(1) != 5120 ||
+      (n != 3584 && n != 4128 && n != 8704) || weight.size(0) != 5120 ||
+      !input.is_contiguous() || !weight.is_contiguous() ||
+      !out.is_contiguous()) {
+    return false;
+  }
+  const auto* properties = at::cuda::getDeviceProperties(input.get_device());
+  const auto version = cublasLtGetVersion();
+  if (properties->major != 7 || properties->minor != 0 || version < 120800 ||
+      version >= 120900) {
+    return false;
+  }
+  auto handle = at::cuda::getCurrentCUDABlasLtHandle();
+  using Key = std::tuple<int, int64_t, int64_t>;
+  static thread_local std::map<Key, std::unique_ptr<Nvfp4PrefillLtPlan>> plans;
+  const Key key{input.get_device(), m, n};
+  auto position = plans.find(key);
+  if (position == plans.end()) {
+    auto plan = std::make_unique<Nvfp4PrefillLtPlan>();
+    plan->initialize(handle, m, n);
+    position = plans.emplace(key, std::move(plan)).first;
+  }
+  const auto& plan = *position->second;
+  if (!plan.supported) {
+    return false;
+  }
+  RECORD_FUNCTION("sm70_nvfp4_prefill_lt",
+                  std::vector<c10::IValue>({input, weight}));
+  constexpr float alpha = 1.0F;
+  constexpr float beta = 0.0F;
+  check_cublaslt(
+      cublasLtMatmul(handle, plan.resources.operation, &alpha, input.data_ptr(),
+                     plan.resources.input, weight.data_ptr(),
+                     plan.resources.weight, &beta, out.data_ptr(),
+                     plan.resources.output, out.data_ptr(),
+                     plan.resources.output, &plan.algorithm, nullptr, 0,
+                     c10::cuda::getCurrentCUDAStream(input.get_device())),
+      "NVFP4 prefill fixed matmul");
+  return true;
 }

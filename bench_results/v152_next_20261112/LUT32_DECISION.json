@@ -1,0 +1,50 @@
+{
+  "candidate": "32-bit shared E4M3 LUT entries",
+  "status": "withdrawn",
+  "hypothesis": "Spread adjacent codes across four-byte shared-memory banks, adding512B shared per CTA without changing arithmetic.",
+  "source_evidence": "Q8_SOURCE_DIAGNOSTIC.json contains actual CUDA-line attribution. LUT accounts for about2.218M excessive wavefront events. Events are not converted into time.",
+  "correctness": "800 bitwise attention+combine checks pass, including partial/max/sum, batch, stride, page/tail and graph zero/restore.",
+  "performance": [
+    {
+      "length": 8192,
+      "median_ms": [
+        0.731818675994873,
+        0.7376213073730469
+      ],
+      "latency_reduction": -0.007929056156274594
+    },
+    {
+      "length": 32768,
+      "median_ms": [
+        1.642837365468343,
+        1.6599040031433105
+      ],
+      "latency_reduction": -0.010388513211167627
+    },
+    {
+      "length": 65536,
+      "median_ms": [
+        2.967722733815511,
+        2.9981013933817544
+      ],
+      "latency_reduction": -0.01023635369305076
+    },
+    {
+      "length": 131072,
+      "median_ms": [
+        5.579093297322591,
+        5.6500905354817705
+      ],
+      "latency_reduction": -0.012725587183360254
+    },
+    {
+      "length": 261120,
+      "median_ms": [
+        10.635434786478678,
+        10.762069066365559
+      ],
+      "latency_reduction": -0.011906826794507497
+    }
+  ],
+  "reason": "All measured16-layer attention+combine contexts slowed0.8-1.3%, no service rollout."
+}

@@ -1,0 +1,231 @@
+{
+  "complete": false,
+  "chain_identity": {
+    "module_name": "v152_next_nvfp4_chain_2a12690f4c5d",
+    "library": "/workspace/bench_results/v152_next_20261112/nvfp4-chain/build/v152_next_nvfp4_chain_2a12690f4c5d.so",
+    "library_sha256": "b693826acefe28dbcbba316080c3038d1628258c6e9f4f82b9a4c82631900f22",
+    "source_sha256": "2a12690f4c5d0e2dd9c47db00b756128ebcf2cf4fe374c600a2285042bbe43aa",
+    "owner_source_sha256": "0977f80fe9f99f848530b8ab22cc2dc94957777a5a538f0473353ac828d4074c",
+    "scope": "Actual owner source prefix, unmodified dequant/prefill/SiLU arithmetic. Private pybind registration.",
+    "flags": [
+      "-O3",
+      "--use_fast_math",
+      "-std=c++20",
+      "-lineinfo",
+      "-Xptxas=-v"
+    ],
+    "arch": "sm_70"
+  },
+  "lt_identity": {
+    "module_name": "v152_next_lt_kn_e746a6e18a72",
+    "library": "/workspace/bench_results/v152_next_20261112/gemm-lt-kn/build/v152_next_lt_kn_e746a6e18a72.so",
+    "library_sha256": "a658406fa1f378b4d4eaed1f98edcbbec2e259c54561eace3eb7d13c8a332335",
+    "source_sha256": "e746a6e18a721ddcc7554bc44c2524247b3973392cec8e9085128e56ef2105a0",
+    "reused_source": "/workspace/benchmarks/csrc/benchmark_sm70_cublaslt_algorithms.cpp",
+    "changes": [
+      "TRANSB=N",
+      "physical B[K,N] row-major",
+      "weight shape guard[K,N]"
+    ],
+    "compute": "CUBLAS_COMPUTE_32F",
+    "cuda": "12.8",
+    "torch": "2.10.0+cu128"
+  },
+  "policy": [
+    {
+      "m": 8192,
+      "k": 5120,
+      "n": 8704,
+      "enabled": true,
+      "tactic": {
+        "id": 21,
+        "tile": 24,
+        "stages": 0,
+        "split_k": 1,
+        "reduction": 0,
+        "swizzle": 0,
+        "custom": 0
+      },
+      "workspace_bytes": 0,
+      "screen_latency_reduction": 0.050220746272679806,
+      "heuristic_query_budget": 33554432
+    },
+    {
+      "m": 8192,
+      "k": 4352,
+      "n": 5120,
+      "enabled": true,
+      "tactic": {
+        "id": 21,
+        "tile": 24,
+        "stages": 0,
+        "split_k": 1,
+        "reduction": 0,
+        "swizzle": 0,
+        "custom": 0
+      },
+      "workspace_bytes": 0,
+      "screen_latency_reduction": 0.042901452846679566,
+      "heuristic_query_budget": 33554432
+    },
+    {
+      "m": 8192,
+      "k": 5120,
+      "n": 4128,
+      "enabled": true,
+      "tactic": {
+        "id": 21,
+        "tile": 24,
+        "stages": 0,
+        "split_k": 1,
+        "reduction": 0,
+        "swizzle": 0,
+        "custom": 0
+      },
+      "workspace_bytes": 0,
+      "screen_latency_reduction": 0.040127817720049364,
+      "heuristic_query_budget": 33554432
+    },
+    {
+      "m": 8192,
+      "k": 1536,
+      "n": 5120,
+      "enabled": false,
+      "tactic": {
+        "id": 21,
+        "tile": 24,
+        "stages": 0,
+        "split_k": 1,
+        "reduction": 0,
+        "swizzle": 0,
+        "custom": 0
+      },
+      "workspace_bytes": 0,
+      "screen_latency_reduction": 0.00648166840850517,
+      "heuristic_query_budget": 33554432
+    },
+    {
+      "m": 8192,
+      "k": 5120,
+      "n": 3584,
+      "enabled": true,
+      "tactic": {
+        "id": 3,
+        "tile": 24,
+        "stages": 0,
+        "split_k": 1,
+        "reduction": 0,
+        "swizzle": 1,
+        "custom": 0
+      },
+      "workspace_bytes": 0,
+      "screen_latency_reduction": 0.17607694361720339,
+      "heuristic_query_budget": 0
+    },
+    {
+      "m": 4096,
+      "k": 5120,
+      "n": 8704,
+      "enabled": true,
+      "tactic": {
+        "id": 21,
+        "tile": 24,
+        "stages": 0,
+        "split_k": 1,
+        "reduction": 0,
+        "swizzle": 0,
+        "custom": 0
+      },
+      "workspace_bytes": 0,
+      "screen_latency_reduction": 0.04785891345447424,
+      "heuristic_query_budget": 33554432
+    },
+    {
+      "m": 4096,
+      "k": 4352,
+      "n": 5120,
+      "enabled": true,
+      "tactic": {
+        "id": 21,
+        "tile": 24,
+        "stages": 0,
+        "split_k": 1,
+        "reduction": 0,
+        "swizzle": 0,
+        "custom": 0
+      },
+      "workspace_bytes": 0,
+      "screen_latency_reduction": 0.04846003284031675,
+      "heuristic_query_budget": 33554432
+    },
+    {
+      "m": 4096,
+      "k": 5120,
+      "n": 4128,
+      "enabled": true,
+      "tactic": {
+        "id": 21,
+        "tile": 24,
+        "stages": 0,
+        "split_k": 1,
+        "reduction": 0,
+        "swizzle": 0,
+        "custom": 0
+      },
+      "workspace_bytes": 0,
+      "screen_latency_reduction": 0.044279325023314775,
+      "heuristic_query_budget": 33554432
+    },
+    {
+      "m": 4096,
+      "k": 1536,
+      "n": 5120,
+      "enabled": false,
+      "tactic": {
+        "id": 21,
+        "tile": 24,
+        "stages": 0,
+        "split_k": 1,
+        "reduction": 0,
+        "swizzle": 0,
+        "custom": 0
+      },
+      "workspace_bytes": 0,
+      "screen_latency_reduction": 0.01700796258945836,
+      "heuristic_query_budget": 33554432
+    },
+    {
+      "m": 4096,
+      "k": 5120,
+      "n": 3584,
+      "enabled": true,
+      "tactic": {
+        "id": 3,
+        "tile": 24,
+        "stages": 0,
+        "split_k": 1,
+        "reduction": 0,
+        "swizzle": 1,
+        "custom": 0
+      },
+      "workspace_bytes": 0,
+      "screen_latency_reduction": 0.23825668907850683,
+      "heuristic_query_budget": 0
+    }
+  ],
+  "predeclared_gate": {
+    "weight": "Bitwise against independent nibble/scale hi-lo/HFMA/FP16 oracle using actual captured TurboMind codes and checkpoint scale codes.",
+    "gemm_relative_l2": 0.001,
+    "baseline_relative_l2": 0.001,
+    "gemm_absolute": "FP32 gamma_K dot-product bound plus FP16 output rounding, same analytical gate as synthetic Lt screen.",
+    "epilogue_relative_l2": 0.001,
+    "epilogue": "FP32 GEMM then round FP16, float SiLU then round FP16, FP16 multiplication. Independent FP64 GEMM spot retained.",
+    "magnitudes": [
+      0.0,
+      0.001,
+      1.0
+    ]
+  },
+  "scope": "Real request activations and captured packed checkpoint weights. Compact scales reconstructed through existing prepare from matching checkpoint shards. Eager diagnostic capture is outside formal service timing.",
+  "rows": []
+}

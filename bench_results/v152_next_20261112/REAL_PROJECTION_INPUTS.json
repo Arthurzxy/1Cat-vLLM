@@ -1,0 +1,312 @@
+[
+  {
+    "prefix": "language_model.model.layers.0.linear_attn.out_proj",
+    "rank": 0,
+    "input_stride": [
+      1536,
+      1
+    ],
+    "gated": false,
+    "state_metadata": {
+      "group_size": 16,
+      "k_ld": 49152,
+      "q_ld": 5120,
+      "output_size": 5120,
+      "op_kind": "nvfp4",
+      "gated_silu": false,
+      "global_scale": 0.0,
+      "use_scale_code": false,
+      "padded_output_size": 5120,
+      "prescaled_scales": true,
+      "split_k": 0,
+      "accumulator_chains": 0
+    },
+    "layer_metadata": {
+      "sm70_nvfp4_qpn2": true,
+      "sm70_nvfp4_qpn2_shared_weight": true,
+      "sm70_nvfp4_qpn2_global_scale": 0.0005028134328313172,
+      "sm70_nvfp4_qpn2_output_size": 5120,
+      "sm70_nvfp4_qpn2_split_k": 8,
+      "sm70_nvfp4_qpn2_nacc": 2,
+      "sm70_nvfp4_qpn2_gated_silu": false,
+      "sm70_nvfp4_qpn2_prefill_enabled": true,
+      "sm70_nvfp4_qpn2_prefill_min_m": 256
+    },
+    "provider": "PreparedLinearProvider(name='nvfp4_gemm_sm70_prescaled_out', run=functools.partial(<function _gemm at 0x7d225de51e40>, name='nvfp4_gemm_sm70_prescaled_out'), fused=functools.partial(<function _gemm at 0x7d225de51e40>, name='nvfp4_gemm_sm70_prescaled_out'), contiguous_input=False, activation_error=None, restore_interleaved=False)",
+    "scope": "Diagnostic eager real model request, immediately before Qpn2NvFp4LinearKernel.apply_qpn2 production dispatch. Not performance timing.",
+    "file": "/workspace/bench_results/v152_next_20261112/real-activation-capture/projections/k1536-n5120.pt",
+    "sha256": "1dc6b9d72ab965522aa2f0c68416c40c31ffd51b90e8375f55c9adf49a2baf56",
+    "input": {
+      "shape": [
+        8192,
+        1536
+      ],
+      "dtype": "torch.float16"
+    },
+    "state_tensors": {
+      "weight": {
+        "shape": [
+          1536,
+          640
+        ],
+        "dtype": "torch.int32"
+      },
+      "scales": {
+        "shape": [
+          96,
+          5120
+        ],
+        "dtype": "torch.float16"
+      }
+    },
+    "layer_tensors": {}
+  },
+  {
+    "prefix": "language_model.model.layers.0.mlp.down_proj",
+    "rank": 0,
+    "input_stride": [
+      4352,
+      1
+    ],
+    "gated": false,
+    "state_metadata": {
+      "group_size": 16,
+      "k_ld": 139264,
+      "q_ld": 5120,
+      "output_size": 5120,
+      "op_kind": "nvfp4",
+      "gated_silu": false,
+      "global_scale": 0.0,
+      "use_scale_code": false,
+      "padded_output_size": 5120,
+      "prescaled_scales": true,
+      "split_k": 0,
+      "accumulator_chains": 0
+    },
+    "layer_metadata": {
+      "sm70_nvfp4_qpn2": true,
+      "sm70_nvfp4_qpn2_shared_weight": true,
+      "sm70_nvfp4_qpn2_global_scale": 0.00036475775414146483,
+      "sm70_nvfp4_qpn2_output_size": 5120,
+      "sm70_nvfp4_qpn2_split_k": 16,
+      "sm70_nvfp4_qpn2_nacc": 2,
+      "sm70_nvfp4_qpn2_gated_silu": false,
+      "sm70_nvfp4_qpn2_prefill_enabled": true,
+      "sm70_nvfp4_qpn2_prefill_min_m": 256
+    },
+    "provider": "PreparedLinearProvider(name='nvfp4_gemm_sm70_prescaled_out', run=functools.partial(<function _gemm at 0x7d225de51e40>, name='nvfp4_gemm_sm70_prescaled_out'), fused=functools.partial(<function _gemm at 0x7d225de51e40>, name='nvfp4_gemm_sm70_prescaled_out'), contiguous_input=False, activation_error=None, restore_interleaved=False)",
+    "scope": "Diagnostic eager real model request, immediately before Qpn2NvFp4LinearKernel.apply_qpn2 production dispatch. Not performance timing.",
+    "file": "/workspace/bench_results/v152_next_20261112/real-activation-capture/projections/k4352-n5120.pt",
+    "sha256": "f31e2160d8ddbd23d49803804471e0e5c581edcdce4f94631172ce27309d365c",
+    "input": {
+      "shape": [
+        8192,
+        4352
+      ],
+      "dtype": "torch.float16"
+    },
+    "state_tensors": {
+      "weight": {
+        "shape": [
+          4352,
+          640
+        ],
+        "dtype": "torch.int32"
+      },
+      "scales": {
+        "shape": [
+          272,
+          5120
+        ],
+        "dtype": "torch.float16"
+      }
+    },
+    "layer_tensors": {}
+  },
+  {
+    "prefix": "language_model.model.layers.3.self_attn.qkv_proj",
+    "rank": 0,
+    "input_stride": [
+      5120,
+      1
+    ],
+    "gated": false,
+    "state_metadata": {
+      "group_size": 16,
+      "k_ld": 163840,
+      "q_ld": 3584,
+      "output_size": 3584,
+      "op_kind": "nvfp4",
+      "gated_silu": false,
+      "global_scale": 0.0,
+      "use_scale_code": false,
+      "padded_output_size": 3584,
+      "prescaled_scales": true,
+      "split_k": 0,
+      "accumulator_chains": 0
+    },
+    "layer_metadata": {
+      "sm70_nvfp4_qpn2": true,
+      "sm70_nvfp4_qpn2_shared_weight": true,
+      "sm70_nvfp4_qpn2_global_scale": 0.00011916388029931113,
+      "sm70_nvfp4_qpn2_output_size": 3584,
+      "sm70_nvfp4_qpn2_split_k": 16,
+      "sm70_nvfp4_qpn2_nacc": 2,
+      "sm70_nvfp4_qpn2_gated_silu": false,
+      "sm70_nvfp4_qpn2_prefill_enabled": true,
+      "sm70_nvfp4_qpn2_prefill_min_m": 256
+    },
+    "provider": "PreparedLinearProvider(name='nvfp4_gemm_sm70_prescaled_out', run=functools.partial(<function _gemm at 0x7d225de51e40>, name='nvfp4_gemm_sm70_prescaled_out'), fused=functools.partial(<function _gemm at 0x7d225de51e40>, name='nvfp4_gemm_sm70_prescaled_out'), contiguous_input=False, activation_error=None, restore_interleaved=False)",
+    "scope": "Diagnostic eager real model request, immediately before Qpn2NvFp4LinearKernel.apply_qpn2 production dispatch. Not performance timing.",
+    "file": "/workspace/bench_results/v152_next_20261112/real-activation-capture/projections/k5120-n3584.pt",
+    "sha256": "729dba36378bef3bb3359635ae7a0675005fed34700bb06e579dc24ace77e712",
+    "input": {
+      "shape": [
+        8192,
+        5120
+      ],
+      "dtype": "torch.float16"
+    },
+    "state_tensors": {
+      "weight": {
+        "shape": [
+          5120,
+          448
+        ],
+        "dtype": "torch.int32"
+      },
+      "scales": {
+        "shape": [
+          320,
+          3584
+        ],
+        "dtype": "torch.float16"
+      }
+    },
+    "layer_tensors": {}
+  },
+  {
+    "prefix": "language_model.model.layers.0.linear_attn.in_proj_qkvz",
+    "rank": 0,
+    "input_stride": [
+      5120,
+      1
+    ],
+    "gated": false,
+    "state_metadata": {
+      "group_size": 16,
+      "k_ld": 163840,
+      "q_ld": 4128,
+      "output_size": 4120,
+      "op_kind": "nvfp4",
+      "gated_silu": false,
+      "global_scale": 0.0,
+      "use_scale_code": false,
+      "padded_output_size": 4128,
+      "prescaled_scales": true,
+      "split_k": 0,
+      "accumulator_chains": 0
+    },
+    "layer_metadata": {
+      "sm70_nvfp4_qpn2": true,
+      "sm70_nvfp4_qpn2_shared_weight": true,
+      "sm70_nvfp4_qpn2_global_scale": 0.00016203381528612226,
+      "sm70_nvfp4_qpn2_output_size": 4128,
+      "sm70_nvfp4_qpn2_split_k": 16,
+      "sm70_nvfp4_qpn2_nacc": 2,
+      "sm70_nvfp4_qpn2_gated_silu": false,
+      "sm70_nvfp4_qpn2_prefill_enabled": true,
+      "sm70_nvfp4_qpn2_prefill_min_m": 256
+    },
+    "provider": "PreparedLinearProvider(name='nvfp4_gemm_sm70_prescaled_out', run=functools.partial(<function _gemm at 0x7d225de51e40>, name='nvfp4_gemm_sm70_prescaled_out'), fused=functools.partial(<function _gemm at 0x7d225de51e40>, name='nvfp4_gemm_sm70_prescaled_out'), contiguous_input=False, activation_error=None, restore_interleaved=False)",
+    "scope": "Diagnostic eager real model request, immediately before Qpn2NvFp4LinearKernel.apply_qpn2 production dispatch. Not performance timing.",
+    "file": "/workspace/bench_results/v152_next_20261112/real-activation-capture/projections/k5120-n4128.pt",
+    "sha256": "76f03707ce69e3dd9e8833fb539c740655ed2f80f95249f569008fe9e907c954",
+    "input": {
+      "shape": [
+        8192,
+        5120
+      ],
+      "dtype": "torch.float16"
+    },
+    "state_tensors": {
+      "weight": {
+        "shape": [
+          5120,
+          516
+        ],
+        "dtype": "torch.int32"
+      },
+      "scales": {
+        "shape": [
+          320,
+          4128
+        ],
+        "dtype": "torch.float16"
+      }
+    },
+    "layer_tensors": {}
+  },
+  {
+    "prefix": "language_model.model.layers.0.mlp.gate_up_proj",
+    "rank": 0,
+    "input_stride": [
+      5120,
+      1
+    ],
+    "gated": true,
+    "state_metadata": {
+      "group_size": 16,
+      "k_ld": 163840,
+      "q_ld": 8704,
+      "output_size": 8704,
+      "op_kind": "nvfp4",
+      "gated_silu": false,
+      "global_scale": 0.0,
+      "use_scale_code": false,
+      "padded_output_size": 8704,
+      "prescaled_scales": true,
+      "split_k": 0,
+      "accumulator_chains": 0
+    },
+    "layer_metadata": {
+      "sm70_nvfp4_qpn2": true,
+      "sm70_nvfp4_qpn2_shared_weight": true,
+      "sm70_nvfp4_qpn2_global_scale": 0.0001569475425640121,
+      "sm70_nvfp4_qpn2_output_size": 8704,
+      "sm70_nvfp4_qpn2_split_k": 8,
+      "sm70_nvfp4_qpn2_nacc": 2,
+      "sm70_nvfp4_qpn2_gated_silu": true,
+      "sm70_nvfp4_qpn2_prefill_enabled": true,
+      "sm70_nvfp4_qpn2_prefill_min_m": 256
+    },
+    "provider": "PreparedLinearProvider(name='nvfp4_gemm_sm70_prescaled_out', run=functools.partial(<function _gemm at 0x7d225de51e40>, name='nvfp4_gemm_sm70_prescaled_out'), fused=functools.partial(<function _gemm at 0x7d225de51e40>, name='nvfp4_gemm_sm70_prescaled_out'), contiguous_input=False, activation_error=None, restore_interleaved=False)",
+    "scope": "Diagnostic eager real model request, immediately before Qpn2NvFp4LinearKernel.apply_qpn2 production dispatch. Not performance timing.",
+    "file": "/workspace/bench_results/v152_next_20261112/real-activation-capture/projections/k5120-n8704.pt",
+    "sha256": "bcbdf82b1617db8e1d79332090dd08ff59c445a24afbe06c3d28709342a2e0f2",
+    "input": {
+      "shape": [
+        8192,
+        5120
+      ],
+      "dtype": "torch.float16"
+    },
+    "state_tensors": {
+      "weight": {
+        "shape": [
+          5120,
+          1088
+        ],
+        "dtype": "torch.int32"
+      },
+      "scales": {
+        "shape": [
+          320,
+          8704
+        ],
+        "dtype": "torch.float16"
+      }
+    },
+    "layer_tensors": {}
+  }
+]

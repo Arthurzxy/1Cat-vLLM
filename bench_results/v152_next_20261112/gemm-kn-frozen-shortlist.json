@@ -1,0 +1,182 @@
+[
+  {
+    "m": 8192,
+    "k": 5120,
+    "n": 8704,
+    "enabled": true,
+    "tactic": {
+      "id": 21,
+      "tile": 24,
+      "stages": 0,
+      "split_k": 1,
+      "reduction": 0,
+      "swizzle": 0,
+      "custom": 0
+    },
+    "workspace_bytes": 0,
+    "screen_latency_reduction": 0.050220746272679806,
+    "heuristic_query_budget": 33554432
+  },
+  {
+    "m": 8192,
+    "k": 4352,
+    "n": 5120,
+    "enabled": true,
+    "tactic": {
+      "id": 21,
+      "tile": 24,
+      "stages": 0,
+      "split_k": 1,
+      "reduction": 0,
+      "swizzle": 0,
+      "custom": 0
+    },
+    "workspace_bytes": 0,
+    "screen_latency_reduction": 0.042901452846679566,
+    "heuristic_query_budget": 33554432
+  },
+  {
+    "m": 8192,
+    "k": 5120,
+    "n": 4128,
+    "enabled": true,
+    "tactic": {
+      "id": 21,
+      "tile": 24,
+      "stages": 0,
+      "split_k": 1,
+      "reduction": 0,
+      "swizzle": 0,
+      "custom": 0
+    },
+    "workspace_bytes": 0,
+    "screen_latency_reduction": 0.040127817720049364,
+    "heuristic_query_budget": 33554432
+  },
+  {
+    "m": 8192,
+    "k": 1536,
+    "n": 5120,
+    "enabled": false,
+    "tactic": {
+      "id": 21,
+      "tile": 24,
+      "stages": 0,
+      "split_k": 1,
+      "reduction": 0,
+      "swizzle": 0,
+      "custom": 0
+    },
+    "workspace_bytes": 0,
+    "screen_latency_reduction": 0.00648166840850517,
+    "heuristic_query_budget": 33554432
+  },
+  {
+    "m": 8192,
+    "k": 5120,
+    "n": 3584,
+    "enabled": true,
+    "tactic": {
+      "id": 3,
+      "tile": 24,
+      "stages": 0,
+      "split_k": 1,
+      "reduction": 0,
+      "swizzle": 1,
+      "custom": 0
+    },
+    "workspace_bytes": 0,
+    "screen_latency_reduction": 0.17607694361720339,
+    "heuristic_query_budget": 0
+  },
+  {
+    "m": 4096,
+    "k": 5120,
+    "n": 8704,
+    "enabled": true,
+    "tactic": {
+      "id": 21,
+      "tile": 24,
+      "stages": 0,
+      "split_k": 1,
+      "reduction": 0,
+      "swizzle": 0,
+      "custom": 0
+    },
+    "workspace_bytes": 0,
+    "screen_latency_reduction": 0.04785891345447424,
+    "heuristic_query_budget": 33554432
+  },
+  {
+    "m": 4096,
+    "k": 4352,
+    "n": 5120,
+    "enabled": true,
+    "tactic": {
+      "id": 21,
+      "tile": 24,
+      "stages": 0,
+      "split_k": 1,
+      "reduction": 0,
+      "swizzle": 0,
+      "custom": 0
+    },
+    "workspace_bytes": 0,
+    "screen_latency_reduction": 0.04846003284031675,
+    "heuristic_query_budget": 33554432
+  },
+  {
+    "m": 4096,
+    "k": 5120,
+    "n": 4128,
+    "enabled": true,
+    "tactic": {
+      "id": 21,
+      "tile": 24,
+      "stages": 0,
+      "split_k": 1,
+      "reduction": 0,
+      "swizzle": 0,
+      "custom": 0
+    },
+    "workspace_bytes": 0,
+    "screen_latency_reduction": 0.044279325023314775,
+    "heuristic_query_budget": 33554432
+  },
+  {
+    "m": 4096,
+    "k": 1536,
+    "n": 5120,
+    "enabled": false,
+    "tactic": {
+      "id": 21,
+      "tile": 24,
+      "stages": 0,
+      "split_k": 1,
+      "reduction": 0,
+      "swizzle": 0,
+      "custom": 0
+    },
+    "workspace_bytes": 0,
+    "screen_latency_reduction": 0.01700796258945836,
+    "heuristic_query_budget": 33554432
+  },
+  {
+    "m": 4096,
+    "k": 5120,
+    "n": 3584,
+    "enabled": true,
+    "tactic": {
+      "id": 3,
+      "tile": 24,
+      "stages": 0,
+      "split_k": 1,
+      "reduction": 0,
+      "swizzle": 1,
+      "custom": 0
+    },
+    "workspace_bytes": 0,
+    "screen_latency_reduction": 0.23825668907850683,
+    "heuristic_query_budget": 0
+  }
+]
