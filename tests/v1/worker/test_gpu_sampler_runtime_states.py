@@ -9,7 +9,6 @@ import pytest
 
 from vllm.exceptions import VLLMValidationError
 from vllm.sampling_params import SamplingParams
-from vllm.v1.worker.gpu.sample import sampler as sampler_module
 from vllm.v1.worker.gpu.sample.sampler import Sampler
 from vllm.v1.worker.gpu.sample.states import NO_LOGPROBS, SamplingStates
 
@@ -43,9 +42,9 @@ def test_full_vocabulary_dominates_mixed_batch_count():
 
 
 def test_greedy_dispatch_rejects_full_logprobs_then_recovers(monkeypatch):
-    monkeypatch.setattr(sampler_module.envs, "VLLM_SM70_GREEDY_TOKEN_FASTPATH", True)
     state = _states()
     sampler = object.__new__(Sampler)
+    sampler.greedy_token_fastpath = True
     sampler.compute_nans = False
     sampler.sampling_states = state
     sampler.logprob_token_ids_state = SimpleNamespace(max_num_token_ids=lambda _: 0)

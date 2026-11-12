@@ -242,6 +242,8 @@ def compute_prompt_logprobs_with_chunking(
             requested_num_prompt_logprobs,
             prompt_token_ids[start_idx:end_idx],
         )
+        # Release full-vocabulary logits before the next projection/all-gather.
+        del prompt_logits
         token_ids.append(prompt_logprobs.logprob_token_ids)
         logprobs.append(prompt_logprobs.logprobs)
         ranks.append(prompt_logprobs.selected_token_ranks)

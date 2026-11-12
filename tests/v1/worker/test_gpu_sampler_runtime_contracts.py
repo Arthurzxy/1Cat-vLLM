@@ -233,3 +233,40 @@ def test_bad_words_graph_replay_and_request_slot_reuse():
     output.copy_(template)
     state.apply_bad_words(output, mapping, np.array([slot]), inputs, positions)
     torch.testing.assert_close(output, template, atol=0, rtol=0)
+
+
+@pytest.mark.parametrize("num_logprobs", [-1, 0, 5])
+def test_prompt_logits_released_before_next_chunk(num_logprobs):
+    import weakref
+
+    from vllm.v1.worker.gpu.sample.logprob import compute_topk_logprobs
+
+    count, vocab_size = 2055, 16
+    hidden = torch.arange(count, device="cuda", dtype=torch.float32)[:, None] / 1000
+    columns = torch.arange(vocab_size, device="cuda", dtype=torch.float32)[None, :]
+    token_ids = torch.arange(count, device="cuda") % vocab_size
+    references: list[weakref.ReferenceType[torch.Tensor]] = []
+
+    def logits_fn(rows):
+        assert all(reference() is None for reference in references), (
+            "Previous full-vocabulary logits are still live"
+        )
+        logits = torch.cos(rows + columns)
+        references.append(weakref.ref(logits))
+        return logits
+
+    actual = compute_prompt_logprobs_with_chunking(
+        token_ids, hidden, logits_fn, num_logprobs
+    )
+    assert len(references) == 3
+    assert all(reference() is None for reference in references)
+    expected = compute_topk_logprobs(
+        torch.cos(hidden + columns),
+        vocab_size if num_logprobs == -1 else num_logprobs,
+        token_ids,
+    )
+    for observed, reference in zip(
+        actual,
+        (expected.logprob_token_ids, expected.logprobs, expected.selected_token_ranks),
+    ):
+        assert torch.equal(observed, reference)

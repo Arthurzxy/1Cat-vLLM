@@ -749,7 +749,7 @@ __device__ __forceinline__ uint4 load_xqa_tc_kv_vector(
   const int token_offset = tile_page_offset + kv_tile_start + row;
   static_assert(BLOCK_SIZE == 0 || BLOCK_SIZE == 4 || BLOCK_SIZE == 16 ||
                     BLOCK_SIZE == 784 || BLOCK_SIZE == 800 ||
-                    BLOCK_SIZE == 1568 || BLOCK_SIZE == 1648 ||
+                    BLOCK_SIZE == 1568 || BLOCK_SIZE == 1648 || BLOCK_SIZE == 2048 ||
                     BLOCK_SIZE == 3296,
                 "Unsupported paged-KV block-size specialization");
   static_assert(!CONTIGUOUS_HKV1_LAYOUT || BLOCK_SIZE == 16 ||
@@ -776,6 +776,9 @@ __device__ __forceinline__ uint4 load_xqa_tc_kv_vector(
   } else if constexpr (BLOCK_SIZE == 1648) {
     logical_block = token_offset / 1648;
     block_offset = token_offset - logical_block * 1648;
+  } else if constexpr (BLOCK_SIZE == 2048) {
+    logical_block = token_offset >> 11;
+    block_offset = token_offset & 2047;
   } else if constexpr (BLOCK_SIZE == 3296) {
     logical_block = token_offset / 3296;
     block_offset = token_offset - logical_block * 3296;
@@ -868,6 +871,9 @@ __device__ __forceinline__ void load_xqa_tc_kv_panel(
       } else if constexpr (BLOCK_SIZE == 1648) {
         logical_block = token_offset / 1648;
         block_offset = token_offset - logical_block * 1648;
+      } else if constexpr (BLOCK_SIZE == 2048) {
+        logical_block = token_offset >> 11;
+        block_offset = token_offset & 2047;
       } else if constexpr (BLOCK_SIZE == 3296) {
         logical_block = token_offset / 3296;
         block_offset = token_offset - logical_block * 3296;
@@ -5163,6 +5169,7 @@ at::Tensor private_grouped_e4m3_fp32_paged(
           8, false, 0, false, false, false, flash_v100::KV_CACHE_DTYPE_FP8_E4M3,
           false, float, true, true, false>;
   if (k.size(1) == 1648) kernel = paired ? flash_attention_grouped_verify_e5m2_partial_kernel<8, false, 1648, false, false, false, flash_v100::KV_CACHE_DTYPE_FP8_E4M3, false, float, true, true, true> : flash_attention_grouped_verify_e5m2_partial_kernel<8, false, 1648, false, false, false, flash_v100::KV_CACHE_DTYPE_FP8_E4M3, false, float, true, true, false>;
+  if (k.size(1) == 2048) kernel = paired ? flash_attention_grouped_verify_e5m2_partial_kernel<8, false, 2048, false, false, false, flash_v100::KV_CACHE_DTYPE_FP8_E4M3, false, float, true, true, true> : flash_attention_grouped_verify_e5m2_partial_kernel<8, false, 2048, false, false, false, flash_v100::KV_CACHE_DTYPE_FP8_E4M3, false, float, true, true, false>;
   if (k.size(1) == 3296) kernel = paired ? flash_attention_grouped_verify_e5m2_partial_kernel<8, false, 3296, false, false, false, flash_v100::KV_CACHE_DTYPE_FP8_E4M3, false, float, true, true, true> : flash_attention_grouped_verify_e5m2_partial_kernel<8, false, 3296, false, false, false, flash_v100::KV_CACHE_DTYPE_FP8_E4M3, false, float, true, true, false>;
   const int query_len = static_cast<int>(q.size(0) / batch_size);
   if (query_len == 8) {
@@ -5174,6 +5181,7 @@ at::Tensor private_grouped_e4m3_fp32_paged(
           8, false, 0, false, false, false, flash_v100::KV_CACHE_DTYPE_FP8_E4M3,
           false, float, true, true, false>;
   if (k.size(1) == 1648) kernel = paired ? flash_attention_grouped_verify_e4m3_full_q8_kernel<8, false, 1648, false, false, false, flash_v100::KV_CACHE_DTYPE_FP8_E4M3, false, float, true, true, true> : flash_attention_grouped_verify_e4m3_full_q8_kernel<8, false, 1648, false, false, false, flash_v100::KV_CACHE_DTYPE_FP8_E4M3, false, float, true, true, false>;
+  if (k.size(1) == 2048) kernel = paired ? flash_attention_grouped_verify_e4m3_full_q8_kernel<8, false, 2048, false, false, false, flash_v100::KV_CACHE_DTYPE_FP8_E4M3, false, float, true, true, true> : flash_attention_grouped_verify_e4m3_full_q8_kernel<8, false, 2048, false, false, false, flash_v100::KV_CACHE_DTYPE_FP8_E4M3, false, float, true, true, false>;
   if (k.size(1) == 3296) kernel = paired ? flash_attention_grouped_verify_e4m3_full_q8_kernel<8, false, 3296, false, false, false, flash_v100::KV_CACHE_DTYPE_FP8_E4M3, false, float, true, true, true> : flash_attention_grouped_verify_e4m3_full_q8_kernel<8, false, 3296, false, false, false, flash_v100::KV_CACHE_DTYPE_FP8_E4M3, false, float, true, true, false>;
   }
   constexpr int kCompensatedSmemBytes =

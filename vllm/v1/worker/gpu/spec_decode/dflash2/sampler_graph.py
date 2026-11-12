@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 """Device-side compact/reference dispatch for uniform DFlash2 verifier batches."""
 
+from copy import copy
 from typing import Any
 
 import numpy as np
@@ -25,7 +26,8 @@ ROWS_PER_REQUEST = 8
 # Each request count captures its own graphs into private pools the KV budget
 # does not cover: about 170 MiB per count up to c4, and 2.7 GiB in total once
 # c5-c8 are captured too, which also ran slower than the host-decision path.
-MAX_GRAPH_REQUESTS = 4
+# This backport is qualified only through three active requests.
+MAX_GRAPH_REQUESTS = 3
 MAX_GRAPHS = 8
 # Capture allocates outside the budget. Serving still needs room after it: the
 # host-decision path at c8 reserves about 1.3 GiB on top of the idle footprint.
@@ -127,7 +129,9 @@ def _copy_dense_slot(
 
 def _capture_headroom(device: torch.device) -> bool:
     free, _ = torch.cuda.mem_get_info(device)
-    idle = torch.cuda.memory_reserved(device) - torch.cuda.memory_allocated(device)
+    idle = torch.accelerator.memory_reserved(
+        device
+    ) - torch.accelerator.memory_allocated(device)
     return free + idle >= CAPTURE_HEADROOM_BYTES
 
 
@@ -140,6 +144,34 @@ def _all_ranks_support(status: int) -> bool:
             unsupported, op=dist.ReduceOp.MAX, group=get_tp_group().cpu_group
         )
     return unsupported.item() == 0
+
+
+def _snapshot_sampling_inputs(
+    sampler: Any,
+) -> tuple[Any, list[tuple[Any, torch.Tensor]]]:
+    """Give this graph fixed addresses without changing eager sampling state."""
+    view = copy(sampler)
+    copies: list[tuple[Any, torch.Tensor]] = []
+    for state_name, names in (
+        ("sampling_states", ("temperature", "top_k", "top_p", "min_p", "seeds")),
+        (
+            "penalties_state",
+            ("repetition_penalty", "frequency_penalty", "presence_penalty"),
+        ),
+    ):
+        source_state = getattr(sampler, state_name)
+        state = copy(source_state)
+        for name in names:
+            source = getattr(source_state, name, None)
+            if source is None:
+                continue
+            tensor = source.gpu.clone()
+            field = copy(source)
+            field.gpu = tensor
+            setattr(state, name, field)
+            copies.append((source, tensor))
+        setattr(view, state_name, state)
+    return view, copies
 
 
 class _RejectionGraph:
@@ -161,6 +193,10 @@ class _RejectionGraph:
         self.cu = batch.cu_num_logits[: self.requests + 1].clone()
         self.request_indices = batch.idx_mapping_np.copy()
         self.rejection = rejection
+        self.sampler, self._parameter_copies = _snapshot_sampling_inputs(
+            rejection.sampler
+        )
+        self.sampler.sampling_states.capture_mode = True
         self.model = model
         self.speculator = speculator
         self.sparse = tuple(torch.empty_like(t) for t in sparse)
@@ -191,6 +227,9 @@ class _RejectionGraph:
         self.prepare(hidden, batch, sparse)
 
     def prepare(self, hidden, batch, sparse):
+        for parameter, destination in self._parameter_copies:
+            destination.copy_(parameter.gpu)
+        self.cu.copy_(batch.cu_num_logits[: self.requests + 1])
         ids, values = sparse
         fixed_ids, fixed_values = self.sparse
         _prepare_hidden[(triton.cdiv(hidden.numel(), 1024),)](
@@ -236,7 +275,7 @@ class _RejectionGraph:
         self.ids, self.values, self.fallback = probe(self.hidden, 64)
         if self.fallback is None:
             return False
-        states = self.rejection.sampler.sampling_states
+        states = self.sampler.sampling_states
         self.values, self.ids = sort_topk_with_vocab_ties(
             self.values, self.ids, vocab_size=states.vocab_size, descending=True
         )
@@ -259,7 +298,7 @@ class _RejectionGraph:
         logits = self.fallback()
         if logits is None:
             raise RuntimeError("DFlash2 graph rejection requires replicated logits")
-        sampler = self.rejection.sampler
+        sampler = self.sampler
         states = sampler.sampling_states
         processed = sampler.apply_sampling_params(
             logits,
@@ -287,7 +326,7 @@ class _RejectionGraph:
         self.count.copy_(count)
 
     def _compact(self):
-        sampler = self.rejection.sampler
+        sampler = self.sampler
         states = sampler.sampling_states
         ids, values = self.sparse
         output, count = dflash2_sparse_topk_rejection_sample(
@@ -407,7 +446,6 @@ def try_graph_rejection(
         id(model),
         id(speculator),
         hidden.dtype,
-        bool(np.any(states.temperature.np[idx] != 1.0)),
         bool(np.any(states.top_p.np[idx] != 1.0)),
         rejection.sampler.use_fp64_gumbel,
         tuple((t.dtype, tuple(t.shape), tuple(t.stride())) for t in tensors),
