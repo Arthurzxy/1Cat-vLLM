@@ -1,0 +1,58 @@
+{
+  "complete": true,
+  "arms": [
+    {
+      "arm": "safe",
+      "image_id": "sha256:1c11cf5139e67f42a76d68bb40d3a8dcb68b8e9643338f4bd24ec823e463a026",
+      "complete": true,
+      "quality": {
+        "complete": true,
+        "total": 1819,
+        "categories": {
+          "mbpp": {
+            "passed": 366,
+            "total": 500
+          },
+          "gsm8k": {
+            "passed": 1268,
+            "total": 1319
+          }
+        }
+      },
+      "ppl_file": "/home/llm/1cat-v152-opt-20261111/bench_results/v152_next_20261112/quality-safe/ppl.json",
+      "functional_file": "/home/llm/1cat-v152-opt-20261111/bench_results/v152_next_20261112/quality-safe/functional.json"
+    },
+    {
+      "arm": "new",
+      "image_id": "sha256:78675b92ac8d599af905cf5e474c4f95209984dde5e309f6c9860fe1811e76b2",
+      "complete": true,
+      "quality": {
+        "complete": true,
+        "total": 1819,
+        "categories": {
+          "mbpp": {
+            "passed": 366,
+            "total": 500
+          },
+          "gsm8k": {
+            "passed": 1268,
+            "total": 1319
+          }
+        }
+      },
+      "ppl_file": "/home/llm/1cat-v152-opt-20261111/bench_results/v152_next_20261112/quality-new/ppl.json",
+      "functional_file": "/home/llm/1cat-v152-opt-20261111/bench_results/v152_next_20261112/quality-new/functional.json"
+    }
+  ],
+  "gates": {
+    "quality": "Candidate grade count per category is at least the Bsafe-next count on the same1819 frozen cases.",
+    "ppl_relative_change_max": 1e-06,
+    "nll_absolute_change_max": 1e-05,
+    "functional": "Compare all50 existing fixture verdicts and preserve common marker failures.",
+    "cancellation": "Actual physical-slot reuse and clean-reference output/state must pass.",
+    "grader_image_id": "sha256:8110fe8e0f228f698711703312bfcfb5a40d6063c1be8d734d5ceb7278602ae9",
+    "quality_cases_sha256": "94ffb6959301ed2e27fe034de918333edcf60e21d35eef0ebe15a42f7df823f7",
+    "wikitext_sha256": "696cca6b65a171b0a358a4be6732cdfdf2dd6164a32e20fd70e3c13fc4dfae83"
+  },
+  "status": "Raw runs complete, paired quality/NLL/verdict comparison pending"
+}

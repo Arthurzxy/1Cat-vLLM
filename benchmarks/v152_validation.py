@@ -24,3 +24,15 @@ def has_generated_text(event: dict) -> bool:
         if any(isinstance(value, str) and value for value in values):
             return True
     return False
+
+
+def chunk_intervals_after(
+    chunks: list[dict], request_start_s: float, injected_s: float
+) -> list[float]:
+    """Return observed chunk intervals ending on/after the injection boundary."""
+    observed_times = [request_start_s + chunk["at_s"] for chunk in chunks]
+    return [
+        end - begin
+        for begin, end in zip(observed_times, observed_times[1:])
+        if end >= injected_s
+    ]

@@ -213,3 +213,17 @@ def test_generated_text_excludes_role_and_empty_events(event, expected):
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     assert module.has_generated_text(event) is expected
+
+
+@pytest.mark.parametrize(
+    "injected_s, expected",
+    [(100.5, [0.8, 0.5]), (101.0, [0.8, 0.5]), (101.1, [0.5])],
+)
+def test_mixed_chunk_intervals_include_the_injection_crossing(injected_s, expected):
+    import runpy
+
+    module = runpy.run_path(str(ROOT / "benchmarks/v152_validation.py"))
+    intervals = module["chunk_intervals_after"]
+    chunks = [{"at_s": 0.2}, {"at_s": 1.0}, {"at_s": 1.5}]
+    assert intervals(chunks, 100.0, injected_s) == pytest.approx(expected)
+    assert intervals(chunks[:1], 100.0, injected_s) == []

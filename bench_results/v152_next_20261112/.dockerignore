@@ -1,0 +1,12 @@
+*
+!Dockerfile.replay-*
+!previous/
+!previous/python/
+!previous/python/**
+!previous/native/
+!previous/native/**
+!raw/
+!raw/bsafe-next/
+!raw/bsafe-next/**
+!raw/native-lt-image/
+!raw/native-lt-image/**

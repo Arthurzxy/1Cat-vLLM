@@ -1,0 +1,42 @@
+{
+  "complete": true,
+  "images": [
+    "sha256:8110fe8e0f228f698711703312bfcfb5a40d6063c1be8d734d5ceb7278602ae9",
+    "sha256:0850a9d5267c92e5efe21a229cfbd6d9e7b2748b0f9f5b362c67d9cec2f22c15",
+    "sha256:1c11cf5139e67f42a76d68bb40d3a8dcb68b8e9643338f4bd24ec823e463a026",
+    "sha256:78675b92ac8d599af905cf5e474c4f95209984dde5e309f6c9860fe1811e76b2"
+  ],
+  "config_sections_equal_to_release_base": [
+    {
+      "Env": true,
+      "Entrypoint": true,
+      "Cmd": true,
+      "User": true,
+      "WorkingDir": true,
+      "ExposedPorts": true,
+      "Volumes": true,
+      "Healthcheck": true
+    },
+    {
+      "Env": true,
+      "Entrypoint": true,
+      "Cmd": true,
+      "User": true,
+      "WorkingDir": true,
+      "ExposedPorts": true,
+      "Volumes": true,
+      "Healthcheck": true
+    },
+    {
+      "Env": true,
+      "Entrypoint": true,
+      "Cmd": true,
+      "User": true,
+      "WorkingDir": true,
+      "ExposedPorts": true,
+      "Volumes": true,
+      "Healthcheck": true
+    }
+  ],
+  "release_base_config_sha256": "f9c3e1637721ff1a5a400eefa310cd7d20972ad500ce87f140e1fd7ef0596541"
+}

@@ -53,6 +53,7 @@ def rpc(method, **kwargs):
 
 
 def execute(folder, label, command):
+    started = time.time()
     with (folder / (label + ".log")).open("w") as log:
         subprocess.run(
             command, cwd=root, stdout=log, stderr=subprocess.STDOUT, check=True
@@ -61,6 +62,7 @@ def execute(folder, label, command):
         json.dumps(
             {
                 "command": command,
+                "started": started,
                 "finished": time.time(),
                 "source_sha256": {
                     value: hashlib.sha256(Path(value).read_bytes()).hexdigest()
@@ -368,6 +370,11 @@ def p95(values):
 
 
 def mixed_summary(label):
+    import sys
+
+    sys.path.insert(0, str(root / "benchmarks"))
+    from v152_validation import chunk_intervals_after
+
     value = json.loads((out / "efficiency" / label / "mixed.json").read_text())
     assert value["complete"]
     short = []
@@ -379,8 +386,11 @@ def mixed_summary(label):
         requests = trial["requests"]
         resident = requests[0]
         long_wall.append(resident["end"] - resident["start"])
-        chunks = [resident["start"] + chunk["at_s"] for chunk in resident["chunks"]]
-        gaps.extend(b - a for a, b in zip(chunks, chunks[1:]) if a >= trial["inserted"])
+        gaps.extend(
+            chunk_intervals_after(
+                resident["chunks"], resident["start"], trial["inserted"]
+            )
+        )
         short.extend(
             row["ttft_s"] for row in requests if row["label"].startswith("short-")
         )

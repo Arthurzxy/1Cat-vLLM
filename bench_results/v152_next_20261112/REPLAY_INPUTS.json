@@ -1,0 +1,12 @@
+{
+  "complete": true,
+  "immutable_base_image": "sha256:8110fe8e0f228f698711703312bfcfb5a40d6063c1be8d734d5ceb7278602ae9",
+  "base_acquisition": "Existing recorded release-dependency image on v100_llm, export by docker image save using its immutable ID.",
+  "dependency_notices": {
+    "licenses/cutlass/LICENSE.txt": "7bc733829f16663593865344541c6dcc433beb6b6b555c8f86a43e9b399993cf",
+    "licenses/flash-attn/LICENSE": "8c9ccb96c065e706135b6cbad279b721da6156e51f3a5f27c6b3329af9416d73",
+    "licenses/triton/LICENSE": "92640fb97222fd0a698ff28ce0c3782c172623f8d6c609b557636a80f28fb946"
+  },
+  "expected_outputs": "Three local replay overlay images. Actual frozen component/Python hashes are verified after reconstruction.",
+  "runtime_build_scope": "Retained Bprev components plus Bsafe resample file and selected candidate_C. Full clean-wheel qualification remains a future scope."
+}

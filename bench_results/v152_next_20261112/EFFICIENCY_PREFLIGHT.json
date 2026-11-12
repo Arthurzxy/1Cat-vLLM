@@ -43,5 +43,7 @@
   "sampling_limits": "36 short requests per formal process, three mixed trials. Counts are empirical, with fresh service process as independent unit. No stable p99 claim.",
   "resources": "Serial TP4 on6-9 after full kernel quality runs. Existing MinerU and ComfyUI remain running.",
   "cache_pool_diagnostic": "Read-only state/history capacity, pinned, cached and free-or-evictable blocks are recorded on lookup/allocation/free, plus a separate131K pressure/revisit diagnostic pass.",
-  "cache_observer_sha256": "02c1faf551ad63d32582917c6504c993c0110ed6d8a1069bcc4858ede4fbd34a"
+  "cache_observer_sha256": "1121a508b74f4e34f1c971ddb3c084030e40aa642db27f4bd859235aa14c2fd9",
+  "resident_gap_definition": "Include each observed SSE chunk interval whose end is on/after injection, including the interval crossing the injection boundary. Retain actual chunk granularity.",
+  "host_client_cpu_affinity": "Controller and benchmark subprocesses pinned to CPU0-3. Model containers retain CPU20-39,60-79 and24-CPU quota."
 }

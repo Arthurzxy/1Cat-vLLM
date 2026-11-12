@@ -212,14 +212,9 @@ def install_pool_observation():
             "partitions": partitions,
             "groups": groups,
             "cached_hash_keys": len(pool.cached_block_hash_to_block),
-            "partial_entries": len(partial.entries) if partial else 0,
-            "partial_owned_blocks": partial.num_blocks if partial else 0,
-            "partial_block_limit": partial.max_blocks if partial else 0,
-            "partial_entry_lengths": sorted(
-                entry.length for entry in partial.entries.values()
-            )
-            if partial
-            else [],
+            "partial_entries": len(partial.entries) if partial is not None else 0,
+            "partial_owned_blocks": partial.num_blocks if partial is not None else 0,
+            "partial_block_limit": partial.max_blocks if partial is not None else 0,
             "count_definition": (
                 "Free includes evictable cached blocks. Cached physical counts "
                 "overlap free/pinned status. Group active references may share "

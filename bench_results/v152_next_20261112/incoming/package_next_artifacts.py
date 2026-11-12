@@ -117,6 +117,10 @@ with tarfile.open(archive, "w:gz", compresslevel=6) as bundle:
         "VALIDATION_SUMMARY.json",
         "retained-source.patch",
         "next-runtime.patch",
+        "Dockerfile.replay-bprev",
+        "Dockerfile.replay-bsafe",
+        "Dockerfile.replay-bnew",
+        ".dockerignore",
     ]:
         path = out / name
         add(bundle, bundle.gettarinfo(str(path), arcname=name), path.read_bytes())
