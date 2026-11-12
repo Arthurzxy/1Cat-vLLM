@@ -13,8 +13,11 @@ parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--output", type=Path, required=True)
 parser.add_argument("--lengths", type=int, nargs="+", default=[131072, 250000])
 parser.add_argument("--repeats", type=int, default=2)
+parser.add_argument(
+    "--source-root", type=Path, default=Path(__file__).resolve().parents[3]
+)
 args = parser.parse_args()
-root = Path(__file__).resolve().parents[3]
+root = args.source_root.resolve()
 source = root / "bench_results/v152_opt_20261111/unique-corpus-tokens.json"
 corpus = json.loads(source.read_text())["tokens"]
 assert not args.output.exists()

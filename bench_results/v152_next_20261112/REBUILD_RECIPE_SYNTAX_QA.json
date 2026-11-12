@@ -1,0 +1,13 @@
+{
+  "complete": true,
+  "command": [
+    "docker",
+    "exec",
+    "1cat-v152-next-build-20261112",
+    "bash",
+    "-n",
+    "/workspace/bench_results/v152_next_20261112/incoming/rebuild_next_component.sh"
+  ],
+  "exit_code": 0,
+  "scope": "Shell syntax only. This relocated bootstrap recipe is based on the actual component build and does not repeat full compilation."
+}

@@ -1,0 +1,16 @@
+{
+  "complete": true,
+  "relocated_root": "/home/llm/1cat-v152-opt-20261111/delivery-recompute-qa-next-20261112",
+  "summaries_identical": [
+    "FORMAL_SERVICE_SUMMARY.json",
+    "SHORT_CONFIRM_SUMMARY.json",
+    "BATCH_LEDGER_SUMMARY.json",
+    "FINAL_QUALITY_SUMMARY.json"
+  ],
+  "source_scripts": [
+    "summarize_next_service.py",
+    "summarize_next_service.py",
+    "recompute_next_batch_ledger.py",
+    "compare_next_quality.py"
+  ]
+}
