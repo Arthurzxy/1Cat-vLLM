@@ -1,0 +1,36 @@
+{
+  "complete": true,
+  "source": "/workspace/csrc/attention/sm70_grouped_long/kernel/grouped-attention.cu",
+  "source_sha256": "a5334f761f422fd09c030b3d9bc8e86b05430c3cec86351c5fa62e3ba24cc701",
+  "helper_sha256": {
+    "fp8_e4m3fn_to_half_bits": "90341db8049dfbc1c5b4e61bb6d9fa9d880d90356b10a518ae3a5d5eb739b8e0",
+    "fp8_e4m3fn_pair_to_half2_bits": "92f2fa5cba8326018d090979ddea8261e3577f97c61bf47ee5e9503e43d067de",
+    "fp8_e4m3fn_pair_to_half2_bits_fast": "116477f250469cb733e8c7df24e680909d6c2ea032e0148375565d3af22b6fc6",
+    "fp8_e4m3fn_vector_to_half8_fast": "9842163ea523191c71aeeac7c35681bbdaa005f61023eed01d644e99f7c49cff",
+    "fp8_e4m3fn_vector_to_half8_lut": "da7b4048b3cac2e1b88865238602234e2f40ccd55acce710a905fad594f3c94b"
+  },
+  "generated_cuda_sha256": "c2e1ffac68393974c748e17283a9d2144e1f16df70122686e5d08bb4b1628f14",
+  "cuda_flags": [
+    "-O3",
+    "--use_fast_math",
+    "-std=c++20"
+  ],
+  "arch": "sm_70",
+  "torch": "2.10.0+cu128",
+  "torch_cuda": "12.8",
+  "oracle": "Independent E4M3FN mathematical values packed by Python IEEE half conversion. NaN sign and original canonical0x7e00 bits are explicit. No production conversion helper is used as truth.",
+  "vectors": 528384,
+  "half_values": 4227072,
+  "results": {
+    "original_lut": {
+      "differing_half_values": 0
+    },
+    "finite_pair": {
+      "differing_half_values": 0
+    }
+  },
+  "extension": "/workspace/bench_results/v152_next_20261112/codec-exact-gate/build/v152_next_exact_e4m3.so",
+  "extension_sha256": "53265a54558ca3bec9f836acc2a2c2d2d419a1da706617c01d7da2f0b694b32b",
+  "gpu": "index, uuid, name, memory.used [MiB], clocks.current.sm [MHz], temperature.gpu, power.draw [W]\n0, GPU-51b0439a-ef17-85b2-57df-749ab77edd48, Tesla V100-SXM2-32GB, 768 MiB, 1290 MHz, 36, 56.27 W\n",
+  "passed": true
+}

@@ -1,0 +1,7 @@
+{
+  "url": "https://github.com/1CatAI/1Cat-vLLM/pull/1472",
+  "head_sha": "c156d23f0d5d249feaefaeb6f6ac6d528eab1db1",
+  "merge_commit_sha": "2a3f9a300c6f4434ced3a08d10648917a9f6205c",
+  "merged_at": "2026-11-10T17:25:56Z",
+  "scope": "Finite pair helper reused independently. Broad MTP/shared-row changes excluded."
+}

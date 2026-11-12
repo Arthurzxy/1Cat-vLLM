@@ -1,0 +1,22 @@
+v1.5.2 next iteration remains active. Finish the complete user task in TASK.txt.
+Repository /home/llm/1cat-v152-opt-20261111
+GitHub fork Arthurzxy/1Cat-vLLM, remote fork, branch codex/v152-opt-20261111.
+SSH access from the Windows host uses alias v100_llm. User authorized ongoing commits and pushes.
+Bprev commit 0a9ca74bc4897b8a8c3a2b9cbf7c345a77d063b9, image sha256:0850a9d5267c92e5efe21a229cfbd6d9e7b2748b0f9f5b362c67d9cec2f22c15
+Phase0 narrow verified commit pushed 1c56d045dca02a72453dd27c104d9dd0a88c9979
+Bsafe-next unit-qualified overlay sha256:1c11cf5139e67f42a76d68bb40d3a8dcb68b8e9643338f4bd24ec823e463a026
+60 independent GPU tests pass on both Bprev and one-warp insertion fix. No baseline race reproduced in this coverage.
+15 actual CLI/source-identity/SSE CPU regressions and2 observer contracts pass. Natural-EOS numerator now uses emitted tokens. Builder checks exact Git root and expected commit before compiling.
+Initial normal publish checks identified root-owned Ruff cache, ownership restored. Original two inherited MoE layering failures are proven identical to B0. Commit uses SKIP=check-layering only, all other applicable hooks execute. Git author uses Arthurzxy GitHub noreply address.
+B0 is a shallow boundary and has parent9f970d62885d4d73698d9e7a9859632a65704985. Prior genuine-root interpretation is corrected.
+Current services including ComfyUI and MinerU are retained. Serial test GPUs6-9, CUDA12.8+Torch2.10.0+cu128. CPU build container1cat-v152-next-build-20261112 is running with/workspace and/pinned-deps mounts.
+Real cancellation admission completed. BSAFE_SERVICE_ADMISSION.json is complete. Fresh service C1/C2/C3 exercises3 sampler graph buckets. cancel-state.json passes physical slot reuse, neutral metadata and64 output tokens plus one real GDN layer/rank bitwise against a clean reference. Actual final slots rank0..3 are6,3,2,3.
+Diagnostic attempt1 observer keyword mismatch and attempt2 scratch-column selection failure are fixed and preserved. Attempt2 slots were7,7,0,6. No all-rank equal-slot assumption is valid.
+Cancellation checkpoint277a8515e9352469ffed41b143ac92a0039c7c73 is pushed. Existing MoE inherited layering exception only, other applicable hooks pass. No own model/GPU experiment is running now. CPU build container remains running.
+Finite pair codec exhaustive4227072 half values pass bitwise. Full runtime sidecars pass800 operator checks. Eight ABBA/BAAB blocks per context with16-layer KV sets show3.8% to6.4% slower, so CODEC_DECISION.json withdraws it without a service rollout. Runtime source remains Bsafe-next.
+Active performance line is true K,N GEMM. First legacy7-algorithm screen saved gemm-kn-screen.json. Its random-root-K near-zero bound rejected baseline and bitwise-identical alternatives, while global relative L2 passes. Preserve it as an overstrict calibration failure. Do not relax relative thresholds. Next comparison must use a physically justified absolute FP32 summation+FP16 rounding bound or independent exact equivalence and record calibration separately.
+CPU build is incoming/build_next_lt_kn.py, log gemm-lt-build.log. It reuses existing cuBLASLt runner with TRANSB=N and B[K,N] guards. Freeze workspace/tile/stage/split before service use. No exhaustive unbounded search.
+Offline Nsight source export bprev-q8-source.csv is being generated from the qualified prior report. Pick one deep mechanism from actual PC/source/shared-bank evidence after codec withdrawal. At most2 active candidates.
+Prior large-M screen used the wrong non-Volta owner/layout. Actual Volta hot owner csrc/sm70_turbomind/ops/nvfp4_qpn4_sm70.cu materializes contiguous[K,N] and uses at::mm_out forM>1024, FP32 cuBLAS guard forsmallerM. Do not count the old[N,K] negative screen as evidence against this hot path.
+Remaining task includes runtime unique-batch/token accounting, correct profile slicing, candidate numerical and service A/B, one new deep mechanism selected by profile, independent async chunk4096/8192 and cache work, final combination and quality gates, fixed archive coverage and source snapshot placement, updated repro and final deliverables.
+Keep previous immutable artifact SHA28427ba260a458bf4185d096ce3b60cff67b2c1f28b6a5f6f928f79887b73ce3. New task corrects previous interpretation and packaging defects, without rewriting that historic artifact.

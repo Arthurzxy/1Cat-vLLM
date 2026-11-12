@@ -1,0 +1,67 @@
+{
+  "candidate": "Exact finite E4M3 pair conversion replacing shared LUT reads",
+  "status": "withdrawn",
+  "hypothesis": "Four half2 scale operations and integer expansion remove eight shared LUT loads per vector while preserving all converted bits. Increased integer/branch/FP16 instruction cost can outweigh shared cost.",
+  "upstream": {
+    "url": "https://github.com/1CatAI/1Cat-vLLM/pull/1472",
+    "head_sha": "c156d23f0d5d249feaefaeb6f6ac6d528eab1db1",
+    "merge_commit_sha": "2a3f9a300c6f4434ced3a08d10648917a9f6205c",
+    "merged_at": "2026-11-10T17:25:56Z",
+    "scope": "Finite pair helper reused independently. Broad MTP/shared-row changes excluded."
+  },
+  "numeric_gate": {
+    "original_lut": {
+      "differing_half_values": 0
+    },
+    "finite_pair": {
+      "differing_half_values": 0
+    }
+  },
+  "operator_checks": 800,
+  "q1": "Native grouped entry correctly declines q1 in both arms. Its scalar route is outside this helper change. Scalar runtime regression remains part of final related qualification.",
+  "performance": [
+    {
+      "length": 8192,
+      "median_ms": [
+        0.7377919753392537,
+        0.7657813628514607
+      ],
+      "latency_reduction": -0.0379366927911311
+    },
+    {
+      "length": 32768,
+      "median_ms": [
+        1.6476160685221355,
+        1.7295360565185547
+      ],
+      "latency_reduction": -0.04972031382887576
+    },
+    {
+      "length": 65536,
+      "median_ms": [
+        2.962090651194255,
+        3.1307093302408853
+      ],
+      "latency_reduction": -0.05692556336135324
+    },
+    {
+      "length": 131072,
+      "median_ms": [
+        5.5860904057820635,
+        5.925205230712891
+      ],
+      "latency_reduction": -0.06070700620595315
+    },
+    {
+      "length": 261120,
+      "median_ms": [
+        10.665472030639648,
+        11.344212849934896
+      ],
+      "latency_reduction": -0.06363907920299905
+    }
+  ],
+  "reason": "Attention+combine slowed on every measured context. Candidate never installed into service or tracked runtime source.",
+  "independent_unit": "Eight interleaved ABBA/BAAB operator blocks, one process. No service gain claimed.",
+  "remaining": "Proceed true K,N GEMM and a profile-selected independent mechanism."
+}

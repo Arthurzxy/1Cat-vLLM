@@ -1,0 +1,441 @@
+{
+  "source": "Fresh q8 control sidecar with CUDA lineinfo, one profiled launch,81 replay passes. Not formal timing.",
+  "top_shared_lines": [
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "3115",
+      "code": "? shared_scores[row * kGroupedVerifyScoreStride + col]",
+      "L1 Wavefronts Shared Excessive": "589824",
+      "Warp Stall Sampling (All Samples)": "61",
+      "stall_short_sb": "0",
+      "stall_mio": "41",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "728",
+      "code": "static_cast<uint32_t>(lut[static_cast<uint8_t>(raw)]) |",
+      "L1 Wavefronts Shared Excessive": "277377",
+      "Warp Stall Sampling (All Samples)": "1498",
+      "stall_short_sb": "0",
+      "stall_mio": "120",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "730",
+      "code": "static_cast<uint32_t>(lut[static_cast<uint8_t>(raw >> 16)]) |",
+      "L1 Wavefronts Shared Excessive": "277341",
+      "Warp Stall Sampling (All Samples)": "150",
+      "stall_short_sb": "10",
+      "stall_mio": "90",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "732",
+      "code": "static_cast<uint32_t>(lut[static_cast<uint8_t>(raw >> 32)]) |",
+      "L1 Wavefronts Shared Excessive": "277263",
+      "Warp Stall Sampling (All Samples)": "180",
+      "stall_short_sb": "19",
+      "stall_mio": "102",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "734",
+      "code": "static_cast<uint32_t>(lut[static_cast<uint8_t>(raw >> 48)]) |",
+      "L1 Wavefronts Shared Excessive": "277257",
+      "Warp Stall Sampling (All Samples)": "192",
+      "stall_short_sb": "0",
+      "stall_mio": "88",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "735",
+      "code": "(static_cast<uint32_t>(lut[static_cast<uint8_t>(raw >> 56)]) << 16));",
+      "L1 Wavefronts Shared Excessive": "277121",
+      "Warp Stall Sampling (All Samples)": "545",
+      "stall_short_sb": "293",
+      "stall_mio": "112",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "733",
+      "code": "(static_cast<uint32_t>(lut[static_cast<uint8_t>(raw >> 40)]) << 16),",
+      "L1 Wavefronts Shared Excessive": "277117",
+      "Warp Stall Sampling (All Samples)": "529",
+      "stall_short_sb": "245",
+      "stall_mio": "111",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "731",
+      "code": "(static_cast<uint32_t>(lut[static_cast<uint8_t>(raw >> 24)]) << 16),",
+      "L1 Wavefronts Shared Excessive": "277059",
+      "Warp Stall Sampling (All Samples)": "301",
+      "stall_short_sb": "68",
+      "stall_mio": "121",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "729",
+      "code": "(static_cast<uint32_t>(lut[static_cast<uint8_t>(raw >> 8)]) << 16),",
+      "L1 Wavefronts Shared Excessive": "276911",
+      "Warp Stall Sampling (All Samples)": "241",
+      "stall_short_sb": "31",
+      "stall_mio": "58",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "905",
+      "code": "shared_vec[shared_offset] =",
+      "L1 Wavefronts Shared Excessive": "262144",
+      "Warp Stall Sampling (All Samples)": "57",
+      "stall_short_sb": "0",
+      "stall_mio": "17",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "913",
+      "code": "shared_vec[shared_offset + 1] =",
+      "L1 Wavefronts Shared Excessive": "262144",
+      "Warp Stall Sampling (All Samples)": "38",
+      "stall_short_sb": "0",
+      "stall_mio": "6",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "2996",
+      "code": "dst[row * kSharedStrideVec + pair * 2] =",
+      "L1 Wavefronts Shared Excessive": "262144",
+      "Warp Stall Sampling (All Samples)": "99",
+      "stall_short_sb": "0",
+      "stall_mio": "84",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "2998",
+      "code": "dst[row * kSharedStrideVec + pair * 2 + 1] =",
+      "L1 Wavefronts Shared Excessive": "262144",
+      "Warp Stall Sampling (All Samples)": "33",
+      "stall_short_sb": "0",
+      "stall_mio": "17",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/usr/local/cuda/include/cuda_fp16.hpp",
+      "Line No": "566",
+      "code": "NV_IF_ELSE_TARGET(NV_IS_DEVICE,",
+      "L1 Wavefronts Shared Excessive": "0",
+      "Warp Stall Sampling (All Samples)": "113",
+      "stall_short_sb": "0",
+      "stall_mio": "57",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/usr/local/cuda/include/cuda_fp16.hpp",
+      "Line No": "708",
+      "code": "NV_IF_ELSE_TARGET(NV_IS_DEVICE,",
+      "L1 Wavefronts Shared Excessive": "0",
+      "Warp Stall Sampling (All Samples)": "43",
+      "stall_short_sb": "29",
+      "stall_mio": "0",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/usr/local/cuda/include/cuda_fp16.hpp",
+      "Line No": "2526",
+      "code": "NV_IF_ELSE_TARGET(NV_PROVIDES_SM_53,",
+      "L1 Wavefronts Shared Excessive": "0",
+      "Warp Stall Sampling (All Samples)": "317",
+      "stall_short_sb": "74",
+      "stall_mio": "0",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/usr/local/cuda/include/sm_30_intrinsics.hpp",
+      "Line No": "110",
+      "code": "return __nvvm_bar_warp_sync(mask);",
+      "L1 Wavefronts Shared Excessive": "0",
+      "Warp Stall Sampling (All Samples)": "27",
+      "stall_short_sb": "0",
+      "stall_mio": "0",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/usr/local/cuda/include/sm_30_intrinsics.hpp",
+      "Line No": "422",
+      "code": "ret = __nvvm_shfl_idx_sync(mask, __float_as_int(var), srcLane, c);",
+      "L1 Wavefronts Shared Excessive": "0",
+      "Warp Stall Sampling (All Samples)": "27",
+      "stall_short_sb": "0",
+      "stall_mio": "6",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/usr/local/cuda/include/sm_30_intrinsics.hpp",
+      "Line No": "440",
+      "code": "ret = __nvvm_shfl_down_sync(mask, __float_as_int(var), delta, c);",
+      "L1 Wavefronts Shared Excessive": "0",
+      "Warp Stall Sampling (All Samples)": "54",
+      "stall_short_sb": "0",
+      "stall_mio": "1",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "650",
+      "code": "const uint16_t sign = static_cast<uint16_t>(raw & 0x80u) << 8;",
+      "L1 Wavefronts Shared Excessive": "0",
+      "Warp Stall Sampling (All Samples)": "0",
+      "stall_short_sb": "0",
+      "stall_mio": "0",
+      "stall_barrier": "0"
+    }
+  ],
+  "top_stall_lines": [
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "3171",
+      "code": "if (tile_start + kGroupedVerifyBlockN <= minimum_visible_length)",
+      "L1 Wavefronts Shared Excessive": "0",
+      "Warp Stall Sampling (All Samples)": "2753",
+      "stall_short_sb": "0",
+      "stall_mio": "0",
+      "stall_barrier": "2692"
+    },
+    {
+      "file": "/workspace/csrc/attention/sm70_grouped_long/include/fused_mma.h",
+      "Line No": "423",
+      "code": "VOLTA_WMMA_MMA_F32(16, 16, 16, row, row)",
+      "L1 Wavefronts Shared Excessive": "0",
+      "Warp Stall Sampling (All Samples)": "2292",
+      "stall_short_sb": "96",
+      "stall_mio": "0",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "728",
+      "code": "static_cast<uint32_t>(lut[static_cast<uint8_t>(raw)]) |",
+      "L1 Wavefronts Shared Excessive": "277377",
+      "Warp Stall Sampling (All Samples)": "1498",
+      "stall_short_sb": "0",
+      "stall_mio": "120",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "908",
+      "code": "? fp8_e4m3fn_vector_to_half8_lut(raw_lo, e4m3_lut)",
+      "L1 Wavefronts Shared Excessive": "0",
+      "Warp Stall Sampling (All Samples)": "1314",
+      "stall_short_sb": "0",
+      "stall_mio": "0",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "2969",
+      "code": "for (int tile_start = split_start; tile_start < split_end;",
+      "L1 Wavefronts Shared Excessive": "0",
+      "Warp Stall Sampling (All Samples)": "1131",
+      "stall_short_sb": "0",
+      "stall_mio": "0",
+      "stall_barrier": "1099"
+    },
+    {
+      "file": "/workspace/csrc/attention/sm70_grouped_long/include/fused_mma.h",
+      "Line No": "422",
+      "code": "VOLTA_WMMA_MMA_F32(16, 16, 16, row, col)",
+      "L1 Wavefronts Shared Excessive": "0",
+      "Warp Stall Sampling (All Samples)": "789",
+      "stall_short_sb": "0",
+      "stall_mio": "0",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "2013",
+      "code": "volta::mma_sync(tile_fragment, q_fragment, k_fragment, tile_fragment);",
+      "L1 Wavefronts Shared Excessive": "0",
+      "Warp Stall Sampling (All Samples)": "731",
+      "stall_short_sb": "0",
+      "stall_mio": "0",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "3189",
+      "code": "if (PAIR_E4M3 && tid < min(kGroupedVerifyBlockN, split_end - next_tile) *",
+      "L1 Wavefronts Shared Excessive": "0",
+      "Warp Stall Sampling (All Samples)": "598",
+      "stall_short_sb": "0",
+      "stall_mio": "0",
+      "stall_barrier": "539"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "735",
+      "code": "(static_cast<uint32_t>(lut[static_cast<uint8_t>(raw >> 56)]) << 16));",
+      "L1 Wavefronts Shared Excessive": "277121",
+      "Warp Stall Sampling (All Samples)": "545",
+      "stall_short_sb": "293",
+      "stall_mio": "112",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "733",
+      "code": "(static_cast<uint32_t>(lut[static_cast<uint8_t>(raw >> 40)]) << 16),",
+      "L1 Wavefronts Shared Excessive": "277117",
+      "Warp Stall Sampling (All Samples)": "529",
+      "stall_short_sb": "245",
+      "stall_mio": "111",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "2018",
+      "code": "correction[i] = __fsub_rn(__fsub_rn(sum, score_fragment.x[i]), y);",
+      "L1 Wavefronts Shared Excessive": "0",
+      "Warp Stall Sampling (All Samples)": "505",
+      "stall_short_sb": "0",
+      "stall_mio": "0",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "1966",
+      "code": ": r\"(address) : \"memory\");\"",
+      "L1 Wavefronts Shared Excessive": "0",
+      "Warp Stall Sampling (All Samples)": "490",
+      "stall_short_sb": "0",
+      "stall_mio": "370",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "1970",
+      "code": ": r\"(address) : \"memory\");\"",
+      "L1 Wavefronts Shared Excessive": "0",
+      "Warp Stall Sampling (All Samples)": "422",
+      "stall_short_sb": "0",
+      "stall_mio": "357",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/usr/local/cuda/include/cuda_fp16.hpp",
+      "Line No": "2526",
+      "code": "NV_IF_ELSE_TARGET(NV_PROVIDES_SM_53,",
+      "L1 Wavefronts Shared Excessive": "0",
+      "Warp Stall Sampling (All Samples)": "317",
+      "stall_short_sb": "74",
+      "stall_mio": "0",
+      "stall_barrier": "0"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "3018",
+      "code": "__syncthreads();",
+      "L1 Wavefronts Shared Excessive": "0",
+      "Warp Stall Sampling (All Samples)": "305",
+      "stall_short_sb": "0",
+      "stall_mio": "28",
+      "stall_barrier": "217"
+    },
+    {
+      "file": "/workspace/bench_results/v152_next_20261112/codec-operator-control/operator.cu",
+      "Line No": "731",
+      "code": "(static_cast<uint32_t>(lut[static_cast<uint8_t>(raw >> 24)]) << 16),",
+      "L1 Wavefronts Shared Excessive": "277059",
+      "Warp Stall Sampling (All Samples)": "301",
+      "stall_short_sb": "68",
+      "stall_mio": "121",
+      "stall_barrier": "0"
+    }
+  ],
+  "lut_lines": [
+    {
+      "Line No": "728",
+      "code": "static_cast<uint32_t>(lut[static_cast<uint8_t>(raw)]) |",
+      "L1 Wavefronts Shared Excessive": "277377",
+      "Warp Stall Sampling (All Samples)": "1498",
+      "stall_short_sb": "0",
+      "stall_mio": "120",
+      "stall_barrier": "0"
+    },
+    {
+      "Line No": "729",
+      "code": "(static_cast<uint32_t>(lut[static_cast<uint8_t>(raw >> 8)]) << 16),",
+      "L1 Wavefronts Shared Excessive": "276911",
+      "Warp Stall Sampling (All Samples)": "241",
+      "stall_short_sb": "31",
+      "stall_mio": "58",
+      "stall_barrier": "0"
+    },
+    {
+      "Line No": "730",
+      "code": "static_cast<uint32_t>(lut[static_cast<uint8_t>(raw >> 16)]) |",
+      "L1 Wavefronts Shared Excessive": "277341",
+      "Warp Stall Sampling (All Samples)": "150",
+      "stall_short_sb": "10",
+      "stall_mio": "90",
+      "stall_barrier": "0"
+    },
+    {
+      "Line No": "731",
+      "code": "(static_cast<uint32_t>(lut[static_cast<uint8_t>(raw >> 24)]) << 16),",
+      "L1 Wavefronts Shared Excessive": "277059",
+      "Warp Stall Sampling (All Samples)": "301",
+      "stall_short_sb": "68",
+      "stall_mio": "121",
+      "stall_barrier": "0"
+    },
+    {
+      "Line No": "732",
+      "code": "static_cast<uint32_t>(lut[static_cast<uint8_t>(raw >> 32)]) |",
+      "L1 Wavefronts Shared Excessive": "277263",
+      "Warp Stall Sampling (All Samples)": "180",
+      "stall_short_sb": "19",
+      "stall_mio": "102",
+      "stall_barrier": "0"
+    },
+    {
+      "Line No": "733",
+      "code": "(static_cast<uint32_t>(lut[static_cast<uint8_t>(raw >> 40)]) << 16),",
+      "L1 Wavefronts Shared Excessive": "277117",
+      "Warp Stall Sampling (All Samples)": "529",
+      "stall_short_sb": "245",
+      "stall_mio": "111",
+      "stall_barrier": "0"
+    },
+    {
+      "Line No": "734",
+      "code": "static_cast<uint32_t>(lut[static_cast<uint8_t>(raw >> 48)]) |",
+      "L1 Wavefronts Shared Excessive": "277257",
+      "Warp Stall Sampling (All Samples)": "192",
+      "stall_short_sb": "0",
+      "stall_mio": "88",
+      "stall_barrier": "0"
+    },
+    {
+      "Line No": "735",
+      "code": "(static_cast<uint32_t>(lut[static_cast<uint8_t>(raw >> 56)]) << 16));",
+      "L1 Wavefronts Shared Excessive": "277121",
+      "Warp Stall Sampling (All Samples)": "545",
+      "stall_short_sb": "293",
+      "stall_mio": "112",
+      "stall_barrier": "0"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "complete": false,
+  "manifest": {
+    "module_name": "v152_next_lt_kn_e746a6e18a72",
+    "library": "/workspace/bench_results/v152_next_20261112/gemm-lt-kn/build/v152_next_lt_kn_e746a6e18a72.so",
+    "library_sha256": "a658406fa1f378b4d4eaed1f98edcbbec2e259c54561eace3eb7d13c8a332335",
+    "source_sha256": "e746a6e18a721ddcc7554bc44c2524247b3973392cec8e9085128e56ef2105a0",
+    "reused_source": "/workspace/benchmarks/csrc/benchmark_sm70_cublaslt_algorithms.cpp",
+    "changes": [
+      "TRANSB=N",
+      "physical B[K,N] row-major",
+      "weight shape guard[K,N]"
+    ],
+    "compute": "CUBLAS_COMPUTE_32F",
+    "cuda": "12.8",
+    "torch": "2.10.0+cu128"
+  },
+  "owner": "nvfp4_qpn4_sm70.cu contiguous[K,N] dequant followed by mm_out",
+  "seed": 20261113,
+  "predeclared_gate": {
+    "relative_l2_max": 0.001,
+    "baseline_relative_l2_max": 0.001,
+    "absolute_error_bound": "(2*gamma_K+gamma_K^2)*abs(A.float())@abs(B.float()) plus FP16 round-to-nearest bound. gamma_K=K*u/(1-K*u), u=2^-24. This covers FP32 dot accumulation in either independent oracle or candidate, including cancellation.",
+    "fp64_spot": "First4 rows/16 columns use independent FP64 matmul and the same analytic bound.",
+    "calibration_correction": "Previous root-K random-error near-zero bound was below actual baseline error and is retained as failed calibration. Relative thresholds unchanged. This analytical absolute bound is frozen before new-seed Lt operands exist.",
+    "split_reduction": "Only NONE or COMPUTE_TYPE reduction schemes admitted. Output/inplace FP16 reduction excluded."
+  },
+  "search": "At most8 heuristic algorithms each at0 and32MiB workspace per shape, no exhaustive enumeration or runtime autotuning.",
+  "rows": []
+}
