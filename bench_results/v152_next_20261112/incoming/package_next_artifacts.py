@@ -38,6 +38,8 @@ def add(bundle, info, data=None):
     assert name not in index, name
     info = copy.copy(info)
     info.name = prefix + name
+    # Tar headers retain permission bits while stat modes also include file type.
+    info.mode &= 0o7777
     info.pax_headers = {
         key: value
         for key, value in info.pax_headers.items()

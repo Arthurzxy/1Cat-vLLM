@@ -1,0 +1,9 @@
+{
+  "archive_sha256": "329ed3b07dc0ac6378553b82dacd176b0010031931ca3b2b9bb21dec3c71447a",
+  "path": "raw/.dockerignore",
+  "indexed_mode": 33188,
+  "indexed_mode_octal": "0o100644",
+  "archive_mode": 420,
+  "archive_mode_octal": "0o644",
+  "permission_bits_equal": true
+}
