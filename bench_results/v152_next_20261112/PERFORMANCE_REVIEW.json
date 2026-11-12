@@ -1,0 +1,348 @@
+{
+  "formal_measurements_complete": true,
+  "retain_native_candidate": true,
+  "recorded_epoch": 1794495813.6583233,
+  "status": "Performance admission with explicit tradeoffs, paired quality and final combination qualification pending",
+  "independent_units": {
+    "main_per_arm": 2,
+    "main_nested_batches": 2,
+    "short_confirm_per_arm": 2,
+    "short_confirm_nested_batches": 5
+  },
+  "primary_c1_131072": {
+    "aggregate_output_tps": {
+      "mean_relative_change_pct": 1.8455365329232754,
+      "ordered_process_pair_changes_pct": [
+        1.722843849360678,
+        1.9684405889283552
+      ]
+    },
+    "batch_wall_s": {
+      "mean_relative_change_pct": -1.8113278443919745,
+      "ordered_process_pair_changes_pct": [
+        -1.6928204911048184,
+        -1.929631518357544
+      ]
+    },
+    "mean_request_ttft_s": {
+      "mean_relative_change_pct": -2.106359185141271,
+      "ordered_process_pair_changes_pct": [
+        -1.9223455744662332,
+        -2.290006148461754
+      ]
+    },
+    "mean_request_prefill_s": {
+      "mean_relative_change_pct": -2.121613377682119,
+      "ordered_process_pair_changes_pct": [
+        -2.0125652053458065,
+        -2.230421740010613
+      ]
+    },
+    "mean_request_decode_s": {
+      "mean_relative_change_pct": 0.05340378696101489,
+      "ordered_process_pair_changes_pct": [
+        0.08149007782087825,
+        0.025338317028200663
+      ]
+    },
+    "mean_request_computed_prefill_tps": {
+      "mean_relative_change_pct": 2.167481445432329,
+      "ordered_process_pair_changes_pct": [
+        2.053906996595023,
+        2.2813062299501308
+      ]
+    },
+    "batch_last_ttft_s": {
+      "mean_relative_change_pct": -2.106359185141271,
+      "ordered_process_pair_changes_pct": [
+        -1.9223455744662332,
+        -2.290006148461754
+      ]
+    },
+    "computed_input_tokens_per_batch_last_ttft_s": {
+      "mean_relative_change_pct": 2.151666700122279,
+      "ordered_process_pair_changes_pct": [
+        1.960045363967855,
+        2.3436705588517848
+      ]
+    },
+    "mean_request_post_first_chunk_tps": {
+      "mean_relative_change_pct": 0.0711576990090057,
+      "ordered_process_pair_changes_pct": [
+        0.3042126855014038,
+        -0.16195968502628055
+      ]
+    }
+  },
+  "main_c4_1024": {
+    "aggregate_output_tps": {
+      "mean_relative_change_pct": -4.359418293500439,
+      "ordered_process_pair_changes_pct": [
+        -3.8379773321239985,
+        -4.848886532421515
+      ]
+    },
+    "batch_wall_s": {
+      "mean_relative_change_pct": 4.686108659256782,
+      "ordered_process_pair_changes_pct": [
+        3.898924997302422,
+        5.52756350439414
+      ]
+    },
+    "mean_request_ttft_s": {
+      "mean_relative_change_pct": -2.5660260134171886,
+      "ordered_process_pair_changes_pct": [
+        0.2795777853631165,
+        -5.395509294820711
+      ]
+    },
+    "mean_request_prefill_s": {
+      "mean_relative_change_pct": 1.3125479301270504,
+      "ordered_process_pair_changes_pct": [
+        -0.027855083053840435,
+        2.7174439747757573
+      ]
+    },
+    "mean_request_decode_s": {
+      "mean_relative_change_pct": 7.128438195712805,
+      "ordered_process_pair_changes_pct": [
+        6.2476983008861176,
+        8.047932031903994
+      ]
+    },
+    "mean_request_computed_prefill_tps": {
+      "mean_relative_change_pct": -1.3041696445792672,
+      "ordered_process_pair_changes_pct": [
+        0.02436890252770496,
+        -2.5717860171452833
+      ]
+    },
+    "batch_last_ttft_s": {
+      "mean_relative_change_pct": -0.43025669618842466,
+      "ordered_process_pair_changes_pct": [
+        0.19269829306542974,
+        -1.0498631256821933
+      ]
+    },
+    "computed_input_tokens_per_batch_last_ttft_s": {
+      "mean_relative_change_pct": 0.5653485101775546,
+      "ordered_process_pair_changes_pct": [
+        -0.15058141631733024,
+        1.284877997236289
+      ]
+    },
+    "mean_request_post_first_chunk_tps": {
+      "mean_relative_change_pct": -6.937528076308275,
+      "ordered_process_pair_changes_pct": [
+        -6.286510372496734,
+        -7.5652248324106885
+      ]
+    }
+  },
+  "confirmation_c4_1024": {
+    "aggregate_output_tps": {
+      "mean_relative_change_pct": -3.87097832088219,
+      "ordered_process_pair_changes_pct": [
+        -3.0890658332359155,
+        -4.671406221860652
+      ]
+    },
+    "batch_wall_s": {
+      "mean_relative_change_pct": 4.053946334479419,
+      "ordered_process_pair_changes_pct": [
+        3.1875307567670985,
+        4.900320078918341
+      ]
+    },
+    "mean_request_ttft_s": {
+      "mean_relative_change_pct": 7.211930560899882,
+      "ordered_process_pair_changes_pct": [
+        13.875801104431984,
+        1.009756081668689
+      ]
+    },
+    "mean_request_prefill_s": {
+      "mean_relative_change_pct": 0.5155328299601747,
+      "ordered_process_pair_changes_pct": [
+        0.1604169527466448,
+        0.8725530021534755
+      ]
+    },
+    "mean_request_decode_s": {
+      "mean_relative_change_pct": 3.1873589022858084,
+      "ordered_process_pair_changes_pct": [
+        2.544453917814593,
+        3.8150686788632315
+      ]
+    },
+    "mean_request_computed_prefill_tps": {
+      "mean_relative_change_pct": -0.5135250999550811,
+      "ordered_process_pair_changes_pct": [
+        -0.16016002890876235,
+        -0.8650053718129325
+      ]
+    },
+    "batch_last_ttft_s": {
+      "mean_relative_change_pct": 22.709856148283002,
+      "ordered_process_pair_changes_pct": [
+        54.21300500861606,
+        0.7836394798509394
+      ]
+    },
+    "computed_input_tokens_per_batch_last_ttft_s": {
+      "mean_relative_change_pct": -21.04704128498911,
+      "ordered_process_pair_changes_pct": [
+        -35.15462590563428,
+        -0.7775463199139576
+      ]
+    },
+    "mean_request_post_first_chunk_tps": {
+      "mean_relative_change_pct": -3.00753594168075,
+      "ordered_process_pair_changes_pct": [
+        -2.87624239365305,
+        -3.1426792580094287
+      ]
+    }
+  },
+  "confirmation_c2_4096": {
+    "aggregate_output_tps": {
+      "mean_relative_change_pct": 1.844419312914991,
+      "ordered_process_pair_changes_pct": [
+        -0.44985630575866686,
+        4.209151945246092
+      ]
+    },
+    "batch_wall_s": {
+      "mean_relative_change_pct": -1.8275829984742642,
+      "ordered_process_pair_changes_pct": [
+        0.4518891576293038,
+        -4.039138469774395
+      ]
+    },
+    "mean_request_ttft_s": {
+      "mean_relative_change_pct": -2.2804261956628102,
+      "ordered_process_pair_changes_pct": [
+        -3.021140697046565,
+        -1.537486882286243
+      ]
+    },
+    "mean_request_prefill_s": {
+      "mean_relative_change_pct": -1.7057298627499273,
+      "ordered_process_pair_changes_pct": [
+        -2.202782278818871,
+        -1.2084644868104566
+      ]
+    },
+    "mean_request_decode_s": {
+      "mean_relative_change_pct": -3.702231065419681,
+      "ordered_process_pair_changes_pct": [
+        -5.632155247648674,
+        -1.7076997597280763
+      ]
+    },
+    "mean_request_computed_prefill_tps": {
+      "mean_relative_change_pct": 1.7377121340706791,
+      "ordered_process_pair_changes_pct": [
+        2.2523976961174696,
+        1.2232469922983658
+      ]
+    },
+    "batch_last_ttft_s": {
+      "mean_relative_change_pct": -1.8048018285012346,
+      "ordered_process_pair_changes_pct": [
+        -2.4210184985074545,
+        -1.1877960006499544
+      ]
+    },
+    "computed_input_tokens_per_batch_last_ttft_s": {
+      "mean_relative_change_pct": 1.8411708907030588,
+      "ordered_process_pair_changes_pct": [
+        2.4810860507602506,
+        1.20207418980125
+      ]
+    },
+    "mean_request_post_first_chunk_tps": {
+      "mean_relative_change_pct": 3.7933124292517384,
+      "ordered_process_pair_changes_pct": [
+        4.3106856511643254,
+        3.284977415087953
+      ]
+    }
+  },
+  "confirmation_c8_1024": {
+    "aggregate_output_tps": {
+      "mean_relative_change_pct": 0.25850271157565885,
+      "ordered_process_pair_changes_pct": [
+        -0.4912259950118125,
+        1.008910284239195
+      ]
+    },
+    "batch_wall_s": {
+      "mean_relative_change_pct": -0.25292871109067194,
+      "ordered_process_pair_changes_pct": [
+        0.49365093673767735,
+        -0.9988329558255127
+      ]
+    },
+    "mean_request_ttft_s": {
+      "mean_relative_change_pct": 1.7378466457453445,
+      "ordered_process_pair_changes_pct": [
+        -1.4028391738415413,
+        4.892650302291468
+      ]
+    },
+    "mean_request_prefill_s": {
+      "mean_relative_change_pct": -0.643304735492356,
+      "ordered_process_pair_changes_pct": [
+        -2.9277573596945827,
+        1.6880218897575627
+      ]
+    },
+    "mean_request_decode_s": {
+      "mean_relative_change_pct": -0.3951475088930567,
+      "ordered_process_pair_changes_pct": [
+        0.8932998599650466,
+        -1.6829578372069331
+      ]
+    },
+    "mean_request_computed_prefill_tps": {
+      "mean_relative_change_pct": 0.6542867000926211,
+      "ordered_process_pair_changes_pct": [
+        3.016060286711597,
+        -1.6600007143295348
+      ]
+    },
+    "batch_last_ttft_s": {
+      "mean_relative_change_pct": -0.3094442523210561,
+      "ordered_process_pair_changes_pct": [
+        -6.136119576474053,
+        5.845116958954555
+      ]
+    },
+    "computed_input_tokens_per_batch_last_ttft_s": {
+      "mean_relative_change_pct": 0.34244648953891677,
+      "ordered_process_pair_changes_pct": [
+        6.537253253101283,
+        -5.522330294387812
+      ]
+    },
+    "mean_request_post_first_chunk_tps": {
+      "mean_relative_change_pct": 0.44110164243733596,
+      "ordered_process_pair_changes_pct": [
+        -0.6661552204853316,
+        1.5457590314383207
+      ]
+    }
+  },
+  "retention_judgment": "Keep the fixed zero-workspace trueKN policy for full paired quality evaluation. C1/131K whole-request throughput improves1.85% with TTFT lower2.11%, and both main process pairs have the same direction. C4/1K whole-request throughput costs3.87% in the bounded confirmation, matching the roughly4% main-study cost. This is the accepted measured tradeoff under the requested5% stable-regression guard.",
+  "initial_flag_preserved": "Main C4/1K mean request decode increased7.13% with pair changes6.25% and8.05%. In the predeclared short confirmation it increased3.19% with pair changes2.54% and3.82%. Both complete raw studies remain available. Their conditioning order and task CPU conditions differ.",
+  "ttft_uncertainty": "Confirmation C4/1K mean request TTFT increased7.21%, with process-pair changes13.88% and1.01%. Last-first-chunk timing changed54.21% and0.78%. Queue/admission patterns differ between cohorts. Statistical confidence and latency-tail characterization are limited by two independent processes per arm in each study.",
+  "quality_condition": "Final retention also requires the frozen paired quality, PPL/NLL, functional and actual-slot cancellation gates.",
+  "default_contract": "TP4 V100, FP16 compute, E4M3 KV, FP32 GDN and attention states, async runnerV2, maxseq8, maxlen262144, defaultchunk8192, page2048, Mamba8192 and unchanged sampler/features.",
+  "sources_sha256": {
+    "FORMAL_SERVICE_SUMMARY.json": "858dd55c6a63477897edc560321917145c0c3f0552a58424239d85ecbaded9e3",
+    "SHORT_CONFIRM_SUMMARY.json": "94427ecad7dac79c0726e847ab5126549d609e8ec8f87c5f3814b8b87ee55255",
+    "SHORT_CONFIRM_PREFLIGHT.json": "e4d326d41946d17e113a97af8fe981e3a48a2771fc7ab9ae1e673bb63f2c2645",
+    "NATIVE_DSO_ADMISSION.json": "15e5a02cc00f186ba8b664a87058d8303f6c47fae70a51926a43aaa2a54130bb"
+  }
+}

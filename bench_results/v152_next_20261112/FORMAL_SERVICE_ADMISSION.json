@@ -1,0 +1,71 @@
+{
+  "complete": true,
+  "images": {
+    "safe": "sha256:1c11cf5139e67f42a76d68bb40d3a8dcb68b8e9643338f4bd24ec823e463a026",
+    "new": "sha256:78675b92ac8d599af905cf5e474c4f95209984dde5e309f6c9860fe1811e76b2",
+    "prev": "sha256:0850a9d5267c92e5efe21a229cfbd6d9e7b2748b0f9f5b362c67d9cec2f22c15"
+  },
+  "processes": [
+    {
+      "label": "prev-p1",
+      "arm": "prev",
+      "container_id": "05f8d091b97f02d7d52619046a91837603d2fcad07e3484dea8bcd256e22e91e",
+      "started_at": "2026-11-12T12:41:28.854747631Z",
+      "image_id": "sha256:0850a9d5267c92e5efe21a229cfbd6d9e7b2748b0f9f5b362c67d9cec2f22c15",
+      "independent_unit": "Fresh service process",
+      "benchmark_sha256": "b0adfed08438b41511efc9008529db7153971956d4852c8f581d5d66b4cab8f2"
+    },
+    {
+      "label": "safe-a1",
+      "arm": "safe",
+      "container_id": "883ec0b0c97a5345c50261d124fd75fa85ec0cb688ae383a97be3852ea1cb88a",
+      "started_at": "2026-11-12T12:48:21.17280039Z",
+      "image_id": "sha256:1c11cf5139e67f42a76d68bb40d3a8dcb68b8e9643338f4bd24ec823e463a026",
+      "independent_unit": "Fresh service process",
+      "benchmark_sha256": "b0adfed08438b41511efc9008529db7153971956d4852c8f581d5d66b4cab8f2"
+    },
+    {
+      "label": "new-b1",
+      "arm": "new",
+      "container_id": "dec10412d8405b69c92d84f86040a6d2ecefba201b78676ea4ab21b9d09661f8",
+      "started_at": "2026-11-12T13:07:55.819488497Z",
+      "image_id": "sha256:78675b92ac8d599af905cf5e474c4f95209984dde5e309f6c9860fe1811e76b2",
+      "independent_unit": "Fresh service process",
+      "benchmark_sha256": "b0adfed08438b41511efc9008529db7153971956d4852c8f581d5d66b4cab8f2"
+    },
+    {
+      "label": "new-b2",
+      "arm": "new",
+      "container_id": "849694e98451ca6b94b915294a1be6c10820e09ea1407a9475ff8a64de65fa30",
+      "started_at": "2026-11-12T13:27:23.879160606Z",
+      "image_id": "sha256:78675b92ac8d599af905cf5e474c4f95209984dde5e309f6c9860fe1811e76b2",
+      "independent_unit": "Fresh service process",
+      "benchmark_sha256": "b0adfed08438b41511efc9008529db7153971956d4852c8f581d5d66b4cab8f2"
+    },
+    {
+      "label": "safe-a2",
+      "arm": "safe",
+      "container_id": "75ace3f90fe08ad1531186490657433593b1ba2d6feae503a1057fcc21b86f9b",
+      "started_at": "2026-11-12T13:46:54.478358857Z",
+      "image_id": "sha256:1c11cf5139e67f42a76d68bb40d3a8dcb68b8e9643338f4bd24ec823e463a026",
+      "independent_unit": "Fresh service process",
+      "benchmark_sha256": "b0adfed08438b41511efc9008529db7153971956d4852c8f581d5d66b4cab8f2"
+    },
+    {
+      "label": "prev-p2",
+      "arm": "prev",
+      "container_id": "67d12d6b4ba1417bec2b5ad77956eb38780f7786e69243bb535a369fe8382985",
+      "started_at": "2026-11-12T14:06:27.085923966Z",
+      "image_id": "sha256:0850a9d5267c92e5efe21a229cfbd6d9e7b2748b0f9f5b362c67d9cec2f22c15",
+      "independent_unit": "Fresh service process",
+      "benchmark_sha256": "b0adfed08438b41511efc9008529db7153971956d4852c8f581d5d66b4cab8f2"
+    }
+  ],
+  "ordering": "Bprev bookends with Bsafe/Bnew ABBA inside",
+  "independent_units_per_arm": {
+    "prev": 2,
+    "safe": 2,
+    "new": 2
+  },
+  "scope": "Trace-off service measurements. Related quality, independent async/cache efficiency and final qualification remain pending."
+}

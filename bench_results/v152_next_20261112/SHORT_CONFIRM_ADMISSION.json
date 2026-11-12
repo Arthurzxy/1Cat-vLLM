@@ -1,0 +1,45 @@
+{
+  "complete": true,
+  "processes": [
+    {
+      "label": "safe-q1",
+      "arm": "safe",
+      "container_id": "36993b49ab97f36a0ce96e4b67d51e874968e020bae4bb56430b6123aa3aec1b",
+      "started_at": "2026-11-12T14:14:47.098932679Z",
+      "image_id": "sha256:1c11cf5139e67f42a76d68bb40d3a8dcb68b8e9643338f4bd24ec823e463a026",
+      "independent_unit": "Fresh service process",
+      "benchmark_sha256": "b0adfed08438b41511efc9008529db7153971956d4852c8f581d5d66b4cab8f2"
+    },
+    {
+      "label": "new-r1",
+      "arm": "new",
+      "container_id": "899066d345ebc15c73319433448eebff990d5d51b8ff478f8b4b85d4e2f48f4e",
+      "started_at": "2026-11-12T14:21:54.429030273Z",
+      "image_id": "sha256:78675b92ac8d599af905cf5e474c4f95209984dde5e309f6c9860fe1811e76b2",
+      "independent_unit": "Fresh service process",
+      "benchmark_sha256": "b0adfed08438b41511efc9008529db7153971956d4852c8f581d5d66b4cab8f2"
+    },
+    {
+      "label": "new-r2",
+      "arm": "new",
+      "container_id": "28c02fd15f78f340233979f49a7ea321a3acaf77d393218657edab89355a13a2",
+      "started_at": "2026-11-12T14:29:01.90995704Z",
+      "image_id": "sha256:78675b92ac8d599af905cf5e474c4f95209984dde5e309f6c9860fe1811e76b2",
+      "independent_unit": "Fresh service process",
+      "benchmark_sha256": "b0adfed08438b41511efc9008529db7153971956d4852c8f581d5d66b4cab8f2"
+    },
+    {
+      "label": "safe-q2",
+      "arm": "safe",
+      "container_id": "da95b82bf71b28332ce9dd2e8e470774717772649af99976180d843cf40aa024",
+      "started_at": "2026-11-12T14:36:12.509825559Z",
+      "image_id": "sha256:1c11cf5139e67f42a76d68bb40d3a8dcb68b8e9643338f4bd24ec823e463a026",
+      "independent_unit": "Fresh service process",
+      "benchmark_sha256": "b0adfed08438b41511efc9008529db7153971956d4852c8f581d5d66b4cab8f2"
+    }
+  ],
+  "reason": "Initial main ABBA had C4/1K request decode duration increases of6.25% and8.05%, with differing acceptance/batch histories. Confirm related cells in one bounded quiet ABBA before retention.",
+  "independent_units_per_arm": 2,
+  "nested_batches_per_cell": 5,
+  "scope": "Additional focused confirmation. Initial matrix and its exceptions remain preserved. Co-resident services remain running."
+}

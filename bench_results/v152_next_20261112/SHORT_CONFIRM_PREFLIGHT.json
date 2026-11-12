@@ -1,0 +1,15 @@
+{
+  "complete": true,
+  "parent_lifecycle_sha256": "ad4d42626934dd646d3e82bdb132800de8a598421f3d5e5d9b8dd7dff7c4ffea",
+  "controller_sha256": "90395a89c8d656429b40d707184c1d6e3a8381c3090782a06bd2e963cebda546",
+  "ordering": "Bsafe Q1, Bnew R1, Bnew R2, Bsafe Q2",
+  "cells": [
+    "C4/1024",
+    "C2/4096",
+    "C8/1024"
+  ],
+  "output_tokens": 1024,
+  "nested_repeats": 5,
+  "predeclared_confirmation_limit": "One additional focused ABBA.",
+  "acceptance": "Review request TTFT/decode, complete output throughput, actual draft/accepted counts and co-resident activity jointly. Preserve initial exceptions and all process identities."
+}

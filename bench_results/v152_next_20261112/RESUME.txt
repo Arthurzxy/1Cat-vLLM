@@ -1,44 +1,46 @@
-v1.5.2 next iteration remains active. Finish the complete user task in TASK.txt.
-Repository /home/llm/1cat-v152-opt-20261111
-GitHub fork Arthurzxy/1Cat-vLLM, remote fork, branch codex/v152-opt-20261111.
-SSH access from the Windows host uses alias v100_llm. User authorized ongoing commits and pushes.
-Bprev commit 0a9ca74bc4897b8a8c3a2b9cbf7c345a77d063b9, image sha256:0850a9d5267c92e5efe21a229cfbd6d9e7b2748b0f9f5b362c67d9cec2f22c15
-Phase0 narrow verified commit pushed 1c56d045dca02a72453dd27c104d9dd0a88c9979
-Bsafe-next unit-qualified overlay sha256:1c11cf5139e67f42a76d68bb40d3a8dcb68b8e9643338f4bd24ec823e463a026
-60 independent GPU tests pass on both Bprev and one-warp insertion fix. No baseline race reproduced in this coverage.
-15 actual CLI/source-identity/SSE CPU regressions and2 observer contracts pass. Natural-EOS numerator now uses emitted tokens. Builder checks exact Git root and expected commit before compiling.
-Initial normal publish checks identified root-owned Ruff cache, ownership restored. Original two inherited MoE layering failures are proven identical to B0. Commit uses SKIP=check-layering only, all other applicable hooks execute. Git author uses Arthurzxy GitHub noreply address.
-B0 is a shallow boundary and has parent9f970d62885d4d73698d9e7a9859632a65704985. Prior genuine-root interpretation is corrected.
-Current services including ComfyUI and MinerU are retained. Serial test GPUs6-9, CUDA12.8+Torch2.10.0+cu128. CPU build container1cat-v152-next-build-20261112 is running with/workspace and/pinned-deps mounts.
-Real cancellation admission completed. BSAFE_SERVICE_ADMISSION.json is complete. Fresh service C1/C2/C3 exercises3 sampler graph buckets. cancel-state.json passes physical slot reuse, neutral metadata and64 output tokens plus one real GDN layer/rank bitwise against a clean reference. Actual final slots rank0..3 are6,3,2,3.
-Diagnostic attempt1 observer keyword mismatch and attempt2 scratch-column selection failure are fixed and preserved. Attempt2 slots were7,7,0,6. No all-rank equal-slot assumption is valid.
-Cancellation checkpoint277a8515e9352469ffed41b143ac92a0039c7c73 is pushed. Existing MoE inherited layering exception only, other applicable hooks pass. No own model/GPU experiment is running now. CPU build container remains running.
-Finite pair codec exhaustive4227072 half values pass bitwise. Full runtime sidecars pass800 operator checks. Eight ABBA/BAAB blocks per context with16-layer KV sets show3.8% to6.4% slower, so CODEC_DECISION.json withdraws it without a service rollout. Runtime source remains Bsafe-next.
-Active performance line is true K,N GEMM. First legacy7-algorithm screen saved gemm-kn-screen.json. Its random-root-K near-zero bound rejected baseline and bitwise-identical alternatives, while global relative L2 passes. Preserve it as an overstrict calibration failure. Do not relax relative thresholds. Next comparison must use a physically justified absolute FP32 summation+FP16 rounding bound or independent exact equivalence and record calibration separately.
-CPU build is incoming/build_next_lt_kn.py, log gemm-lt-build.log. It reuses existing cuBLASLt runner with TRANSB=N and B[K,N] guards. Freeze workspace/tile/stage/split before service use. No exhaustive unbounded search.
-Offline Nsight source export bprev-q8-source.csv is being generated from the qualified prior report. Pick one deep mechanism from actual PC/source/shared-bank evidence after codec withdrawal. At most2 active candidates.
-Prior large-M screen used the wrong non-Volta owner/layout. Actual Volta hot owner csrc/sm70_turbomind/ops/nvfp4_qpn4_sm70.cu materializes contiguous[K,N] and uses at::mm_out forM>1024, FP32 cuBLAS guard forsmallerM. Do not count the old[N,K] negative screen as evidence against this hot path.
-Remaining task includes runtime unique-batch/token accounting, correct profile slicing, candidate numerical and service A/B, one new deep mechanism selected by profile, independent async chunk4096/8192 and cache work, final combination and quality gates, fixed archive coverage and source snapshot placement, updated repro and final deliverables.
-Keep previous immutable artifact SHA28427ba260a458bf4185d096ce3b60cff67b2c1f28b6a5f6f928f79887b73ce3. New task corrects previous interpretation and packaging defects, without rewriting that historic artifact.
+V100 v1.5.2 续接状态
 
-Latest state after operator-evidence push8de61a1691e3268e3912c1c1e1d91c9bb6330ca1.
-True K,N Lt screening is complete. REAL_PROJECTION_INPUTS.json registers five actual model projection activations and captured TurboMind packed weights atM8192, rank0. Capture was an independent eager diagnostic request, and its service is stopped. Original CLI parameter error is preserved in the attempt1 logs. First generic apply_prepared wrapper was corrected to actual Qpn2NvFp4LinearKernel.apply_qpn2 before the successful request.
-Captured layer_tensors is empty because buffers live in Module._buffers. Real-chain test reconstructs compact scale codes from matching checkpoint projection shards via existing prepare_scales. GDN out and attention out have identicalK,N, so a first shape-keyed dictionary assertion failed before any numerical test. Corrected mapping uses actual layer prefixes. This failure and initial source-import shadowing remain in gemm-real-chain-gate.log and-r2.log.
-gemm-real-chain-results.json is complete. Independent logical nibble, split-half scale, correction/HFMA and FP16 rounding oracle matches all five native dequant weights bitwise. GEMM full FP32 and FP64 sampled checks pass on three selectedK5120 projections, and complete native dequant/GEMM/SiLU outputs match baseline bitwise on tested zero/small/actual activations. DownK4352/N5120 fails the frozen relative gate at small magnitudes, so is excluded. GDN outK1536/N5120 is excluded for weak shortlist benefit.
-Fresh source/PC diagnosis motivates32-bit LUT bank layout. q8-lut32-results.json passes800 bitwise checks but slows0.8-1.3%; LUT32_DECISION.json withdraws it. Both q8 candidates are closed. At most one performance candidate remains active.
-Native GEMM candidate is implemented in existing glm53_cublaslt_sm70.cpp and nvfp4_qpn4_sm70.cu. It reuses MatmulResources and fixed attribute helpers, adds cached capability-checked zero-workspace FP32 Lt plans only forM4096/8192,K5120,N3584/4128/8704. Version guardSM70+Lt12.8, fallback to original mm_out, originalM<=1024 route and standalone builds preserved. No per-step tuning or heuristic query. Cache entries publish only after initialization, avoiding null state after allocation failures. RECORD_FUNCTION gives a profiler owner for actual service route proof.
-fixed-lt/manifest.json identifies the actual new implementation, Lt120804. gemm-fixed-chain-results.json tests all six shapes with real activations, bitwise independent dequant, fixed-policy hit assertions and graph replay. All pass. Full chain reductions are about17.6/23.0% for full attentionQKV,4.8/5.3%GDN QKV,4.3/4.9%gate-up forM8192/4096. These are local one-process ABBA block results only. No service gain claimed.
-Next immediate steps are format/check/commit/push the candidate, rebuild affected_C in a fresh prefix preserving exact source→command→DSO identity, test actual native DSO and capabilities, collect GEMM resource/SASS evidence and normal-config service paired A/B. Old bsrc-fa2 build has140 cached objects and306MiB; original qualified build/install prefixes must remain immutable. Reuse pinned source caches and safe copied objects only if commands/input identities match. Its CMakeCache default52 is not target codegen; actual target flags explicitly sm_70. CUDA12.8+Torch2.10 cu128 unchanged.
-No own GPU service or benchmark is running now. Only CPU build container remains. Full Bprev/Bsafe/Bnew service accounting, async4096/8192/cache efficiency line, final quality/functional qualification, archive FILES/PAX repair and final deliverables remain required by TASK.txt. Do not stop at this checkpoint.
+本轮仍在进行。用户授权继续远程优化并持续 commit、push 到 Arthurzxy/1Cat-vLLM 的 codex/v152-opt-20261111 分支。MinerU 保留。本轮全部既有服务均持续运行，包括 ComfyUI。
 
-Latest native source checkpointd904f562861721c5a6138dd1306ecc54415d0805 is pushed and passes applicable hooks. Raw q8-lut32-results.json contains a generated module hash fragment that typos misreads as a word. It remains unchanged in raw artifacts, while the commit includes LUT32_DECISION.json with all measured medians. No hook was altered or newly skipped. Use .venv/bin/python -m pre_commit on the host, since the executable script shebang points at/workspace and works only inside the build container.
-Standard_C build is active in incoming/build_next_native_component.py, log native-component-build-controller.log and native-lt-component/stage-0/1/2.log. Source commit d904f562 is pinned, CUDA12.8/SM70 explicit, dependency source caches read-reused by recorded CMake seed. It builds only_C in a fresh prefix and preserves original qualified build/install paths. Final SM70 Marlin template compilation is CPU-active, not hung. Do not mutate native inputs while this builder runs.
-Chained controller incoming/freeze_next_native_image.py waits for native-lt-component/manifest.json, then builds native-lt-image/manifest.json atop immutableBsafe image with only_C replaced and container DSO hash verified. Controller incoming/run_next_native_dso_unit.py then runs actual baseline/candidate installed native entrypoints in independent GPU6 processes. It checks60 cases per arm, M128/2048 fallback and M4096/8192 selected shapes, graph replay, output hashes and20 profiler owner guards. Success markerNATIVE_DSO_ADMISSION.json. Their logs native-image-controller.log and native-dso-unit-controller.log may remain empty while waiting. Do not start another GPU job while that unit controller is active.
-Six real-input NCU reports are complete, GEMM_RESOURCE_DIAGNOSTIC.json. Full-attention QKV changes64x128/128threads/138regs/24832Bshared to256x128/256threads/250regs/65536Bshared, no spill, tensor-active elapsed64.77% to79.35%. GDN/gate-up changes CUTLASS128x128/128threads/242regs/32768Bshared to256x128/256threads/226regs/49152Bshared, no spill. NCU durations are diagnostic. Units are recorded explicitly. NVIDIA cubin SASS is available, original PTX source is unavailable.
-Default async batch ledger succeeded and its service is stopped. BATCH_LEDGER_SUMMARY.json verifies exact token-prefix alignment and count conservation. C1 cap33 uses16 unique batches,43 raw GPU samples,33 API commits,10 excluded raw tail,1 prefill token and32 strict-decode commits. C2 mixed uses26 unique batches,79 raw/66API/13excluded;64 strict-decode commits split40 in pure-decode batches and24 overlapping prefill. Do not divide all64 by pure-decode-only duration. Natural EOS requested512 but returned31(stop),33 raw/2excluded,30strict-decode plus1first token. Event intervals are nonoverlapping per rank0 and include probe fences/CPU-build contention, so none is formal speed evidence.
-Benchmark stream accounting now records start time, actual first-chunk token count and post-first-chunk numerator/duration/TPS, and explicitly labels chunk timing. A single multi-token chunk has zero post-first duration andNone rate.21 actual CLI/source/SSE/state CPU cases pass before formatting, with four new real subprocess multi-chunk variants. These benchmark/test changes and the diagnostic summaries are pending this checkpoint commit.
-UPSTREAM_NEXT_CORRECTIONS.json corrects PR953 using actual policyqpn8_rerank=true and current head MAX_ROWS8. Original FP16 weights do not make online QPN8 candidate heads inapplicable. Its concurrency extension remains optional/unmeasured, not a negative result from intermediate NVFP4 admission. Read-only qualification extension incoming/next_qualification_worker.py will report per-rank head state and matmul precision during actual service A/B.
-After actual native DSO admission, run normal-config canary/route proof, process-level paired formalBsafe/Bnew ABBA and necessaryBprev correctness-cost arm, final related quality/PPL/functional/cancel gates. Continue separate async chunk4096/8192 and four-group cache lifecycle/efficiency experiments. Final artifacts/repro/FILES/PAX packaging and report remain required. This task is not complete.
+源码锚点为2bb8c2b9cd7c1696630b6be464052027f0dd0147。Bprev 源码提交0a9ca74，Bsafe-next 最小 resample 修复提交1c56d04，性能候选 native 源码提交d904f56。最近已核验推送的提交为7c7417dad492303e5db731a142df30115b1b66bb。691个 native 源输入在7c7417d与原始d904构建冻结内容一致。
 
-Actual native component and image are now complete. Candidate image sha256:78675b92ac8d599af905cf5e474c4f95209984dde5e309f6c9860fe1811e76b2 overlays only_C ontoBsafe-next. Native_C SHA c5567901bb4a4b542756e861e004af9153ac97fc9eefdfd19d1dd18381c00ed7, source commit d904f562861721c5a6138dd1306ecc54415d0805. Native source inputs stayed unchanged through the standard build. native-lt-component/manifest.json and native-lt-image/manifest.json freeze the full chain.
-NATIVE_DSO_ADMISSION.json is complete. Actual baseline and rebuilt_C independent processes pass60 cases per arm, all60 outputs are byte-identical, including M128/M2048 fallback and selected M4096/M8192.20 profiler-owner checks confirm new plans hit exactly admitted shapes and decline others. Services and GPU unit jobs are stopped. CPU build container remains available and no compilation is running. Next GPU work is normal-config service canary/route proof and process ABBA, followed by required quality, async/cache line and final delivery. Do not stop here.
+Bprev 镜像为sha256:0850a9d5267c92e5efe21a229cfbd6d9e7b2748b0f9f5b362c67d9cec2f22c15。
+Bsafe-next 镜像为sha256:1c11cf5139e67f42a76d68bb40d3a8dcb68b8e9643338f4bd24ec823e463a026。
+native 候选镜像为sha256:78675b92ac8d599af905cf5e474c4f95209984dde5e309f6c9860fe1811e76b2。
+候选_C SHA256为c5567901bb4a4b542756e861e004af9153ac97fc9eefdfd19d1dd18381c00ed7。FA2 page2048库继承Bprev，SHA256为2febf1935796fb5c13ea2d8bdbaf44a2c047aad0678841af3c0f6e34ac035074。
+
+已完成的独立验证
+
+resample 原路径与单warp修复各60例通过，原竞争本机未复现。真实取消已核实非空生成、decode/state写入、释放、同物理slot复用及干净参考一致。状态比较范围为每rank一个实际GDN层。自然EOS账本核对512预算、31实际返回、33原始采样及2尾部截断，GPU诊断时间包含探针成本。
+
+E4M3 pair转换穷举通过4227072个half值，800项算子检查通过。完整16层工作集attention+combine慢3.8%到6.4%，已撤回。q8 LUT32布局800项检查通过，实测慢约1%，已撤回。真实KN GEMM的6个精选shape完整子链局部收益4.3%到23%，实际新旧_C各60例输出全部逐位一致，20项路由检查通过。完整131K canary在每rank命中2048次新路径。NCU/SASS与逐rank完整profile保存在本目录。
+
+主服务正式矩阵已完成
+
+FORMAL_SERVICE_ADMISSION.json记录Bprev两个独立进程书挡及Bsafe/Bnew中间ABBA，每格2个batch，每请求输出1024。FORMAL_SERVICE_SUMMARY.json由incoming/summarize_next_service.py纯重算生成。C1/131K完整请求吞吐约提高1.85%，TTFT缩短约2.11%。C4/1K平均请求decode约增加7.13%，因此性能候选仍待最终保留决策。原始异常和接受计数均保留。
+
+已完成的有限短请求确认
+
+incoming/run_next_short_confirmation.py及short-confirm-controller.log。四个独立进程按Bsafe Q1、Bnew R1、Bnew R2、Bsafe Q2运行。每进程仅测C4/1K、C2/4K、C8/1K，每格5个batch。SHORT_CONFIRM_PREFLIGHT.json在测试前冻结范围。本任务的构建和提交钩子排在这组确认之后。后台轻量等待控制器继续运行，离线分析绑定CPU0-3。
+
+实际主配置已由四rank RPC核实async=true、chunk8192、long_prefill_threshold8192、mixed_prefill_step_latency_ms250、mixed_prefill_min_tokens0。记录在short-confirm/safe-q1/precision-and-heads.json。模型、采样、E4M3 KV、FP32 GDN/attention、maxlen262144、maxseq8、q8及多模态功能契约保持既定配置。
+
+后续串行队列
+
+短确认已完成，纯重算入口为incoming/summarize_next_service.py --root 本目录 --study short，。SERVICE_WINNER_DECISION.json已冻结性能阶段取舍，retain_native_candidate=true进入完整质量验收。补充确认C4/1K输出率回退3.87%，平均decode时长增加3.19%，TTFT跨进程波动明显，原始主矩阵7.13%的decode异常保留。最终资格还需质量及组合验收。
+
+incoming/run_next_quality_services.py等待上述决策，日志quality-services-controller.log。随后完整跑Bsafe以及获保留候选的1819条质量、296组PPL/NLL、50项功能和真实取消。incoming/run_next_quality_comparison.py等待QUALITY_SERVICE_RUNS_COMPLETE.json，写FINAL_QUALITY_SUMMARY.json并逐条比较消息、grade、logprob与功能判定。
+
+incoming/run_next_efficiency_services.py等待完整质量及配对汇总，日志efficiency-services-controller-r3.log。它依次运行Bsafe四组cache归因、async等待年龄诊断、8192/4096及预算下限配置消融、有限确认和最终缓存/可选async组合。各formal效率时间使用关闭诊断的独立进程，四组缓存探针与年龄探针时间另列。预先声明的选择门槛和每进程36短请求的经验p95范围均保留。
+
+incoming/run_next_memcheck.py等待EFFICIENCY_SERVICE_RUNS_COMPLETE.json，日志memcheck-controller.log。它在GPU6对实际候选DSO运行6个真实投影shape的eager/capture/replay memcheck，并核原始baseline输出hash。
+
+最后还需完成所有结果重算、质量及性能决策、EXPERIMENTS和UPSTREAM更正、最终报告、REPRODUCE、源码patch、最终镜像标签、资源检查及累计归档。本任务的交付仍待这些阶段完成。
+
+构建与归档记录
+
+REPRO_BUILD_ENVIRONMENT.json给出实际CUDA12.8.61、g++13.3、CMake3.31.6、继承Ninja及Torch2.10.0+cu128。cutlass与triton源干净。flash-attn目录包含由CMake补丁配方产生的改动，补丁与额外源已存dependency-inputs。691项组件输入、实际Ninja命令、编译器头依赖和DSO身份完整保留。重建仅涉及_C，其他已验收DSO继承。
+
+incoming/package_next_artifacts.py和verify_next_archive.py准备生成新的累计交付包。旧包位于bench_results/v152_opt_20261111/delivery/v152-opt-artifacts.tar.gz，SHA256为28427ba260a458bf4185d096ce3b60cff67b2c1f28b6a5f6f928f79887b73ce3，须保留该文件。新包规范化PAX path/linkpath，修正3个Blackwell JSON前缀，FILES覆盖实际交付文件、Dockerfile、源码快照、许可证与可执行模式。REPRODUCE使用确切Git根目录和expected commit，在编译前验证内容。源码快照用于内容审查。
+
+提交钩子仅保留已有check-layering例外，两个MoE文件与B0逐字相同，计数25到32及37到39。其余适用检查正常运行，修复了新增脚本的格式和SPDX头。原始失败日志保留。原47/50功能中3个marker遗漏继续保留。PR953的并发candidate-head扩展属于未测队列，已有FP16原始head上的在线QPN8路径已实际启用，旧中间投影实验的负面结果归属已更正。浅边界2bb8c2b具有实际父commit9f970d62885d4d73698d9e7a9859632a65704985。

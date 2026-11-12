@@ -14,7 +14,7 @@ parser.add_argument("--output", type=Path, required=True)
 parser.add_argument("--lengths", type=int, nargs="+", default=[131072, 250000])
 parser.add_argument("--repeats", type=int, default=2)
 args = parser.parse_args()
-root = Path("/home/llm/1cat-v152-opt-20261111")
+root = Path(__file__).resolve().parents[3]
 source = root / "bench_results/v152_opt_20261111/unique-corpus-tokens.json"
 corpus = json.loads(source.read_text())["tokens"]
 assert not args.output.exists()

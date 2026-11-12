@@ -10,6 +10,7 @@ from pathlib import Path
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--root", type=Path, required=True)
+parser.add_argument("--study", choices=["main", "short"], default="main")
 args = parser.parse_args()
 out = args.root
 groups = {
@@ -17,15 +18,26 @@ groups = {
     "safe": ["safe-a1", "safe-a2"],
     "new": ["new-b1", "new-b2"],
 }
+study_folder = "formal"
+pattern = "formal-c*.json"
+marker = "FORMAL_SERVICE_ADMISSION.json"
+summary_name = "FORMAL_SERVICE_SUMMARY.json"
+ordering = "Bprev P1, Bsafe A1, Bnew B1, Bnew B2, Bsafe A2, Bprev P2"
+if args.study == "short":
+    groups = {"safe": ["safe-q1", "safe-q2"], "new": ["new-r1", "new-r2"]}
+    study_folder = "short-confirm"
+    pattern = "confirm-c*.json"
+    marker = "SHORT_CONFIRM_ADMISSION.json"
+    summary_name = "SHORT_CONFIRM_SUMMARY.json"
+    ordering = "Bsafe Q1, Bnew R1, Bnew R2, Bsafe Q2"
 cells = {}
-raw = {}
 sources = {}
 for arm, processes in groups.items():
     for process in processes:
-        folder = out / "formal" / process
+        folder = out / study_folder / process
         if not (folder / "complete.json").exists():
             continue
-        for source in sorted(folder.glob("formal-c*.json")):
+        for source in sorted(folder.glob(pattern)):
             if ".stage." in source.name:
                 continue
             value = json.loads(source.read_text())
@@ -34,7 +46,7 @@ for arm, processes in groups.items():
             sources[str(source.relative_to(out))] = hashlib.sha256(
                 source.read_bytes()
             ).hexdigest()
-            concurrency = int(source.stem.removeprefix("formal-c"))
+            concurrency = int(source.stem.split("-")[1].removeprefix("c"))
             for row in value["runs"]:
                 key = f"C{concurrency}/{row['length']}"
                 metrics = row["metrics"]
@@ -45,6 +57,14 @@ for arm, processes in groups.items():
                 prefill = metric("request_prefill_time_seconds_sum") / concurrency
                 decode = metric("request_decode_time_seconds_sum") / concurrency
                 computed = metric("request_prefill_kv_computed_tokens_sum")
+                started = min(item["started_monotonic_s"] for item in row["results"])
+                last_first_chunk = (
+                    max(
+                        item["started_monotonic_s"] + item["ttft_s"]
+                        for item in row["results"]
+                    )
+                    - started
+                )
                 sample = {
                     "aggregate_output_tps": row["emitted_tokens"] / row["batch_wall_s"],
                     "batch_wall_s": row["batch_wall_s"],
@@ -56,6 +76,13 @@ for arm, processes in groups.items():
                     "mean_request_computed_prefill_tps": computed
                     / concurrency
                     / prefill,
+                    "batch_last_ttft_s": last_first_chunk,
+                    "computed_input_tokens_per_batch_last_ttft_s": (
+                        computed / last_first_chunk
+                    ),
+                    "mean_request_post_first_chunk_tps": statistics.mean(
+                        item["post_first_chunk_tps"] for item in row["results"]
+                    ),
                     "computed_input_tokens": computed,
                     "cache_hits": metric("prefix_cache_hits_total"),
                     "preemptions": metric("num_preemptions_total"),
@@ -74,7 +101,6 @@ for arm, processes in groups.items():
                 cells.setdefault(key, {}).setdefault(arm, {}).setdefault(
                     process, []
                 ).append(sample)
-                raw[(arm, key, row["trial"])] = [x["tokens"] for x in row["results"]]
 
 
 def describe(values):
@@ -96,6 +122,9 @@ metric_names = [
     "mean_request_prefill_s",
     "mean_request_decode_s",
     "mean_request_computed_prefill_tps",
+    "batch_last_ttft_s",
+    "computed_input_tokens_per_batch_last_ttft_s",
+    "mean_request_post_first_chunk_tps",
     "accepted",
     "proposed",
     "drafts",
@@ -124,7 +153,7 @@ for key, arms in cells.items():
         if candidate not in arms or baseline not in arms:
             continue
         changes = {}
-        for name in metric_names[:6]:
+        for name in metric_names[:9]:
             left = record["arms"][candidate][name]
             right = record["arms"][baseline][name]
             changes[name] = {
@@ -136,24 +165,30 @@ for key, arms in cells.items():
             }
         record["comparisons"][label] = changes
     summary[key] = record
-complete = (out / "FORMAL_SERVICE_ADMISSION.json").exists()
+complete = (out / marker).exists()
 report = {
     "complete": complete,
     "cells": summary,
     "raw_sources_sha256": sources,
     "independent_unit": (
-        "Fresh service process. Two batches per cell are nested measurements."
+        "Fresh service process. Per-process medians summarize nested batches."
     ),
-    "ordering": "Bprev P1, Bsafe A1, Bnew B1, Bnew B2, Bsafe A2, Bprev P2",
+    "ordering": ordering,
+    "batch_prefill_timing": (
+        "batch_last_ttft_s spans the earliest request start through the last "
+        "observed first SSE chunk. Its computed-input rate includes queueing, "
+        "transport and concurrent decode work. Per-request server prefill "
+        "durations are reported separately."
+    ),
     "limits": [
-        "Two processes per arm do not establish a statistical no-regression guarantee.",
+        "Independent service-process count is2/arm. Statistical confidence is limited.",
         (
             "Request decode/prefill durations overlap for concurrent requests. "
-            "Their sums are not system throughput denominators."
+            "System throughput uses the complete batch wall interval."
         ),
         (
             "Computed prefill TPS is a per-request effective rate including "
-            "scheduling, not pure CUDA kernel rate."
+            "scheduling. CUDA kernel timing is available in separate diagnostics."
         ),
         (
             "Actual GPU step/bonus/truncation accounting is in the separate "
@@ -161,7 +196,7 @@ report = {
         ),
     ],
 }
-(out / "FORMAL_SERVICE_SUMMARY.json").write_text(json.dumps(report, indent=2) + "\n")
+(out / summary_name).write_text(json.dumps(report, indent=2) + "\n")
 for key, cell in summary.items():
     change = cell["comparisons"].get("performance_increment", {})
     print(

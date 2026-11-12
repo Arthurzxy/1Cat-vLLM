@@ -17,13 +17,18 @@ python = str(root / ".host-venv/bin/python")
 incoming = out / "incoming"
 base = "http://127.0.0.1:18111"
 deadline = time.monotonic() + 86400
-while not (out / "QUALITY_SERVICE_RUNS_COMPLETE.json").exists():
+while not all(
+    (out / name).exists()
+    for name in ["QUALITY_SERVICE_RUNS_COMPLETE.json", "FINAL_QUALITY_SUMMARY.json"]
+):
     assert time.monotonic() < deadline
     time.sleep(10)
 decision = json.loads((out / "SERVICE_WINNER_DECISION.json").read_text())
 safe = json.loads((out / "bsafe-next/manifest.json").read_text())["image_id"]
 new = json.loads((out / "native-lt-image/manifest.json").read_text())["image_id"]
-selected = new if decision["retain_native_candidate"] else safe
+quality = json.loads((out / "FINAL_QUALITY_SUMMARY.json").read_text())
+assert quality["complete"]
+selected = new if decision["retain_native_candidate"] and quality["passed"] else safe
 counterfactual = json.loads(
     (out / "cache-original-window-logic/manifest.json").read_text()
 )["image_id"]
@@ -155,7 +160,7 @@ def run_service(
             "-v",
             str(trace) + ":/cache-trace",
             "-v",
-            str(old / "cache-ablation-observer.py")
+            str(incoming / "next_cache_observer.py")
             + ":/opt/venv/lib/python3.12/site-packages/v152_cache_diagnostic.py:ro",
             "-v",
             str(old / "cache-ablation-observer.pth")
@@ -300,6 +305,33 @@ for label, interval, partial, image in cache_profiles:
         indent=2,
     )
     + "\n"
+)
+
+
+def pressure_diagnostic(folder):
+    execute(
+        folder,
+        "chat-pressure",
+        [
+            python,
+            str(root / "benchmarks/cache_v152.py"),
+            "--output",
+            str(folder / "chat-pressure.json"),
+            "--lengths",
+            "131072",
+            "--pressure-count",
+            "8",
+        ],
+    )
+
+
+run_service(
+    "cache-pressure-diagnostic",
+    safe,
+    pressure_diagnostic,
+    interval=8192,
+    partial=True,
+    cache_trace=True,
 )
 
 

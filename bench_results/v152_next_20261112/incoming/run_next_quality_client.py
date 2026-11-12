@@ -4,7 +4,7 @@ import importlib.util
 import sys
 from pathlib import Path
 
-root = Path("/home/llm/1cat-v152-opt-20261111")
+root = Path(__file__).resolve().parents[3]
 position = sys.argv.index("--grader-image")
 grader = sys.argv[position + 1]
 assert grader.startswith("sha256:") and len(grader) == 71

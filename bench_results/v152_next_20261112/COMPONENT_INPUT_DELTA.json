@@ -1,0 +1,17 @@
+{
+  "changed_inputs": {
+    "csrc/attention/sm70_grouped_long/kernel/grouped-attention.cu": {
+      "old": "ed3112f54dcf8f2d2c52d7abef4624c28fab2763af6b6f9e1885d72642b95f0e",
+      "new": "a5334f761f422fd09c030b3d9bc8e86b05430c3cec86351c5fa62e3ba24cc701"
+    },
+    "csrc/sm70_turbomind/ops/glm53_cublaslt_sm70.cpp": {
+      "old": "8b6c806bd1ac2cdc9231ce4262913763b3c6ca329a50ed4e61de1fbf50250c13",
+      "new": "9318e7e0d3338afb45f501d46d4d46adae49c5d8be1dc070fbfd27caa3f3d673"
+    },
+    "csrc/sm70_turbomind/ops/nvfp4_qpn4_sm70.cu": {
+      "old": "0977f80fe9f99f848530b8ab22cc2dc94957777a5a538f0473353ac828d4074c",
+      "new": "12c3cd08c151417e27acb41d474f47e748b2b16f5312e84e8cf2a24427436c2f"
+    }
+  },
+  "scope": "Compare frozen B0 component input inventory to candidate standard_C inputs. Page2048 FA2 source is in the cumulative tree, but its DSO is inherited from Bprev. Only the two trueKN C++/CUDA files affect the new_C policy."
+}

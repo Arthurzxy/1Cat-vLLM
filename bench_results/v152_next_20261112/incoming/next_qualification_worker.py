@@ -56,4 +56,18 @@ class QualificationWorker(LongctxWorkerProbe):
                     if (value := getattr(state, field, None)) is not None
                 }
             heads.append(head)
-        return {"rank": self.rank, "matmul_precision": precision, "heads": heads}
+        return {
+            "rank": self.rank,
+            "matmul_precision": precision,
+            "heads": heads,
+            "scheduler": {
+                name: getattr(self.vllm_config.scheduler_config, name)
+                for name in [
+                    "async_scheduling",
+                    "max_num_batched_tokens",
+                    "long_prefill_token_threshold",
+                    "mixed_prefill_step_latency_ms",
+                    "mixed_prefill_min_tokens",
+                ]
+            },
+        }

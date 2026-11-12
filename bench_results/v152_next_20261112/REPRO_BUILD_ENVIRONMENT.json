@@ -1,0 +1,68 @@
+{
+  "complete": true,
+  "torch_version": "2.10.0+cu128",
+  "torch_file": "/opt/venv/lib/python3.12/site-packages/torch/__init__.py",
+  "torch_cuda": "12.8",
+  "dependencies": {
+    "cutlass": {
+      "path": "/workspace/bench_results/v152_opt_20261111/bsrc-fa2/deps/cutlass-src",
+      "commit": "da5e086dab31d63815acafdac9a9c5893b1c69e2",
+      "tree": "e41cda383c529729667cab3511a850d1f501de46",
+      "dirty": "",
+      "remotes": "origin\thttps://github.com/nvidia/cutlass.git (fetch)\norigin\thttps://github.com/nvidia/cutlass.git (push)"
+    },
+    "flash-attn": {
+      "path": "/workspace/bench_results/v152_opt_20261111/bsrc-fa2/deps/vllm-flash-attn-src",
+      "commit": "c2eda5e6115b98c3ba4bfd181570668742eece22",
+      "tree": "92df0d227ed9f41ddfa950a8ee58a9c7ca08d9c2",
+      "dirty": "M CMakeLists.txt\n M csrc/flash_attn/flash_api.cpp\n M csrc/flash_attn/flash_api_torch_lib.cpp\n M csrc/flash_attn/src/flash_fwd_kernel.h\n M csrc/flash_attn/src/flash_fwd_launch_template.h\n M csrc/flash_attn/src/kernel_traits.h\n?? csrc/flash_attn/src/flash_fwd_d256_gqa_arch_sm70.cu\n?? csrc/flash_attn/src/flash_fwd_d256_splitd_sm70.cu\n?? csrc/flash_attn/src/flash_fwd_d256_splitd_sm70.cu.orig",
+      "remotes": "origin\thttps://github.com/zhinianqin/flash-attention-v100.git (fetch)\norigin\thttps://github.com/zhinianqin/flash-attention-v100.git (push)",
+      "dirty_patch_sha256": "39fe2460bc6ce5112169a37d30d0a6371a62017b85ce48e9e946dd419fb3de86",
+      "untracked_files": {
+        "csrc/flash_attn/src/flash_fwd_d256_gqa_arch_sm70.cu": "a68ec93936f247359f1bda6ac0b5ff4a20dcd0acb1648b94cf5b5cb8cada7100",
+        "csrc/flash_attn/src/flash_fwd_d256_splitd_sm70.cu": "867694f27ed44f6706ac53369bfeb211f6d46f429fbcaca59ed8c223b4018654",
+        "csrc/flash_attn/src/flash_fwd_d256_splitd_sm70.cu.orig": "56cedec1e33cd92cc6b5ff973cbade4ceb74970370390b4ac5ba04961a80c4bf"
+      }
+    },
+    "triton": {
+      "path": "/pinned-deps/triton_kernels-src",
+      "commit": "0add68262ab0a2e33b84524346cb27cbb2787356",
+      "tree": "de055ee6adc5cfdd4891ccc3b50cf0a5cbd96163",
+      "dirty": "",
+      "remotes": "origin\thttps://github.com/triton-lang/triton.git (fetch)\norigin\thttps://github.com/triton-lang/triton.git (push)"
+    }
+  },
+  "tools": {
+    "nvcc": {
+      "path": "/usr/local/cuda/bin/nvcc",
+      "resolved_path": "/usr/local/cuda-12.8/bin/nvcc",
+      "sha256": "3aadf006f53dd288a372b2c4fabd46df1caa25aacd2e60964d7a26af25e91517",
+      "version": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Wed_Jan_15_19:20:09_PST_2025\nCuda compilation tools, release 12.8, V12.8.61\nBuild cuda_12.8.r12.8/compiler.35404655_0"
+    },
+    "cmake": {
+      "path": "/workspace/.venv/bin/cmake",
+      "resolved_path": "/workspace/.venv/bin/cmake",
+      "sha256": "17a0f7bb56cd6bf6105223ac4aff4625c7b4d8dab57a26af9e687791fae21e2d",
+      "version": "cmake version 3.31.6\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake)."
+    },
+    "ninja": {
+      "path": "/opt/venv/bin/ninja",
+      "resolved_path": "/opt/venv/bin/ninja",
+      "sha256": "08639e194fffa7f08b259fc4abfa4803aff66b64de52549cee42ec527d55cea6",
+      "version": "1.13.2.git.kitware.jobserver-pipe-1"
+    },
+    "g++": {
+      "path": "/usr/bin/g++",
+      "resolved_path": "/usr/bin/x86_64-linux-gnu-g++-13",
+      "sha256": "52f1ddb33fe78b9441e0f42e9cd22c571f1101938e046c8a26582494e041cc73",
+      "version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
+    }
+  },
+  "pyvenv_cfg": "home = /usr/bin\nimplementation = CPython\nuv = 0.11.23\nversion_info = 3.12.3\ninclude-system-site-packages = true\n",
+  "venv_pth": {
+    "_virtualenv.pth": "import _virtualenv",
+    "base-image.pth": "/opt/venv/lib/python3.12/site-packages",
+    "installed-runtime.pth": "/opt/venv/lib/python3.12/site-packages\n"
+  },
+  "native_source_commit": "d904f562861721c5a6138dd1306ecc54415d0805"
+}

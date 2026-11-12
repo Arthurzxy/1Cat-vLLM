@@ -41,5 +41,7 @@
   "selection_before_results": "At least5% lower empirical short-request p95 and at most5% observed regression in resident max chunk gap, inserted32K TTFT and whole-workload output throughput. Confirm a promising profile in a second independent process paired with a second baseline.",
   "main_contract": "Default8192 main kernel qualification is independent of optional efficiency presets.",
   "sampling_limits": "36 short requests per formal process, three mixed trials. Counts are empirical, with fresh service process as independent unit. No stable p99 claim.",
-  "resources": "Serial TP4 on6-9 after full kernel quality runs. Existing MinerU and ComfyUI remain running."
+  "resources": "Serial TP4 on6-9 after full kernel quality runs. Existing MinerU and ComfyUI remain running.",
+  "cache_pool_diagnostic": "Read-only state/history capacity, pinned, cached and free-or-evictable blocks are recorded on lookup/allocation/free, plus a separate131K pressure/revisit diagnostic pass.",
+  "cache_observer_sha256": "02c1faf551ad63d32582917c6504c993c0110ed6d8a1069bcc4858ede4fbd34a"
 }

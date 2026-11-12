@@ -2,12 +2,16 @@
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 """Per-rank GPU kernels linked to exact fixed-policy CPU external IDs."""
 
+import argparse
 import collections
 import hashlib
 import json
 from pathlib import Path
 
-out = Path("/home/llm/1cat-v152-opt-20261111/bench_results/v152_next_20261112")
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
+args = parser.parse_args()
+out = args.root
 folder = out / "service-canary/profiles"
 report = {
     "complete": False,

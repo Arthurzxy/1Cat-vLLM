@@ -1,0 +1,22 @@
+{
+  "complete": true,
+  "files": {
+    "red-2frames.mp4": {
+      "source_path": "/home/llm/1cat-v152-opt-20261111/bench_results/v152_opt_20261111/red-2frames.mp4",
+      "bytes": 925,
+      "sha256": "fc8c41b977d091aa6c7eb5120b1714c86a63c77ce761cb94d067bc946980f867"
+    },
+    "chat_template.jinja": {
+      "source_path": "/data/1cat-vllm/templates/chat_template.jinja",
+      "bytes": 8865,
+      "sha256": "0225a1ab309acacef65ebbc23001b13e95d243a9a9c87c2f64406606cb1e339d"
+    }
+  },
+  "host_venv_packages": {
+    "regex": "2026.11.7",
+    "pybase64": "1.5.1"
+  },
+  "corpus_and_cases": "Previous archive raw/unique-corpus-tokens.json and raw/quality-data retain the frozen benchmark and grading data.",
+  "video_fixture": "Provide this file at checkout/bench_results/v152_opt_20261111/red-2frames.mp4 for functional_v152.py.",
+  "template_mount": "Mount the supplied fixtures directory read-only at/templates when reconstructing the fixed service command."
+}

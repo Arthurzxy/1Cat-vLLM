@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "processes": [
+    {
+      "study": "main",
+      "process": "safe-a1",
+      "batches": [
+        {
+          "trial": 0,
+          "client_start_spread_ms": 3.7335800006985664,
+          "ttft_s_by_request": [
+            0.28306465095374733,
+            0.7329815090633929,
+            1.169249831000343,
+            1.555821422021836
+          ],
+          "queue_time_sum_s": 0.4677674419945106,
+          "waiting_peak": 1.0,
+          "actual_drafts": 1270.0,
+          "actual_accepted": 2829.0
+        },
+        {
+          "trial": 1,
+          "client_start_spread_ms": 15.168390003964305,
+          "ttft_s_by_request": [
+            0.3029172640526667,
+            0.7612137699034065,
+            1.2058178529841825,
+            1.4228101760381833
+          ],
+          "queue_time_sum_s": 0.4760739889461547,
+          "waiting_peak": 1.0,
+          "actual_drafts": 1182.0,
+          "actual_accepted": 2918.0
+        }
+      ]
+    },
+    {
+      "study": "main",
+      "process": "safe-a2",
+      "batches": [
+        {
+          "trial": 0,
+          "client_start_spread_ms": 3.5271618980914354,
+          "ttft_s_by_request": [
+            0.298695238889195,
+            0.7327026490820572,
+            1.167729725013487,
+            1.571046253084205
+          ],
+          "queue_time_sum_s": 0.668151886202395,
+          "waiting_peak": 2.0,
+          "actual_drafts": 1222.0,
+          "actual_accepted": 2876.0
+        },
+        {
+          "trial": 1,
+          "client_start_spread_ms": 15.347192995250225,
+          "ttft_s_by_request": [
+            0.7638120370684192,
+            0.3007229369832203,
+            1.2177082980051637,
+            1.4238126310519874
+          ],
+          "queue_time_sum_s": 0.47565671580377966,
+          "waiting_peak": 1.0,
+          "actual_drafts": 1216.0,
+          "actual_accepted": 2881.0
+        }
+      ]
+    },
+    {
+      "study": "main",
+      "process": "new-b1",
+      "batches": [
+        {
+          "trial": 0,
+          "client_start_spread_ms": 3.658339031971991,
+          "ttft_s_by_request": [
+            0.29066929197870195,
+            0.7394416740862653,
+            1.174770659999922,
+            1.5661925530293956
+          ],
+          "queue_time_sum_s": 0.46661310514900833,
+          "waiting_peak": 1.0,
+          "actual_drafts": 1270.0,
+          "actual_accepted": 2829.0
+        },
+        {
+          "trial": 1,
+          "client_start_spread_ms": 8.987920940853655,
+          "ttft_s_by_request": [
+            0.7565594729967415,
+            1.2146816900931299,
+            0.287873649969697,
+            1.424470951082185
+          ],
+          "queue_time_sum_s": 0.47676559595856816,
+          "waiting_peak": 1.0,
+          "actual_drafts": 1281.0,
+          "actual_accepted": 2812.0
+        }
+      ]
+    },
+    {
+      "study": "main",
+      "process": "new-b2",
+      "batches": [
+        {
+          "trial": 0,
+          "client_start_spread_ms": 3.361242008395493,
+          "ttft_s_by_request": [
+            0.3018753109499812,
+            0.7325712339952588,
+            1.1834639800945297,
+            1.5846010230015963
+          ],
+          "queue_time_sum_s": 0.6679313657805324,
+          "waiting_peak": 2.0,
+          "actual_drafts": 1222.0,
+          "actual_accepted": 2876.0
+        },
+        {
+          "trial": 1,
+          "client_start_spread_ms": 15.57206199504435,
+          "ttft_s_by_request": [
+            0.5851481619756669,
+            0.27876414894126356,
+            1.0278664000798017,
+            1.3785588380414993
+          ],
+          "queue_time_sum_s": 0.2999101650202647,
+          "waiting_peak": 0.0,
+          "actual_drafts": 1239.0,
+          "actual_accepted": 2858.0
+        }
+      ]
+    },
+    {
+      "study": "short-confirm",
+      "process": "safe-q1",
+      "batches": [
+        {
+          "trial": 0,
+          "client_start_spread_ms": 3.824673010967672,
+          "ttft_s_by_request": [
+            0.2911974700400606,
+            1.010479743941687,
+            1.0096630280604586,
+            1.008805350982584
+          ],
+          "queue_time_sum_s": 0.00017966097220778465,
+          "waiting_peak": 0.0,
+          "actual_drafts": 1234.0,
+          "actual_accepted": 2858.0
+        },
+        {
+          "trial": 1,
+          "client_start_spread_ms": 10.592206032015383,
+          "ttft_s_by_request": [
+            0.2809202859643847,
+            0.9974974639480934,
+            0.9891849069390446,
+            0.9885061050299555
+          ],
+          "queue_time_sum_s": 0.00010482186917215586,
+          "waiting_peak": 0.0,
+          "actual_drafts": 1236.0,
+          "actual_accepted": 2863.0
+        },
+        {
+          "trial": 2,
+          "client_start_spread_ms": 2.9671629890799522,
+          "ttft_s_by_request": [
+            0.29028606601059437,
+            1.0110888259951025,
+            1.0105922810034826,
+            1.0100064099533483
+          ],
+          "queue_time_sum_s": 0.0001560429809615016,
+          "waiting_peak": 0.0,
+          "actual_drafts": 1084.0,
+          "actual_accepted": 3016.0
+        },
+        {
+          "trial": 3,
+          "client_start_spread_ms": 3.1466600485146046,
+          "ttft_s_by_request": [
+            0.2890033290022984,
+            1.0078682199819013,
+            1.0071072770515457,
+            1.0064482579473406
+          ],
+          "queue_time_sum_s": 0.00010275922250002623,
+          "waiting_peak": 0.0,
+          "actual_drafts": 1221.0,
+          "actual_accepted": 2879.0
+        },
+        {
+          "trial": 4,
+          "client_start_spread_ms": 2.794874948449433,
+          "ttft_s_by_request": [
+            0.2913185160141438,
+            1.0106169860810041,
+            1.0102142479736358,
+            1.0096808989765123
+          ],
+          "queue_time_sum_s": 0.0001286758342757821,
+          "waiting_peak": 0.0,
+          "actual_drafts": 1160.0,
+          "actual_accepted": 2934.0
+        }
+      ]
+    },
+    {
+      "study": "short-confirm",
+      "process": "safe-q2",
+      "batches": [
+        {
+          "trial": 0,
+          "client_start_spread_ms": 3.6344979889690876,
+          "ttft_s_by_request": [
+            0.2952257989672944,
+            0.5926379250595346,
+            1.10237928701099,
+            1.2948042689822614
+          ],
+          "queue_time_sum_s": 0.30365464894566685,
+          "waiting_peak": 1.0,
+          "actual_drafts": 1238.0,
+          "actual_accepted": 2855.0
+        },
+        {
+          "trial": 1,
+          "client_start_spread_ms": 11.326721054501832,
+          "ttft_s_by_request": [
+            0.280410566017963,
+            0.8203567740274593,
+            0.8114511150633916,
+            1.0884057349758223
+          ],
+          "queue_time_sum_s": 0.0001236068783327937,
+          "waiting_peak": 0.0,
+          "actual_drafts": 1223.0,
+          "actual_accepted": 2878.0
+        },
+        {
+          "trial": 2,
+          "client_start_spread_ms": 3.020949079655111,
+          "ttft_s_by_request": [
+            0.30170419602654874,
+            0.8079264539992437,
+            1.0571582419797778,
+            1.6707049480173737
+          ],
+          "queue_time_sum_s": 0.2800715109333396,
+          "waiting_peak": 1.0,
+          "actual_drafts": 1167.0,
+          "actual_accepted": 2930.0
+        },
+        {
+          "trial": 3,
+          "client_start_spread_ms": 2.9853599844500422,
+          "ttft_s_by_request": [
+            0.2891508819302544,
+            0.7908327679615468,
+            1.0355973489349708,
+            1.4517195490188897
+          ],
+          "queue_time_sum_s": 0.2739657700294629,
+          "waiting_peak": 1.0,
+          "actual_drafts": 1204.0,
+          "actual_accepted": 2903.0
+        },
+        {
+          "trial": 4,
+          "client_start_spread_ms": 3.2148980535566807,
+          "ttft_s_by_request": [
+            0.29287409398239106,
+            0.8056054540211335,
+            1.0532450270839036,
+            1.6355559539515525
+          ],
+          "queue_time_sum_s": 0.27703231398481876,
+          "waiting_peak": 1.0,
+          "actual_drafts": 1261.0,
+          "actual_accepted": 2834.0
+        }
+      ]
+    },
+    {
+      "study": "short-confirm",
+      "process": "new-r1",
+      "batches": [
+        {
+          "trial": 0,
+          "client_start_spread_ms": 3.2901118975132704,
+          "ttft_s_by_request": [
+            0.29362451494671404,
+            0.7445919200545177,
+            1.1849594339728355,
+            1.5862628490431234
+          ],
+          "queue_time_sum_s": 0.4682595571503043,
+          "waiting_peak": 1.0,
+          "actual_drafts": 1242.0,
+          "actual_accepted": 2859.0
+        },
+        {
+          "trial": 1,
+          "client_start_spread_ms": 8.530920022167265,
+          "ttft_s_by_request": [
+            0.7502809499856085,
+            0.3019872580189258,
+            1.1870789239183068,
+            1.5414952599676326
+          ],
+          "queue_time_sum_s": 0.46937156200874597,
+          "waiting_peak": 1.0,
+          "actual_drafts": 1204.0,
+          "actual_accepted": 2897.0
+        },
+        {
+          "trial": 2,
+          "client_start_spread_ms": 3.0484379967674613,
+          "ttft_s_by_request": [
+            0.28761960996780545,
+            0.7361226900247857,
+            1.173352702986449,
+            1.59453213296365
+          ],
+          "queue_time_sum_s": 0.4705227592494339,
+          "waiting_peak": 1.0,
+          "actual_drafts": 1198.0,
+          "actual_accepted": 2896.0
+        },
+        {
+          "trial": 3,
+          "client_start_spread_ms": 3.135022008791566,
+          "ttft_s_by_request": [
+            0.2832896610489115,
+            0.7384307000320405,
+            1.1789279740769416,
+            1.5582342939451337
+          ],
+          "queue_time_sum_s": 0.47282714699395,
+          "waiting_peak": 1.0,
+          "actual_drafts": 1250.0,
+          "actual_accepted": 2847.0
+        },
+        {
+          "trial": 4,
+          "client_start_spread_ms": 3.264521947130561,
+          "ttft_s_by_request": [
+            0.28259811899624765,
+            0.7647363210562617,
+            1.2395903100259602,
+            1.4276090409839526
+          ],
+          "queue_time_sum_s": 0.49995463201776147,
+          "waiting_peak": 1.0,
+          "actual_drafts": 1116.0,
+          "actual_accepted": 2988.0
+        }
+      ]
+    },
+    {
+      "study": "short-confirm",
+      "process": "new-r2",
+      "batches": [
+        {
+          "trial": 0,
+          "client_start_spread_ms": 3.5758980084210634,
+          "ttft_s_by_request": [
+            0.2888726720120758,
+            0.9493854120373726,
+            1.5101949699455872,
+            1.509242505999282
+          ],
+          "queue_time_sum_s": 0.900394739001058,
+          "waiting_peak": 2.0,
+          "actual_drafts": 1237.0,
+          "actual_accepted": 2859.0
+        },
+        {
+          "trial": 1,
+          "client_start_spread_ms": 9.664144017733634,
+          "ttft_s_by_request": [
+            0.3100992019753903,
+            0.928050379967317,
+            0.9277965138899162,
+            1.139961378998123
+          ],
+          "queue_time_sum_s": 0.0001472742296755314,
+          "waiting_peak": 0.0,
+          "actual_drafts": 1212.0,
+          "actual_accepted": 2887.0
+        },
+        {
+          "trial": 2,
+          "client_start_spread_ms": 2.806376083754003,
+          "ttft_s_by_request": [
+            0.29611375997774303,
+            0.8124741880455986,
+            1.0667218189919367,
+            1.3102272319374606
+          ],
+          "queue_time_sum_s": 0.2788987330859527,
+          "waiting_peak": 1.0,
+          "actual_drafts": 1271.0,
+          "actual_accepted": 2826.0
+        },
+        {
+          "trial": 3,
+          "client_start_spread_ms": 2.9445879627019167,
+          "ttft_s_by_request": [
+            0.30551544402260333,
+            0.791030838037841,
+            1.0345419920049608,
+            1.4939155450556427
+          ],
+          "queue_time_sum_s": 0.2701495500514284,
+          "waiting_peak": 1.0,
+          "actual_drafts": 1243.0,
+          "actual_accepted": 2855.0
+        },
+        {
+          "trial": 4,
+          "client_start_spread_ms": 2.062000916339457,
+          "ttft_s_by_request": [
+            0.7974368599243462,
+            0.2969386560143903,
+            1.0449035160709172,
+            1.46404255006928
+          ],
+          "queue_time_sum_s": 0.2733903001062572,
+          "waiting_peak": 1.0,
+          "actual_drafts": 1261.0,
+          "actual_accepted": 2840.0
+        }
+      ]
+    }
+  ],
+  "scope": "Observed HTTP start spread, TTFT, queueing and actual acceptance histories. Causal attribution to any one source remains limited by natural async batch admission and inherited adaptive budget history."
+}
