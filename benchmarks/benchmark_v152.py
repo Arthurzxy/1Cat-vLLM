@@ -247,7 +247,10 @@ for length in args.lengths:
             "gpu_before": gpu_before,
             "gpu_after": gpu(),
             "residency": residency,
-            "aggregate_output_tps": args.concurrency * args.output_tokens / elapsed,
+            "emitted_tokens": sum(len(result["tokens"]) for result in results),
+            "batch_wall_s": elapsed,
+            "aggregate_output_tps": sum(len(result["tokens"]) for result in results)
+            / elapsed,
         }
         report["runs"].append(row)
         args.output.write_text(json.dumps(report, indent=2) + "\n")

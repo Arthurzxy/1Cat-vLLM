@@ -15,14 +15,52 @@ parser.add_argument("--run-dir", type=Path, required=True)
 parser.add_argument("--jobs", type=int, default=4)
 parser.add_argument("--triton-source", type=Path)
 parser.add_argument("--source-root", type=Path)
+parser.add_argument("--expected-source-commit")
 parser.add_argument("--target", choices=("_vllm_fa2_C", "_C"), default="_vllm_fa2_C")
 args = parser.parse_args()
 checkout = Path(__file__).resolve().parents[1]
 root = args.source_root.resolve() if args.source_root else checkout
 out = args.run_dir.resolve()
+source_root_result = subprocess.run(
+    ["git", "-C", str(root), "rev-parse", "--show-toplevel"],
+    text=True,
+    capture_output=True,
+)
+if (
+    source_root_result.returncode
+    or Path(source_root_result.stdout.strip()).resolve() != root
+):
+    raise ValueError(
+        "Source root must be the exact top-level Git checkout. "
+        "For an archived source snapshot, first obtain and verify its Git checkout."
+    )
+source_commit = subprocess.check_output(
+    ["git", "-C", str(root), "rev-parse", "HEAD"], text=True
+).strip()
+if args.expected_source_commit and source_commit != args.expected_source_commit:
+    raise ValueError(
+        f"Source commit {source_commit} differs from expected "
+        f"{args.expected_source_commit}"
+    )
+source_patch = subprocess.check_output(
+    ["git", "-C", str(root), "diff", "HEAD", "--binary"]
+)
+source_identity = {
+    "root": str(root),
+    "commit": source_commit,
+    "tree": subprocess.check_output(
+        ["git", "-C", str(root), "rev-parse", "HEAD^{tree}"], text=True
+    ).strip(),
+    "is_shallow": subprocess.check_output(
+        ["git", "-C", str(root), "rev-parse", "--is-shallow-repository"], text=True
+    ).strip()
+    == "true",
+    "tracked_dirty_patch_sha256": hashlib.sha256(source_patch).hexdigest(),
+}
 out.mkdir(parents=True, exist_ok=True)
 if (out / "manifest.json").exists():
     raise FileExistsError(out / "manifest.json")
+(out / "source-tracked.patch").write_bytes(source_patch)
 inputs = {}
 for directory in ("csrc", "cmake"):
     for path in sorted((root / directory).rglob("*")):
@@ -104,9 +142,8 @@ for name, digest in inputs.items():
         raise RuntimeError(f"Build input changed: {name}")
 library = libraries[0]
 manifest = {
-    "source_commit": subprocess.check_output(
-        ["git", "rev-parse", "HEAD"], cwd=root, text=True
-    ).strip(),
+    "source_commit": source_commit,
+    "source_identity": source_identity,
     "library": str(library),
     "library_sha256": hashlib.sha256(library.read_bytes()).hexdigest(),
     "complete": True,
