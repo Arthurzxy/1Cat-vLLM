@@ -15,9 +15,12 @@ import pytest
 ROOT = Path(os.environ.get("V152_TEST_REPO_ROOT", Path(__file__).resolve().parents[2]))
 
 
+@pytest.mark.parametrize("chunk_sizes", [(3,), (1, 2)])
 @pytest.mark.parametrize("natural_eos", [False, True])
 @pytest.mark.parametrize("concurrency", [1, 2])
-def test_streaming_cli_uses_actual_emitted_tokens(tmp_path, natural_eos, concurrency):
+def test_streaming_cli_uses_actual_emitted_tokens(
+    tmp_path, natural_eos, concurrency, chunk_sizes
+):
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, *args):
             pass
@@ -37,18 +40,27 @@ def test_streaming_cli_uses_actual_emitted_tokens(tmp_path, natural_eos, concurr
                 self.wfile.write(json.dumps({"tokens": [65, 66, 67]}).encode())
             elif self.path == "/v1/completions":
                 tokens = [100, 101, 102]
-                event = {
-                    "choices": [
-                        {"text": "abc", "token_ids": tokens, "finish_reason": "stop"}
-                    ],
-                    "usage": {
-                        "prompt_tokens": len(payload["prompt"]),
-                        "completion_tokens": len(tokens),
-                    },
-                }
-                self.wfile.write(
-                    ("data: " + json.dumps(event) + "\n\ndata: [DONE]\n\n").encode()
-                )
+                offset = 0
+                for size in chunk_sizes:
+                    chunk = tokens[offset : offset + size]
+                    offset += size
+                    last = offset == len(tokens)
+                    event: dict[str, object] = {
+                        "choices": [
+                            {
+                                "text": "abc"[offset - size : offset],
+                                "token_ids": chunk,
+                                "finish_reason": "stop" if last else None,
+                            }
+                        ],
+                    }
+                    if last:
+                        event["usage"] = {
+                            "prompt_tokens": len(payload["prompt"]),
+                            "completion_tokens": len(tokens),
+                        }
+                    self.wfile.write(("data: " + json.dumps(event) + "\n\n").encode())
+                self.wfile.write(b"data: [DONE]\n\n")
             else:
                 assert self.path == "/reset_prefix_cache"
                 self.wfile.write(b"{}")
@@ -97,6 +109,18 @@ def test_streaming_cli_uses_actual_emitted_tokens(tmp_path, natural_eos, concurr
     row = result["runs"][0]
     assert row["emitted_tokens"] == concurrency * 3
     assert all(len(item["tokens"]) == 3 for item in row["results"])
+    for item in row["results"]:
+        assert item["first_chunk_tokens"] == chunk_sizes[0]
+        assert item["post_first_chunk_tokens"] == 3 - chunk_sizes[0]
+        assert item["started_monotonic_s"] < item["finished_monotonic_s"]
+        if len(chunk_sizes) == 1:
+            assert item["post_first_chunk_s"] == 0
+            assert item["post_first_chunk_tps"] is None
+        else:
+            assert item["post_first_chunk_s"] > 0
+            assert item["post_first_chunk_tps"] * item[
+                "post_first_chunk_s"
+            ] == pytest.approx(2)
     assert row["aggregate_output_tps"] * row["batch_wall_s"] == pytest.approx(
         concurrency * 3
     )

@@ -1,0 +1,27 @@
+{
+  "pr953": {
+    "url": "https://github.com/1CatAI/1Cat-vLLM/pull/953",
+    "head_sha": "5a7c65327c5e5166155e6af18c8dddaaf45d7f03",
+    "state": "open",
+    "title": "[Model] Extend DFlash2 QPN8 candidate heads to concurrent verification",
+    "head_owner_source_sha256": "0659dd1f5c2e3d18544dc33113a98cc0394df471a68fc9b744afaab43c8d3501",
+    "runtime_fact": "Production startup graph_options record qpn8_rerank=true. Existing original-head FP16 weights feed online QPN8 support search and original FP16/FP32 candidate rescoring. FP16 LM-head dtype alone is insufficient to decline this PR.",
+    "batch_guard": "Existing candidate rerank admits at most8 rows. Larger concurrent verification falls back to the existing dense head. MAX_ROWS guard and runtime head details must remain distinct from NVFP4 intermediate-projection admission.",
+    "corrected_status": "Optional head concurrency extension is unmeasured in this round. It is not denied by the old unrelated native-admission result. This round selected a source-correlated q8 shared-bank mechanism as its additional deep experiment, and withdrew that experiment after measured slowdown.",
+    "future_gate": "Preserve exact original-head scoring, target full-vocabulary fallback and sampling support. Re-evaluate actual concurrent head critical-path cost and candidate coverage before enabling a new batched route."
+  },
+  "pr1472": {
+    "url": "https://github.com/1CatAI/1Cat-vLLM/pull/1472",
+    "head_sha": "c156d23f0d5d249feaefaeb6f6ac6d528eab1db1",
+    "merge_commit_sha": "2a3f9a300c6f4434ced3a08d10648917a9f6205c",
+    "merged_at": "2026-11-10T17:25:56Z",
+    "scope": "Finite pair helper reused independently. Broad MTP/shared-row changes excluded."
+  },
+  "resample1464": {
+    "scope": "Only independent one-warp insert launch guard",
+    "bprev_cases_passed": 60,
+    "fixed_cases_passed": 60,
+    "baseline_race_reproduced": false,
+    "marker_omissions_attributed_to_race": false
+  }
+}

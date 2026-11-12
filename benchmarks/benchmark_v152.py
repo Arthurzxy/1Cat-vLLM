@@ -132,6 +132,9 @@ def request(ids, seed):
         assert len(tokens) == args.output_tokens
     assert usage["prompt_tokens"] == len(ids)
     wall = time.perf_counter() - start
+    first_chunk_tokens = chunks[0]["tokens"] if chunks else 0
+    post_first_chunk_tokens = len(tokens) - first_chunk_tokens
+    post_first_chunk_s = chunks[-1]["at_s"] - chunks[0]["at_s"] if chunks else 0
     return {
         "prompt_tokens": len(ids),
         "input_sha256": hashlib.sha256(json.dumps(ids).encode()).hexdigest(),
@@ -141,7 +144,21 @@ def request(ids, seed):
         "chunks": chunks,
         "finish": finish,
         "wall_s": wall,
+        "started_monotonic_s": start,
         "ttft_s": chunks[0]["at_s"],
+        "first_chunk_tokens": first_chunk_tokens,
+        "post_first_chunk_tokens": post_first_chunk_tokens,
+        "post_first_chunk_s": post_first_chunk_s,
+        "post_first_chunk_tps": (
+            post_first_chunk_tokens / post_first_chunk_s
+            if post_first_chunk_s > 0
+            else None
+        ),
+        "stream_timing_scope": (
+            "SSE chunk timestamps. Tokens within a multi-token chunk have "
+            "no individually observed timestamps. Engine batch accounting "
+            "is recorded separately by the opt-in worker diagnostic."
+        ),
         "finished_monotonic_s": time.perf_counter(),
         "http_output_tps": len(tokens) / wall,
         "max_repeated_token_run": max(

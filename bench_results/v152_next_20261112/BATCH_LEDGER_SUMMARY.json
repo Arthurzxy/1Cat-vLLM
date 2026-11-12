@@ -1,0 +1,159 @@
+{
+  "complete": true,
+  "cases": [
+    {
+      "case": "c1-tail33",
+      "source_sha256": "4fdabd17acd52c4341d463f25a2da442ffc0e7685db197739fd29cfc63919484",
+      "unique_engine_batches": 16,
+      "raw_post_rejection_gpu_tokens": 43,
+      "api_committed_tokens": 33,
+      "api_excluded_raw_tail": 10,
+      "prefill_first_or_other_non_decode_commits": 1,
+      "strict_decode_api_commits": 32,
+      "raw_proposed_tokens": 105,
+      "raw_accepted_proposals": 27,
+      "visible_accepted_proposals": 19,
+      "visible_all_accepted_bonus": 0,
+      "visible_rejection_correction": 13,
+      "non_spec_gpu_samples": 1,
+      "pure_decode_unique_batches": 15,
+      "pure_decode_batch_api_commits": 32,
+      "pure_decode_batch_instrumented_ms": 4101.332674026489,
+      "mixed_prefill_decode_batches": 0,
+      "mixed_batch_decode_api_commits": 0,
+      "commits_per_unique_batch": [
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        3,
+        5,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        0
+      ],
+      "stop_reasons": [
+        "length"
+      ],
+      "requested_output_budgets": [
+        33
+      ],
+      "actual_output_tokens": [
+        33
+      ],
+      "nonoverlap_verified": true
+    },
+    {
+      "case": "c2-mixed-tail33",
+      "source_sha256": "5d22106d3b9f0e994af3ad7a0cb5c29485e254892bf9a195249edbc3d9ac911f",
+      "unique_engine_batches": 26,
+      "raw_post_rejection_gpu_tokens": 79,
+      "api_committed_tokens": 66,
+      "api_excluded_raw_tail": 13,
+      "prefill_first_or_other_non_decode_commits": 2,
+      "strict_decode_api_commits": 64,
+      "raw_proposed_tokens": 147,
+      "raw_accepted_proposals": 56,
+      "visible_accepted_proposals": 46,
+      "visible_all_accepted_bonus": 3,
+      "visible_rejection_correction": 15,
+      "non_spec_gpu_samples": 2,
+      "pure_decode_unique_batches": 16,
+      "pure_decode_batch_api_commits": 40,
+      "pure_decode_batch_instrumented_ms": 381.2722568511963,
+      "mixed_prefill_decode_batches": 5,
+      "mixed_batch_decode_api_commits": 24,
+      "commits_per_unique_batch": [
+        1,
+        8,
+        6,
+        6,
+        8,
+        4,
+        0,
+        0,
+        0,
+        0,
+        1,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2,
+        8,
+        4,
+        3,
+        2,
+        0
+      ],
+      "stop_reasons": [
+        "length",
+        "length"
+      ],
+      "requested_output_budgets": [
+        33,
+        33
+      ],
+      "actual_output_tokens": [
+        33,
+        33
+      ],
+      "nonoverlap_verified": true
+    },
+    {
+      "case": "natural-eos",
+      "source_sha256": "b424a313a1cfd441d578f4c4beda85d4f7b846b9c8a56a264d69e2408bc290ff",
+      "unique_engine_batches": 9,
+      "raw_post_rejection_gpu_tokens": 33,
+      "api_committed_tokens": 31,
+      "api_excluded_raw_tail": 2,
+      "prefill_first_or_other_non_decode_commits": 1,
+      "strict_decode_api_commits": 30,
+      "raw_proposed_tokens": 56,
+      "raw_accepted_proposals": 24,
+      "visible_accepted_proposals": 24,
+      "visible_all_accepted_bonus": 0,
+      "visible_rejection_correction": 6,
+      "non_spec_gpu_samples": 1,
+      "pure_decode_unique_batches": 8,
+      "pure_decode_batch_api_commits": 30,
+      "pure_decode_batch_instrumented_ms": 175.1931858062744,
+      "mixed_prefill_decode_batches": 0,
+      "mixed_batch_decode_api_commits": 0,
+      "commits_per_unique_batch": [
+        1,
+        5,
+        6,
+        4,
+        2,
+        1,
+        7,
+        5,
+        0
+      ],
+      "stop_reasons": [
+        "stop"
+      ],
+      "requested_output_budgets": [
+        512
+      ],
+      "actual_output_tokens": [
+        31
+      ],
+      "nonoverlap_verified": true
+    }
+  ],
+  "scope": "Real default async service. Unique worker batch IDs and nonoverlapping main-stream event intervals are counted once. Exact returned token IDs assign API-visible commits to sampling batches. Instrumentation fences and CPU build concurrency prevent formal speed interpretation."
+}
