@@ -1,0 +1,229 @@
+{
+  "complete": true,
+  "finished_epoch_s": 1794507877.1943617,
+  "task_owned_containers_stopped": [
+    "1cat-v152-next-build-20261112"
+  ],
+  "existing_services": {
+    "comfyui": {
+      "original": {
+        "id": "1188523094ab75df22fcb53071d02a47b72f566db3eeb88e4df2967e96b26df5",
+        "image": "sha256:6a943885194fd8df20cddbdad9d6dfc1dde900f61cc32bb32b25d65e91f21dfa",
+        "started_at": "2026-11-11T15:53:15.240482208Z",
+        "health": null
+      },
+      "exists": true,
+      "id": "1188523094ab75df22fcb53071d02a47b72f566db3eeb88e4df2967e96b26df5",
+      "image": "sha256:6a943885194fd8df20cddbdad9d6dfc1dde900f61cc32bb32b25d65e91f21dfa",
+      "started_at": "2026-11-11T15:53:15.240482208Z",
+      "running": true,
+      "identity_preserved": true
+    },
+    "coder-test-postgres": {
+      "original": {
+        "id": "f3d5ea08129091a1db46df776f859d6c45673c490bf96d6ddb2a542bce4995cc",
+        "image": "sha256:467e7f2fb97b2f29d616e0be1d02218a7bbdfb94eb3cda7461fd80165edfd1f7",
+        "started_at": "2026-11-10T02:58:34.861500481Z",
+        "health": null
+      },
+      "exists": true,
+      "id": "f3d5ea08129091a1db46df776f859d6c45673c490bf96d6ddb2a542bce4995cc",
+      "image": "sha256:467e7f2fb97b2f29d616e0be1d02218a7bbdfb94eb3cda7461fd80165edfd1f7",
+      "started_at": "2026-11-10T02:58:34.861500481Z",
+      "running": true,
+      "identity_preserved": true
+    },
+    "ovisocr3": {
+      "original": {
+        "id": "8f44ff61d9ce9293cb3cb34d73899f955168f41fd57bc68943fda3630aa12716",
+        "image": "sha256:4c82f5ae01364ada75f095fea23ba9253ee985a3f2ca8a60252fd856767a02c2",
+        "started_at": "2026-11-09T14:39:20.360184553Z",
+        "health": null
+      },
+      "exists": true,
+      "id": "8f44ff61d9ce9293cb3cb34d73899f955168f41fd57bc68943fda3630aa12716",
+      "image": "sha256:4c82f5ae01364ada75f095fea23ba9253ee985a3f2ca8a60252fd856767a02c2",
+      "started_at": "2026-11-09T14:39:20.360184553Z",
+      "running": true,
+      "identity_preserved": true
+    },
+    "qwen3.8-abliterated-1cat": {
+      "original": {
+        "id": "63763ba4f88c9ccb25047cbac735f91bce3670f9011a7fa2b9bf5c06e1232ecc",
+        "image": "sha256:4c82f5ae01364ada75f095fea23ba9253ee985a3f2ca8a60252fd856767a02c2",
+        "started_at": "2026-11-09T14:38:23.618200422Z",
+        "health": null
+      },
+      "exists": true,
+      "id": "63763ba4f88c9ccb25047cbac735f91bce3670f9011a7fa2b9bf5c06e1232ecc",
+      "image": "sha256:4c82f5ae01364ada75f095fea23ba9253ee985a3f2ca8a60252fd856767a02c2",
+      "started_at": "2026-11-09T14:38:23.618200422Z",
+      "running": true,
+      "identity_preserved": true
+    },
+    "mineru-vllm": {
+      "original": {
+        "id": "2fea609b760b2eda8ed97dabe7a93274688fdafc5ef1556213c58b7bce515203",
+        "image": "sha256:9874b0c46bed2b04eb4361893f60ae3c609408dcc021db3fa7da343e0fd74f99",
+        "started_at": "2026-11-09T14:30:46.461797308Z",
+        "health": "healthy"
+      },
+      "exists": true,
+      "id": "2fea609b760b2eda8ed97dabe7a93274688fdafc5ef1556213c58b7bce515203",
+      "image": "sha256:9874b0c46bed2b04eb4361893f60ae3c609408dcc021db3fa7da343e0fd74f99",
+      "started_at": "2026-11-09T14:30:46.461797308Z",
+      "running": true,
+      "identity_preserved": true
+    },
+    "bge-reranker": {
+      "original": {
+        "id": "c6684ba1b00c90181ab09a31b4f225cc2c5c18f5272c2b4ab3839780667c8416",
+        "image": "sha256:aa583e93bccd0dad297bdab926bd682d27125deb2d3e26cfb176d95cf021d151",
+        "started_at": "2026-11-09T14:30:38.81792312Z",
+        "health": null
+      },
+      "exists": true,
+      "id": "c6684ba1b00c90181ab09a31b4f225cc2c5c18f5272c2b4ab3839780667c8416",
+      "image": "sha256:aa583e93bccd0dad297bdab926bd682d27125deb2d3e26cfb176d95cf021d151",
+      "started_at": "2026-11-09T14:30:38.81792312Z",
+      "running": true,
+      "identity_preserved": true
+    },
+    "bge-m3": {
+      "original": {
+        "id": "a8736cead47ad662cc0b5ec78f6a665001b6be8a0a3875f43a6506bc41112095",
+        "image": "sha256:aa583e93bccd0dad297bdab926bd682d27125deb2d3e26cfb176d95cf021d151",
+        "started_at": "2026-11-09T14:30:36.424919523Z",
+        "health": null
+      },
+      "exists": true,
+      "id": "a8736cead47ad662cc0b5ec78f6a665001b6be8a0a3875f43a6506bc41112095",
+      "image": "sha256:aa583e93bccd0dad297bdab926bd682d27125deb2d3e26cfb176d95cf021d151",
+      "started_at": "2026-11-09T14:30:36.424919523Z",
+      "running": true,
+      "identity_preserved": true
+    },
+    "coder-heliopause-code-space-gpu-b226-1db5d8a2-6556-45ea-a307-bfc479f698fc": {
+      "original": {
+        "id": "e2fed985a663ad1f73411027ae0d10ff9bcb50095824024805acc436c631b172",
+        "image": "sha256:052ab2248eadbe7491ebf8cf304cb9c3b65d4501e88f3f46d0eed3875e5703a9",
+        "started_at": "2026-11-01T14:08:21.918143421Z",
+        "health": null
+      },
+      "exists": true,
+      "id": "e2fed985a663ad1f73411027ae0d10ff9bcb50095824024805acc436c631b172",
+      "image": "sha256:052ab2248eadbe7491ebf8cf304cb9c3b65d4501e88f3f46d0eed3875e5703a9",
+      "started_at": "2026-11-01T14:08:21.918143421Z",
+      "running": true,
+      "identity_preserved": true
+    },
+    "coder-hlw02-searx-c5772229-af3b-4073-a0d0-f45513d3b829": {
+      "original": {
+        "id": "8d48a8ddfba9048f08b7dc517eee9c744bb01690c3ea13be0d076d5b5fb6d65f",
+        "image": "sha256:052ab2248eadbe7491ebf8cf304cb9c3b65d4501e88f3f46d0eed3875e5703a9",
+        "started_at": "2026-10-31T17:20:28.635208585Z",
+        "health": null
+      },
+      "exists": true,
+      "id": "8d48a8ddfba9048f08b7dc517eee9c744bb01690c3ea13be0d076d5b5fb6d65f",
+      "image": "sha256:052ab2248eadbe7491ebf8cf304cb9c3b65d4501e88f3f46d0eed3875e5703a9",
+      "started_at": "2026-10-31T17:20:28.635208585Z",
+      "running": true,
+      "identity_preserved": true
+    },
+    "coder-hlw02-robot-763ce662-155e-4dd2-b6ca-1bb84aa2a5ef": {
+      "original": {
+        "id": "06e7cf18e0cc23b5cd475ee441c6777cbba29211c4517862c24c9332670350d8",
+        "image": "sha256:052ab2248eadbe7491ebf8cf304cb9c3b65d4501e88f3f46d0eed3875e5703a9",
+        "started_at": "2026-10-31T17:20:28.635978906Z",
+        "health": null
+      },
+      "exists": true,
+      "id": "06e7cf18e0cc23b5cd475ee441c6777cbba29211c4517862c24c9332670350d8",
+      "image": "sha256:052ab2248eadbe7491ebf8cf304cb9c3b65d4501e88f3f46d0eed3875e5703a9",
+      "started_at": "2026-10-31T17:20:28.635978906Z",
+      "running": true,
+      "identity_preserved": true
+    },
+    "xinference": {
+      "original": {
+        "id": "ff324e8d563849a8639918655e90f56d47eca5d1ff06e29c317f9ac06693c586",
+        "image": "sha256:a8b131dea913ad250d128277ccf61256e48122eac06b3ffe0c8126cf6559fc7f",
+        "started_at": "2026-10-31T17:20:28.661810683Z",
+        "health": "healthy"
+      },
+      "exists": true,
+      "id": "ff324e8d563849a8639918655e90f56d47eca5d1ff06e29c317f9ac06693c586",
+      "image": "sha256:a8b131dea913ad250d128277ccf61256e48122eac06b3ffe0c8126cf6559fc7f",
+      "started_at": "2026-10-31T17:20:28.661810683Z",
+      "running": true,
+      "identity_preserved": true
+    },
+    "mineru-api": {
+      "original": {
+        "id": "f8858905bdf3467b4ca79ceeb5bb740fa36c394d98df3baea9b4e0a1f9e6402a",
+        "image": "sha256:9874b0c46bed2b04eb4361893f60ae3c609408dcc021db3fa7da343e0fd74f99",
+        "started_at": "2026-10-31T17:20:28.639518109Z",
+        "health": "healthy"
+      },
+      "exists": true,
+      "id": "f8858905bdf3467b4ca79ceeb5bb740fa36c394d98df3baea9b4e0a1f9e6402a",
+      "image": "sha256:9874b0c46bed2b04eb4361893f60ae3c609408dcc021db3fa7da343e0fd74f99",
+      "started_at": "2026-10-31T17:20:28.639518109Z",
+      "running": true,
+      "identity_preserved": true
+    },
+    "earnings-worker": {
+      "original": {
+        "id": "e34025dc1a6ce2a9c1a2a825f61b3b593a0c7bc5bf0de1a4aba9026697561ca3",
+        "image": "sha256:650972fbef2722635d498e3f9c067ec77f5f68e6800ccc91d4cbaac408d02ccf",
+        "started_at": "2026-10-31T17:20:28.660201914Z",
+        "health": null
+      },
+      "exists": true,
+      "id": "e34025dc1a6ce2a9c1a2a825f61b3b593a0c7bc5bf0de1a4aba9026697561ca3",
+      "image": "sha256:650972fbef2722635d498e3f9c067ec77f5f68e6800ccc91d4cbaac408d02ccf",
+      "started_at": "2026-10-31T17:20:28.660201914Z",
+      "running": true,
+      "identity_preserved": true
+    },
+    "mineru-gradio": {
+      "original": {
+        "id": "6892554f0b1526365895e6bff2b55f180a798dee5032b3e052c2ab02a436824d",
+        "image": "sha256:9874b0c46bed2b04eb4361893f60ae3c609408dcc021db3fa7da343e0fd74f99",
+        "started_at": "2026-10-31T17:20:28.637175105Z",
+        "health": null
+      },
+      "exists": true,
+      "id": "6892554f0b1526365895e6bff2b55f180a798dee5032b3e052c2ab02a436824d",
+      "image": "sha256:9874b0c46bed2b04eb4361893f60ae3c609408dcc021db3fa7da343e0fd74f99",
+      "started_at": "2026-10-31T17:20:28.637175105Z",
+      "running": true,
+      "identity_preserved": true
+    },
+    "portainer_edge_agent": {
+      "original": {
+        "id": "a764c42b13e7e0317be58cb9ca2cac4a6c282753e7d0aa7548889d470305e92f",
+        "image": "sha256:43c8bc9bafde891ddd0fc3dcc61ac6e1887e7e2027baa76ce402bc014037fba6",
+        "started_at": "2026-10-31T17:20:28.623416622Z",
+        "health": null
+      },
+      "exists": true,
+      "id": "a764c42b13e7e0317be58cb9ca2cac4a6c282753e7d0aa7548889d470305e92f",
+      "image": "sha256:43c8bc9bafde891ddd0fc3dcc61ac6e1887e7e2027baa76ce402bc014037fba6",
+      "started_at": "2026-10-31T17:20:28.623416622Z",
+      "running": true,
+      "identity_preserved": true
+    }
+  },
+  "all_original_service_identities_preserved": true,
+  "local_test_port_18111_free": true,
+  "gpu": "index, uuid, pci.bus_id, name, memory.total [MiB], memory.used [MiB], utilization.gpu [%], temperature.gpu, clocks.current.sm [MHz], clocks.current.memory [MHz], power.draw [W]\n0, GPU-0a872424-da19-ed82-fc06-f0bc4c9cbb08, 00000000:1A:00.0, Tesla V100-SXM2-32GB, 32768 MiB, 28716 MiB, 0 %, 36, 1290 MHz, 877 MHz, 54.33 W\n1, GPU-a30fe43a-b214-2b6e-740c-2a230f278c67, 00000000:1B:00.0, Tesla V100-SXM2-32GB, 32768 MiB, 28716 MiB, 0 %, 38, 1290 MHz, 877 MHz, 54.82 W\n2, GPU-ac931efc-f16e-84a7-57dc-717f44871365, 00000000:1E:00.0, Tesla V100-SXM2-16GB, 16384 MiB, 11468 MiB, 0 %, 35, 1312 MHz, 877 MHz, 54.24 W\n3, GPU-2d78e898-3018-b088-56a5-aa3a29d1a4c4, 00000000:1F:00.0, Tesla V100-SXM2-16GB, 16384 MiB, 6468 MiB, 0 %, 34, 1312 MHz, 877 MHz, 53.72 W\n4, GPU-5a500b7d-723c-ae8d-7af1-686f503e3da1, 00000000:3D:00.0, Tesla V100-SXM2-32GB, 32768 MiB, 28716 MiB, 0 %, 39, 1290 MHz, 877 MHz, 56.30 W\n5, GPU-b60c8acf-dbff-7c3b-acd3-a24b35274d61, 00000000:3E:00.0, Tesla V100-SXM2-32GB, 32768 MiB, 28716 MiB, 0 %, 36, 1290 MHz, 877 MHz, 55.32 W\n6, GPU-51b0439a-ef17-85b2-57df-749ab77edd48, 00000000:88:00.0, Tesla V100-SXM2-32GB, 32768 MiB, 424 MiB, 0 %, 36, 1290 MHz, 877 MHz, 56.27 W\n7, GPU-6558d297-1a21-0ab8-ad73-2cc0410fd386, 00000000:89:00.0, Tesla V100-SXM2-32GB, 32768 MiB, 1722 MiB, 0 %, 41, 1290 MHz, 877 MHz, 58.81 W\n8, GPU-86a8c8a3-857f-6c40-ded9-d81c42bab821, 00000000:B2:00.0, Tesla V100-SXM2-32GB, 32768 MiB, 434 MiB, 0 %, 39, 1290 MHz, 877 MHz, 58.81 W\n9, GPU-7e1ed286-80a1-8b46-8931-4eb8799e207e, 00000000:B3:00.0, Tesla V100-SXM2-32GB, 32768 MiB, 6934 MiB, 0 %, 35, 1290 MHz, 877 MHz, 54.79 W\n",
+  "pmon": "# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command \n# Idx           #    C/G      %      %      %      %      %      %    name \n    6    3075316     C      -      -      -      -      -      -    python         \n    7    3075316     C      -      -      -      -      -      -    python         \n    7      74576     C      -      -      -      -      -      -    python3        \n    8    3075316     C      -      -      -      -      -      -    python         \n    9    3075316     C      -      -      -      -      -      -    python         \n    9    3057252     C      -      -      -      -      -      -    VLLM::EngineCor\n",
+  "resource_scope": "GPU6-9 experiment processes exited. Shared services retain their own GPU contexts. Task images, caches, source and evidence remain available.",
+  "mineru_health": {
+    "status": "healthy",
+    "observed_epoch_s": 1794508216.7317977,
+    "container_id": "2fea609b760b2eda8ed97dabe7a93274688fdafc5ef1556213c58b7bce515203"
+  }
+}

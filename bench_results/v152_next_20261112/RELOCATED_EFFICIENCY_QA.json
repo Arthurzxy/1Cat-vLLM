@@ -1,0 +1,16 @@
+{
+  "complete": true,
+  "relocated_root": "/home/llm/1cat-v152-opt-20261111/delivery-recompute-qa-next-20261112",
+  "command": [
+    "/home/llm/1cat-v152-opt-20261111/.host-venv/bin/python",
+    "/home/llm/1cat-v152-opt-20261111/bench_results/v152_next_20261112/incoming/summarize_next_efficiency.py",
+    "--root",
+    "/home/llm/1cat-v152-opt-20261111/delivery-recompute-qa-next-20261112",
+    "--source-root",
+    "/home/llm/1cat-v152-opt-20261111"
+  ],
+  "summaries_identical": [
+    "EFFICIENCY_SUMMARY.json"
+  ],
+  "includes": "Raw cache pool events, actual computed/hits, fixed-output sequences, mixed request timings and corrected resident CPU-commit intervals."
+}

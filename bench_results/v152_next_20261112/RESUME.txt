@@ -1,46 +1,8 @@
-V100 v1.5.2 续接状态
-
-本轮仍在进行。用户授权继续远程优化并持续 commit、push 到 Arthurzxy/1Cat-vLLM 的 codex/v152-opt-20261111 分支。MinerU 保留。本轮全部既有服务均持续运行，包括 ComfyUI。
-
-源码锚点为2bb8c2b9cd7c1696630b6be464052027f0dd0147。Bprev 源码提交0a9ca74，Bsafe-next 最小 resample 修复提交1c56d04，性能候选 native 源码提交d904f56。最近已核验推送的提交为7c7417dad492303e5db731a142df30115b1b66bb。691个 native 源输入在7c7417d与原始d904构建冻结内容一致。
-
-Bprev 镜像为sha256:0850a9d5267c92e5efe21a229cfbd6d9e7b2748b0f9f5b362c67d9cec2f22c15。
-Bsafe-next 镜像为sha256:1c11cf5139e67f42a76d68bb40d3a8dcb68b8e9643338f4bd24ec823e463a026。
-native 候选镜像为sha256:78675b92ac8d599af905cf5e474c4f95209984dde5e309f6c9860fe1811e76b2。
-候选_C SHA256为c5567901bb4a4b542756e861e004af9153ac97fc9eefdfd19d1dd18381c00ed7。FA2 page2048库继承Bprev，SHA256为2febf1935796fb5c13ea2d8bdbaf44a2c047aad0678841af3c0f6e34ac035074。
-
-已完成的独立验证
-
-resample 原路径与单warp修复各60例通过，原竞争本机未复现。真实取消已核实非空生成、decode/state写入、释放、同物理slot复用及干净参考一致。状态比较范围为每rank一个实际GDN层。自然EOS账本核对512预算、31实际返回、33原始采样及2尾部截断，GPU诊断时间包含探针成本。
-
-E4M3 pair转换穷举通过4227072个half值，800项算子检查通过。完整16层工作集attention+combine慢3.8%到6.4%，已撤回。q8 LUT32布局800项检查通过，实测慢约1%，已撤回。真实KN GEMM的6个精选shape完整子链局部收益4.3%到23%，实际新旧_C各60例输出全部逐位一致，20项路由检查通过。完整131K canary在每rank命中2048次新路径。NCU/SASS与逐rank完整profile保存在本目录。
-
-主服务正式矩阵已完成
-
-FORMAL_SERVICE_ADMISSION.json记录Bprev两个独立进程书挡及Bsafe/Bnew中间ABBA，每格2个batch，每请求输出1024。FORMAL_SERVICE_SUMMARY.json由incoming/summarize_next_service.py纯重算生成。C1/131K完整请求吞吐约提高1.85%，TTFT缩短约2.11%。C4/1K平均请求decode约增加7.13%，因此性能候选仍待最终保留决策。原始异常和接受计数均保留。
-
-已完成的有限短请求确认
-
-incoming/run_next_short_confirmation.py及short-confirm-controller.log。四个独立进程按Bsafe Q1、Bnew R1、Bnew R2、Bsafe Q2运行。每进程仅测C4/1K、C2/4K、C8/1K，每格5个batch。SHORT_CONFIRM_PREFLIGHT.json在测试前冻结范围。本任务的构建和提交钩子排在这组确认之后。后台轻量等待控制器继续运行，离线分析绑定CPU0-3。
-
-实际主配置已由四rank RPC核实async=true、chunk8192、long_prefill_threshold8192、mixed_prefill_step_latency_ms250、mixed_prefill_min_tokens0。记录在short-confirm/safe-q1/precision-and-heads.json。模型、采样、E4M3 KV、FP32 GDN/attention、maxlen262144、maxseq8、q8及多模态功能契约保持既定配置。
-
-后续串行队列
-
-短确认已完成，纯重算入口为incoming/summarize_next_service.py --root 本目录 --study short，。SERVICE_WINNER_DECISION.json已冻结性能阶段取舍，retain_native_candidate=true进入完整质量验收。补充确认C4/1K输出率回退3.87%，平均decode时长增加3.19%，TTFT跨进程波动明显，原始主矩阵7.13%的decode异常保留。最终资格还需质量及组合验收。
-
-incoming/run_next_quality_services.py等待上述决策，日志quality-services-controller.log。随后完整跑Bsafe以及获保留候选的1819条质量、296组PPL/NLL、50项功能和真实取消。incoming/run_next_quality_comparison.py等待QUALITY_SERVICE_RUNS_COMPLETE.json，写FINAL_QUALITY_SUMMARY.json并逐条比较消息、grade、logprob与功能判定。
-
-incoming/run_next_efficiency_services.py等待完整质量及配对汇总，日志efficiency-services-controller-r3.log。它依次运行Bsafe四组cache归因、async等待年龄诊断、8192/4096及预算下限配置消融、有限确认和最终缓存/可选async组合。各formal效率时间使用关闭诊断的独立进程，四组缓存探针与年龄探针时间另列。预先声明的选择门槛和每进程36短请求的经验p95范围均保留。
-
-incoming/run_next_memcheck.py等待EFFICIENCY_SERVICE_RUNS_COMPLETE.json，日志memcheck-controller.log。它在GPU6对实际候选DSO运行6个真实投影shape的eager/capture/replay memcheck，并核原始baseline输出hash。
-
-最后还需完成所有结果重算、质量及性能决策、EXPERIMENTS和UPSTREAM更正、最终报告、REPRODUCE、源码patch、最终镜像标签、资源检查及累计归档。本任务的交付仍待这些阶段完成。
-
-构建与归档记录
-
-REPRO_BUILD_ENVIRONMENT.json给出实际CUDA12.8.61、g++13.3、CMake3.31.6、继承Ninja及Torch2.10.0+cu128。cutlass与triton源干净。flash-attn目录包含由CMake补丁配方产生的改动，补丁与额外源已存dependency-inputs。691项组件输入、实际Ninja命令、编译器头依赖和DSO身份完整保留。重建仅涉及_C，其他已验收DSO继承。
-
-incoming/package_next_artifacts.py和verify_next_archive.py准备生成新的累计交付包。旧包位于bench_results/v152_opt_20261111/delivery/v152-opt-artifacts.tar.gz，SHA256为28427ba260a458bf4185d096ce3b60cff67b2c1f28b6a5f6f928f79887b73ce3，须保留该文件。新包规范化PAX path/linkpath，修正3个Blackwell JSON前缀，FILES覆盖实际交付文件、Dockerfile、源码快照、许可证与可执行模式。REPRODUCE使用确切Git根目录和expected commit，在编译前验证内容。源码快照用于内容审查。
-
-提交钩子仅保留已有check-layering例外，两个MoE文件与B0逐字相同，计数25到32及37到39。其余适用检查正常运行，修复了新增脚本的格式和SPDX头。原始失败日志保留。原47/50功能中3个marker遗漏继续保留。PR953的并发candidate-head扩展属于未测队列，已有FP16原始head上的在线QPN8路径已实际启用，旧中间投影实验的负面结果归属已更正。浅边界2bb8c2b具有实际父commit9f970d62885d4d73698d9e7a9859632a65704985。
+本轮 GPU、服务、质量、缓存和混合负载实验及资源清理已完成。总体部分达标。
+最终候选 sha256:78675b92ac8d599af905cf5e474c4f95209984dde5e309f6c9860fe1811e76b2
+C1/131K完整输出率+1.85%，TTFT-2.11%。C4/1K quiet复核完整输出率-3.87%，decode+3.19%，主矩阵decode+7.13%和TTFT波动保留。
+1819条消息与grade一致，784465 token logprob一致，PPL/NLL一致。50项功能保留共同的3个marker失败，取消实际slot/state通过。
+可选async preset保留=False
+main和cache维持两个独立profile，完整指标见EFFICIENCY_SUMMARY。新native memcheck零错误。原服务身份全部保持，18111释放。
+源码分支codex/v152-opt-20261111，完整报告提交与归档source-final以PACKAGING.json记录为准，最终下载receipt可在其后。
+原始失败、负面候选、未测head扩展和继承check-layering例外均保留。下一轮优先79T与中等M/async关键路径，先按已有profile建立局部上限。

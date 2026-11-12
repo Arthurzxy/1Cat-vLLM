@@ -1,0 +1,33 @@
+{
+  "declared_epoch_s": 1794503668.2840405,
+  "script_sha256": "1a79029c7b5538ab7151ab9726ae82e2386244b9c6807f914f7f4b2ce79ed205",
+  "controller_progress": [
+    "default8192-a1/startup-c2 complete",
+    "default8192-a1/startup-c3 complete",
+    "default8192-a1/mixed complete",
+    "1cat-v152-next-efficiency-default8192-a1",
+    "9d7d17904871ad4259e2a8b789a25bcf6d2035b258af5b420c29307f5b010916",
+    "chunk4096-b1/startup-c1 complete",
+    "chunk4096-b1/startup-c2 complete",
+    "chunk4096-b1/startup-c3 complete"
+  ],
+  "scope": "Only a preset retained by the process-confirmed mixed-load screen advances. It is tested after the current GPU queue and native memcheck.",
+  "affected_cells": {
+    "C4/1024": 5,
+    "C1/131072": 2,
+    "C8/32768": 1
+  },
+  "independent_processes_per_configuration": 1,
+  "long_continuation_lengths": [
+    8192,
+    32768,
+    65536,
+    131072,
+    250000
+  ],
+  "continuation_mean_nll_abs_change_max": 1e-05,
+  "functional": "All50 verdicts must match the already qualified candidate; actual cancel state must pass.",
+  "performance_guard": "Conservative observed5percent affected-cell guard for throughput, mean TTFT and mean decode. Preserve original mixed-screen constraints and also limit resident mean completion wall regression to5percent in both process pairs.",
+  "withdrawal": "If related quality or bounded service checks fail, preserve the screen and withdraw only the optional preset. Default native candidate qualification remains separate.",
+  "limits": "N=1 per configuration for additional affected cells. No statistical no-regression guarantee."
+}

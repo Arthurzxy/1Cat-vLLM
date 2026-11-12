@@ -1,0 +1,127 @@
+部分达标
+
+本轮已执行最小正确性修复、CUDA筛选、完整服务矩阵与质量对照，以及独立缓存/async实验和最终组合验收。C1/131072冷请求完整输出率提高1.8455%，TTFT缩短2.1064%，prefill时间缩短2.1216%。没有可确认的新decode提速。原cold prefill +10%～25%、decode +10%～30%目标仍未达到。
+
+性能取舍与统计范围
+
+主要分母为Bsafe-next。主实验为Bprev P1、Bsafe A1、Bnew B1、Bnew B2、Bsafe A2、Bprev P2六个独立服务进程。每臂N=2，每格两个batch，每请求实际输出1024。完整14格、逐进程中位数、均值/SD/min/max、配对变化及正确性成本见FORMAL_SERVICE_SUMMARY.json。cache hits为零，computed输入匹配。每batch清空prefix cache，JIT/graph按C1/C2/C3、C8及32K预热。正式服务使用真实权重/KV工作集，不手动flush GPU L2，q8局部另用16层KV轮换。C>1系统吞吐以整个batch wall为分母。C表示同时发起的HTTP请求数，running和waiting分别记录。最终C8/32K周期日志观测到8 running/0 waiting，前段最多7 waiting，见RESIDENCY_OBSERVATION。
+
+C4/1K主矩阵完整输出率-4.3594%，平均decode时长+7.1284%。预先冻结的quiet ABBA复核每进程五个batch，得到完整输出率-3.8710%、decode+3.1874%，两个decode配对为+2.5445%/+3.8151%。TTFT均值+7.2119%，配对为+13.8758%/+1.0098%，首轮队列cohort不同。C2/4K复核完整输出率+1.8444%，C8/1K为+0.2585%。
+
+工程上保留native候选用于长prefill，接受已测C4/1K约4%的完整请求代价。原主矩阵decode +7.13%和TTFT波动保留。主矩阵与复核的工作负载历史不同，早期CPU构建/hook并发、batch admission和自适应budget是待区分因素，尚未定位单一原因。每臂两个独立进程不能保证所有关键指标的稳定回退小于5%。Bsafe镜像提供直接回滚入口。
+
+保留与撤回
+
+保留 _insert_resampled_kernel 的 num_warps=1。修复前后各60例独立oracle通过，覆盖q1–8、拒绝位置、ragged、普通与dense/reference、graph。原竞争未在本机复现。全新服务按实际C1/C2/C3顺序capture预热，原fixture初始化失败日志保留。
+
+保留真实连续[M,5120]@[5120,N]上的固定SM70 cuBLASLt路径，M为4096/8192，N为3584/4128/8704，FP16 IO、FP32累加、零workspace。其他shape走原fallback，gate-up保留先round到FP16再SiLU/乘法的顺序。真实checkpoint解码和激活、预声明FP32/FP64 oracle、两臂各60例native逐位检查与20项route/graph检查完成。完整131K profile每rank命中2048次Lt，CPU/GPU调用逐一对应。完整子链局部收益约4.3%～23.0%，局部测量是单进程八轮ABBA。
+
+E4M3 pair转换穷举4227072个half值及800项attention+combine检查通过，16层轮换KV完整链慢3.8%～6.4%，撤回。source/PC定位后的q8 LUT32 shared布局同样通过800项检查，完整链慢约0.8%～1.3%，撤回。q1 grouped入口保留原guard。GEMM初次near-zero relative门槛也拒绝baseline，校准失败保留，后续绝对误差界在新seed/Lt验证前冻结。真实down族未通过baseline relative门槛，排除该族。
+
+实际SASS、CTA/register/shared/spill/Tensor Core诊断、owner/shape/layout/scale/workspace和逐rank完整profile保存在GEMM_RESOURCE_DIAGNOSTIC、REAL_PROJECTION_INPUTS、FINAL_HOTSPOT_OWNERS与FINAL_ROUTE_PROFILE。vendor warp tile和内部stage数未取得。完整cold131K加64decode的rank0 kernel sum中，attention31.114%，三族Lt合计29.482%，TP4 reduce+norm14.966%，GDN4.492%。这些份额保留该采样范围。NCCL包含到达等待，其变化没有再次计作独立通信收益。旧partial profile和旧失败候选的范围与数值保存在previous及EXPERIMENTS。
+
+质量、状态和计数
+
+Bsafe/Bnew各1819例均为MBPP366/500、GSM8K1268/1319，全部消息和grade一致。WikiText291窗口PPL7.757252799667104及五组长prefix continuation NLL一致，296组mean NLL最大差为零，784465个实际token logprob最大差为零。
+
+原50项功能两臂判定相同，47项通过。ragged-refill-REQUEST_002、REQUEST_005、REQUEST_020三项共同marker遗漏保留。真实取消确认非空生成、decode/state写入、旧请求释放、同一物理slot复用及干净参考一致。状态比较范围为每rank一个实际GDN层。
+
+自然EOS预算512、实际返回31、GPU rejection后33个采样、尾部排除2个。C1截断例43=33+10，C2例79=66+13。唯一GPU batch事件非重叠，返回token ID匹配原始序列前缀，prefill首token、严格decode、accepted/bonus/纠正/非spec尾步分列。诊断batch时间包含探针成本。SSE以chunk计间隔，并包含跨注入点的间隔。当前fresh CPU计数回归22项通过，历史379 GPU、133 cache CPU及24 memcheck保留原范围，memcheck证据的race边界单列。
+
+独立缓存与async
+
+四组original-window-logic、partial-only、checkpoint-only、combined的32K固定输出测试均命中24576、重算8192，cold TTFT约7.8秒、repeat约2.19秒，未见四组间的增量差异。B0已有精确partial tail，既有收益保持原归属。四组和额外131K压力回访启用pool/lookup探针，计时归入诊断。最终组合另以关闭探针的进程测131072/250000的cold/repeat/append/改尾10%、共享system、压力回访、C8/32K和取消。
+
+实际geometry为1125个logical blocks，共享池扣除null后可用1124个，device_state_blocks=0。六组Mamba8192、两组full2048和一组SWA1024的page均为1048576字节，共同对齐8192。free-or-evictable、pinned和cached physical计数分别记录，后两类可重叠。
+
+实际AsyncScheduler已观测mixed budget和非阻塞完成的GPU feedback。schedule入口在输出更新后，微秒级age仅反映CPU循环延迟。实际解码推进停顿从同一长请求相邻非空commit时刻重算，并计入跨注入点的间隔，GPU等待与CPU处理均包含在内。正式8192/min0、4096/min0、8192/min4096均关闭探针。每进程三轮共36短请求，只报告经验p95。选择门槛、否定证据和最终配置见ASYNC_SELECTION与EFFICIENCY_SUMMARY。具体结果附后。
+
+身份、资源和交付边界
+
+B0为2bb8c2b9cd7c1696630b6be464052027f0dd0147，具有父对象9f970d62885d4d73698d9e7a9859632a65704985。浅边界导致旧祖先查询不完整，UPSTREAM_LEDGER已更正。#953的在线candidate-head QPN8在四rank实际启用，目标原始head为FP16[62080,5120]，并发扩展本轮未测，原NVFP4中间投影失败归属已修正。
+
+Bprev源提交0a9ca74，Bsafe最小修复1c56d04，native构建源d904f56。Bprev镜像sha256:0850a9d5267c92e5efe21a229cfbd6d9e7b2748b0f9f5b362c67d9cec2f22c15。
+Bsafe镜像sha256:1c11cf5139e67f42a76d68bb40d3a8dcb68b8e9643338f4bd24ec823e463a026。
+Bnew镜像sha256:78675b92ac8d599af905cf5e474c4f95209984dde5e309f6c9860fe1811e76b2。
+_C SHA256为c5567901bb4a4b542756e861e004af9153ac97fc9eefdfd19d1dd18381c00ed7，FA2为2febf1935796fb5c13ea2d8bdbaf44a2c047aad0678841af3c0f6e34ac035074。
+
+仅重建_C，691项源输入关联实际命令、依赖和DSO/逐rank加载。CUDA12.8.61、g++13.3、CMake3.31.6、Torch2.10.0+cu128与显式sm_70固定。基础镜像sha256:8110fe8e0f228f698711703312bfcfb5a40d6063c1be8d734d5ceb7278602ae9从原host按ID save/load获取。交付为release依赖overlay，完整clean-wheel未验收。重定位bootstrap已在全新精确Git checkout、全新venv上实际完成_C构建，原已验收DSO保持冻结，三个binary replay独立核对。首轮发现四个DSO内容一致而模式由原0664变为0644，Dockerfile已修复并重建，2854个runtime文件的内容、模式与服务配置全部相同。
+
+本轮GPU6–9上的全部既有服务持续运行，包括MinerU、ComfyUI。没有修改驱动、系统CUDA、功率或时钟。连续telemetry、pmon、逐进程启动身份和最终清理核对保留。内存RPC为端点读数，peak为进程累计。正常提交检查仅沿用check-layering继承例外，两个MoE文件与B0逐字相同，platform计数25→32、37→39，hooks配置保持原样。
+
+retained-source.patch包含B0起全部tracked任务改动，next-runtime.patch只含Bprev后的csrc/vllm运行时差异。精确源码快照提交登记于PACKAGING.json。新累计包修正三个Blackwell JSON的PAX路径，FILES覆盖实际文件、源码、Dockerfile、许可证及模式。旧产物保留，新下载使用outputs/next-20261112。重建、复算、启动与回滚命令见REPRODUCE。
+
+上一轮成绩保持
+
+C1/131072 decode输出率146.688878→148.040549 tok/s，+0.9215%。C1/261120为103.614320→105.056497，+1.3919%。同输出1024的完整cold请求吞吐仅约+0.1%，cold prefill无可确认实质改善。131072改写复用TTFT41.0448→6.8511秒，250000为103.1855→19.3498秒，属于少重算的历史缓存收益。上一轮主要速度补丁为十行page2048，当轮小M NVFP4/native admission和通信候选均撤回。不同范围和条件的数据分别报告。
+
+
+本轮效率与最终资格的实际结果
+
+FORMAL_SERVICE_SUMMARY.json，各arm独立服务进程N=2，数值为进程内batch中位数的mean±sample SD。
+C1/131072 prev，aggregate_output_tps=21.279277±0.022054，mean_request_ttft_s=40.985391±0.074101，mean_request_prefill_s=40.712744±0.057435，mean_request_computed_prefill_tps=3219.443632±4.546088，mean_request_decode_s=7.233030±0.003422，mean_request_post_first_chunk_tps=144.415780±0.338568
+C1/131072 safe，aggregate_output_tps=21.273534±0.025893，mean_request_ttft_s=40.961786±0.057769，mean_request_prefill_s=40.724112±0.063396，mean_request_computed_prefill_tps=3218.539764±5.010807，mean_request_decode_s=7.229958±0.003791，mean_request_post_first_chunk_tps=143.829207±0.027226
+C1/131072 new，aggregate_output_tps=21.666145±0.010574，mean_request_ttft_s=40.098984±0.049938，mean_request_prefill_s=39.860104±0.000683，mean_request_computed_prefill_tps=3288.301016±0.055847，mean_request_decode_s=7.233819±0.000923，mean_request_post_first_chunk_tps=143.931553±0.501355
+C1/131072 Bsafe/Bprev正确性成本 aggregate_output_tps -0.026991%, mean_request_ttft_s -0.057595%, mean_request_decode_s -0.042470%
+C1/131072 同轮Bnew/Bprev完整输出率变化1.818048%
+C8/1024 prev，aggregate_output_tps=504.494949±3.774416，mean_request_ttft_s=1.631390±0.112098，mean_request_prefill_s=0.742583±0.039823，mean_request_computed_prefill_tps=1381.997101±72.723090，mean_request_decode_s=14.003269±0.249784，mean_request_post_first_chunk_tps=73.789122±1.486522
+C8/1024 safe，aggregate_output_tps=516.718858±1.281796，mean_request_ttft_s=1.709153±0.069216，mean_request_prefill_s=0.708832±0.008419，mean_request_computed_prefill_tps=1444.779311±17.102597，mean_request_decode_s=13.504167±0.043860，mean_request_post_first_chunk_tps=76.238565±0.369233
+C8/1024 new，aggregate_output_tps=511.387406±7.181911，mean_request_ttft_s=1.793806±0.055482，mean_request_prefill_s=0.727607±0.020202，mean_request_computed_prefill_tps=1408.276031±38.647369，mean_request_decode_s=13.464174±0.057613，mean_request_post_first_chunk_tps=76.587929±0.382333
+C8/1024 Bsafe/Bprev正确性成本 aggregate_output_tps 2.422999%, mean_request_ttft_s 4.766657%, mean_request_decode_s -3.564187%
+C8/1024 同轮Bnew/Bprev完整输出率变化1.366209%
+C1/261120 safe，aggregate_output_tps=8.633371±0.000974，mean_request_ttft_s=108.613513±0.036756，mean_request_prefill_s=108.181212±0.012752，mean_request_computed_prefill_tps=2413.727885±0.284454，mean_request_decode_s=10.130681±0.000987，mean_request_post_first_chunk_tps=103.325642±0.201410
+C1/261120 new，aggregate_output_tps=8.756224±0.006257，mean_request_ttft_s=106.931998±0.071323，mean_request_prefill_s=106.492882±0.078669，mean_request_computed_prefill_tps=2451.995663±1.811294，mean_request_decode_s=10.140244±0.000882，mean_request_post_first_chunk_tps=103.137188±0.140657
+C4/1024 safe，aggregate_output_tps=383.129416±17.136730，mean_request_ttft_s=0.931882±0.003744，mean_request_prefill_s=0.576515±0.019154，mean_request_computed_prefill_tps=1778.161295±59.010724，mean_request_decode_s=9.218107±0.280636，mean_request_post_first_chunk_tps=112.209137±2.894115
+C4/1024 new，aggregate_output_tps=366.427202±13.653720，mean_request_ttft_s=0.907969±0.033748，mean_request_prefill_s=0.584082±0.008220，mean_request_computed_prefill_tps=1754.971055±25.616348，mean_request_decode_s=9.875214±0.183353，mean_request_post_first_chunk_tps=104.424596±1.679092
+SHORT_CONFIRM_SUMMARY.json，各arm独立服务进程N=2，数值为进程内batch中位数的mean±sample SD。
+C2/4096 safe，aggregate_output_tps=228.502500±4.886937，mean_request_ttft_s=1.651171±0.003502，mean_request_prefill_s=1.179843±0.000357，mean_request_computed_prefill_tps=3471.649219±1.051534，mean_request_decode_s=6.850463±0.159491，mean_request_post_first_chunk_tps=150.730733±1.878345
+C2/4096 new，aggregate_output_tps=232.717044±2.549030，mean_request_ttft_s=1.613517±0.013901，mean_request_prefill_s=1.159718±0.007944，mean_request_computed_prefill_tps=3531.976489±24.194058，mean_request_decode_s=6.596843±0.036463，mean_request_post_first_chunk_tps=156.448420±0.856453
+C4/1024 safe，aggregate_output_tps=395.247591±6.540602，mean_request_ttft_s=0.860931±0.043691，mean_request_prefill_s=0.603923±0.002284，mean_request_computed_prefill_tps=1695.591672±6.412207，mean_request_decode_s=8.979791±0.151871，mean_request_post_first_chunk_tps=114.308483±2.335790
+C4/1024 new，aggregate_output_tps=379.947642±10.709172，mean_request_ttft_s=0.923020±0.031382，mean_request_prefill_s=0.607037±0.000745，mean_request_computed_prefill_tps=1686.884383±2.071506，mean_request_decode_s=9.266009±0.237380，mean_request_post_first_chunk_tps=110.870614±2.480851
+C8/1024 safe，aggregate_output_tps=515.254153±0.329754，mean_request_ttft_s=1.632017±0.005176，mean_request_prefill_s=0.720941±0.010354，mean_request_computed_prefill_tps=1420.513091±20.400802，mean_request_decode_s=13.436973±0.004699，mean_request_post_first_chunk_tps=76.376000±0.126937
+C8/1024 new，aggregate_output_tps=516.586099±5.134985，mean_request_ttft_s=1.660379±0.067384，mean_request_prefill_s=0.716303±0.013241，mean_request_computed_prefill_tps=1429.807319±26.429777，mean_request_decode_s=13.383877±0.240100，mean_request_post_first_chunk_tps=76.712895±1.322062
+cache-checkpoint-only，instrumented=True
+chat 参考检查7项，通过=True
+物理池摘要 {"shared": {"capacity_blocks": 1124, "pinned_blocks_max": 156, "free_or_evictable_blocks_min": 968, "cached_physical_blocks_max": 144}}
+cache-combined，instrumented=True
+chat 参考检查7项，通过=True
+物理池摘要 {"shared": {"capacity_blocks": 1124, "pinned_blocks_max": 156, "free_or_evictable_blocks_min": 968, "cached_physical_blocks_max": 144}}
+cache-original-window-logic，instrumented=True
+chat 参考检查7项，通过=True
+物理池摘要 {"shared": {"capacity_blocks": 1124, "pinned_blocks_max": 156, "free_or_evictable_blocks_min": 968, "cached_physical_blocks_max": 176}}
+cache-partial-only，instrumented=True
+chat 参考检查7项，通过=True
+物理池摘要 {"shared": {"capacity_blocks": 1124, "pinned_blocks_max": 156, "free_or_evictable_blocks_min": 968, "cached_physical_blocks_max": 128}}
+cache-pressure-diagnostic，instrumented=True
+chat-pressure 参考检查16项，通过=True
+物理池摘要 {"shared": {"capacity_blocks": 1124, "pinned_blocks_max": 341, "free_or_evictable_blocks_min": 783, "cached_physical_blocks_max": 1001}}
+final-cache-combination，instrumented=False
+输入131072，cold，trial0，实际计算131072.0，hits0.0，TTFT39.966545秒，输出率21.876727 tok/s，preemptions0.0
+输入131072，repeat，trial0，实际计算8192.0，hits122880.0，TTFT3.607016秒，输出率98.087306 tok/s，preemptions0.0
+输入131200，append，trial0，实际计算8320.0，hits122880.0，TTFT3.756458秒，输出率92.434208 tok/s，preemptions0.0
+输入131072，rewrite，trial0，实际计算16384.0，hits114688.0，TTFT6.751875秒，输出率70.399010 tok/s，preemptions0.0
+输入131072，cold，trial1，实际计算131072.0，hits0.0，TTFT40.163753秒，输出率21.786834 tok/s，preemptions0.0
+输入131072，repeat，trial1，实际计算8192.0，hits122880.0，TTFT3.609168秒，输出率97.967634 tok/s，preemptions0.0
+输入131200，append，trial1，实际计算8320.0，hits122880.0，TTFT3.770469秒，输出率92.411451 tok/s，preemptions0.0
+输入131072，rewrite，trial1，实际计算16384.0，hits114688.0，TTFT6.742416秒，输出率70.397297 tok/s，preemptions0.0
+输入250000，cold，trial0，实际计算250000.0，hits0.0，TTFT101.417520秒，输出率9.253696 tok/s，preemptions0.0
+输入250000，repeat，trial0，实际计算4240.0，hits245760.0，TTFT5.556419秒，输出率69.458584 tok/s，preemptions0.0
+输入250128，append，trial0，实际计算4368.0，hits245760.0，TTFT6.313331秒，输出率66.329236 tok/s，preemptions0.0
+输入250000，rewrite，trial0，实际计算28816.0，hits221184.0，TTFT19.211275秒，输出率36.507543 tok/s，preemptions0.0
+输入250000，cold，trial1，实际计算250000.0，hits0.0，TTFT101.528163秒，输出率9.248458 tok/s，preemptions0.0
+输入250000，repeat，trial1，实际计算4240.0，hits245760.0，TTFT5.561333秒，输出率69.339384 tok/s，preemptions0.0
+输入250128，append，trial1，实际计算4368.0，hits245760.0，TTFT6.322831秒，输出率66.312878 tok/s，preemptions0.0
+输入250000，rewrite，trial1，实际计算28816.0，hits221184.0，TTFT19.256140秒，输出率36.413279 tok/s，preemptions0.0
+chat-pressure 参考检查16项，通过=True
+本进程关闭池探针，物理池诊断见cache-pressure-diagnostic。
+async-age-diagnostic，短请求12个，经验p95 21.009684秒，resident最大chunk gap 0.866140秒，resident平均完成77.448990秒，插入32K平均TTFT 14.549002秒，完整输出率52.886423 tok/s
+chunk4096-b1，短请求36个，经验p95 20.129734秒，resident最大chunk gap 0.892596秒，resident平均完成78.553416秒，插入32K平均TTFT 14.353704秒，完整输出率52.147944 tok/s
+default8192-a1，短请求36个，经验p95 19.701963秒，resident最大chunk gap 0.915783秒，resident平均完成75.498349秒，插入32K平均TTFT 14.462721秒，完整输出率54.262661 tok/s
+floor4096-c1，短请求36个，经验p95 13.312295秒，resident最大chunk gap 1.208003秒，resident平均完成69.737889秒，插入32K平均TTFT 8.637470秒，完整输出率58.749558 tok/s
+optional async preset retained=False
+AsyncScheduler记录865次schedule及89条GPU反馈，长请求CPU commit gap p95 0.247870秒，最大0.865856秒。
+新增实际 native memcheck 6个shape，eager/capture/replay，ERROR SUMMARY为零，输出byte hash核对通过。
+全部原服务ID、镜像和启动时间核对一致，18111端口释放，连续telemetry已关闭。
+三个 overlay 已实际重建，安装的全部 vllm runtime 文件字节与模式及服务配置逐项一致，见 BINARY_REPLAY_QA.json。
+最终候选标签 1cat-vllm:v152-next-best-qualified-source-20261112，image ID sha256:78675b92ac8d599af905cf5e474c4f95209984dde5e309f6c9860fe1811e76b2
+构建、复现实例和数据范围完整记录于 BUILD_MANIFEST.json、REPRODUCE.txt、FINAL_QUALIFICATION.json。重定位 bootstrap 已在全新 Git checkout 实际完成 _C 构建，原始已验收 DSO 保持冻结。

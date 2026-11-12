@@ -1,0 +1,3982 @@
+{
+  "complete": true,
+  "quality": {
+    "complete": true,
+    "passed": true,
+    "arms": {
+      "safe": {
+        "scores": {
+          "mbpp": {
+            "passed": 366,
+            "total": 500
+          },
+          "gsm8k": {
+            "passed": 1268,
+            "total": 1319
+          }
+        },
+        "ppl": 7.757252799667104,
+        "nll_cases": [
+          {
+            "kind": "wikitext",
+            "start": 0,
+            "nll_sum": 1669.486849410986,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 1024,
+            "nll_sum": 2230.6601967380966,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 2048,
+            "nll_sum": 2128.284005240872,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 3072,
+            "nll_sum": 2320.7683682393094,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 4096,
+            "nll_sum": 2560.3909490282986,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 5120,
+            "nll_sum": 2182.7295627275043,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 6144,
+            "nll_sum": 2204.1456296511124,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 7168,
+            "nll_sum": 2171.207794051381,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 8192,
+            "nll_sum": 1715.5140740884794,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 9216,
+            "nll_sum": 2020.1862015599334,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 10240,
+            "nll_sum": 1705.7763307488226,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 11264,
+            "nll_sum": 1176.3366635374555,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 12288,
+            "nll_sum": 1310.033777970326,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 13312,
+            "nll_sum": 1398.9742462381219,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 14336,
+            "nll_sum": 1781.7892624992219,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 15360,
+            "nll_sum": 1813.768083023082,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 16384,
+            "nll_sum": 1970.6014762600862,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 17408,
+            "nll_sum": 2221.635200835484,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 18432,
+            "nll_sum": 2167.883290450338,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 19456,
+            "nll_sum": 2047.9055029703522,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 20480,
+            "nll_sum": 2046.15725907261,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 21504,
+            "nll_sum": 2094.133105486155,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 22528,
+            "nll_sum": 1978.242945133978,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 23552,
+            "nll_sum": 2433.895389755957,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 24576,
+            "nll_sum": 2064.687180027593,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 25600,
+            "nll_sum": 2185.3564822205444,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 26624,
+            "nll_sum": 2358.999500383208,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 27648,
+            "nll_sum": 2236.8536500326536,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 28672,
+            "nll_sum": 2144.258402681124,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 29696,
+            "nll_sum": 2288.526578626361,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 30720,
+            "nll_sum": 2348.0213587148137,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 31744,
+            "nll_sum": 2385.222855587206,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 32768,
+            "nll_sum": 2612.828314948136,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 33792,
+            "nll_sum": 2217.070585821317,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 34816,
+            "nll_sum": 2072.664076817491,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 35840,
+            "nll_sum": 2362.7755015418807,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 36864,
+            "nll_sum": 2283.4153662191775,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 37888,
+            "nll_sum": 2048.340470632456,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 38912,
+            "nll_sum": 2235.974208989159,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 39936,
+            "nll_sum": 1444.3948722895107,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 40960,
+            "nll_sum": 1955.912365449376,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 41984,
+            "nll_sum": 1964.1397820810207,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 43008,
+            "nll_sum": 2325.9228418098646,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 44032,
+            "nll_sum": 2102.254984540301,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 45056,
+            "nll_sum": 1834.9985491760317,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 46080,
+            "nll_sum": 2183.901681141215,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 47104,
+            "nll_sum": 2285.86069864194,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 48128,
+            "nll_sum": 1997.5307117326965,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 49152,
+            "nll_sum": 2042.6831102348733,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 50176,
+            "nll_sum": 2367.9919187951455,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 51200,
+            "nll_sum": 2268.698037466871,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 52224,
+            "nll_sum": 1960.0884709050224,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 53248,
+            "nll_sum": 2139.924827222494,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 54272,
+            "nll_sum": 2673.1662768356473,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 55296,
+            "nll_sum": 2611.9945280680467,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 56320,
+            "nll_sum": 2586.071421686267,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 57344,
+            "nll_sum": 2462.6767806169737,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 58368,
+            "nll_sum": 2254.604117681987,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 59392,
+            "nll_sum": 1963.7777411910038,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 60416,
+            "nll_sum": 1933.1162456563266,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 61440,
+            "nll_sum": 1956.8982513770716,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 62464,
+            "nll_sum": 1700.8280772849685,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 63488,
+            "nll_sum": 1784.169575216095,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 64512,
+            "nll_sum": 1671.1263171372411,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 65536,
+            "nll_sum": 1608.0330032148968,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 66560,
+            "nll_sum": 1797.9628749679648,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 67584,
+            "nll_sum": 1996.477830351154,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 68608,
+            "nll_sum": 2026.088362037614,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 69632,
+            "nll_sum": 1812.737415013482,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 70656,
+            "nll_sum": 2152.864034197999,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 71680,
+            "nll_sum": 2166.9960096394598,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 72704,
+            "nll_sum": 2124.223921199861,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 73728,
+            "nll_sum": 1420.7796540221611,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 74752,
+            "nll_sum": 1412.2595491867605,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 75776,
+            "nll_sum": 1364.0797972219484,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 76800,
+            "nll_sum": 1664.6456804832915,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 77824,
+            "nll_sum": 1731.92380432599,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 78848,
+            "nll_sum": 1540.9268075953137,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 79872,
+            "nll_sum": 1525.0287269242594,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 80896,
+            "nll_sum": 1478.2138117112536,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 81920,
+            "nll_sum": 1742.548946162597,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 82944,
+            "nll_sum": 1829.204591700996,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 83968,
+            "nll_sum": 1813.3030608230683,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 84992,
+            "nll_sum": 2334.7605549439704,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 86016,
+            "nll_sum": 2558.8551483786887,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 87040,
+            "nll_sum": 2926.156904054633,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 88064,
+            "nll_sum": 2670.183006769797,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 89088,
+            "nll_sum": 2799.6387856432993,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 90112,
+            "nll_sum": 2744.65444304049,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 91136,
+            "nll_sum": 1977.8303146399007,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 92160,
+            "nll_sum": 2220.980334235195,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 93184,
+            "nll_sum": 2102.1318035600525,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 94208,
+            "nll_sum": 2286.160867408671,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 95232,
+            "nll_sum": 2133.449040909896,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 96256,
+            "nll_sum": 2533.1166661524576,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 97280,
+            "nll_sum": 2165.8893435537175,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 98304,
+            "nll_sum": 2588.3886024968742,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 99328,
+            "nll_sum": 2441.7806126297437,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 100352,
+            "nll_sum": 1933.6518012499419,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 101376,
+            "nll_sum": 1987.4672093355712,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 102400,
+            "nll_sum": 2372.1715752700948,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 103424,
+            "nll_sum": 2454.3902025199213,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 104448,
+            "nll_sum": 1986.4335124283616,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 105472,
+            "nll_sum": 1722.3678936967408,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 106496,
+            "nll_sum": 1859.7991477230732,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 107520,
+            "nll_sum": 1982.715180706724,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 108544,
+            "nll_sum": 1773.0712362079707,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 109568,
+            "nll_sum": 1951.0655826849088,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 110592,
+            "nll_sum": 1687.5003438832682,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 111616,
+            "nll_sum": 1705.7299075849041,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 112640,
+            "nll_sum": 1871.6039507145242,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 113664,
+            "nll_sum": 1840.4398222961927,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 114688,
+            "nll_sum": 1772.7300083197188,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 115712,
+            "nll_sum": 1499.9052316881043,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 116736,
+            "nll_sum": 1623.3276703048957,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 117760,
+            "nll_sum": 1851.1635367107901,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 118784,
+            "nll_sum": 1861.427957473199,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 119808,
+            "nll_sum": 1886.0077386189496,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 120832,
+            "nll_sum": 1646.1945485263032,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 121856,
+            "nll_sum": 2027.9117177882445,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 122880,
+            "nll_sum": 2057.531938698452,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 123904,
+            "nll_sum": 2178.443231526124,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 124928,
+            "nll_sum": 2395.078404238273,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 125952,
+            "nll_sum": 2259.661303652507,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 126976,
+            "nll_sum": 2481.720156323783,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 128000,
+            "nll_sum": 2488.478022330979,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 129024,
+            "nll_sum": 2534.1114143076593,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 130048,
+            "nll_sum": 2498.188661254885,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 131072,
+            "nll_sum": 1655.8754930198465,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 132096,
+            "nll_sum": 1579.6540763838802,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 133120,
+            "nll_sum": 1941.6896877762993,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 134144,
+            "nll_sum": 2294.2338330581215,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 135168,
+            "nll_sum": 2116.648979932136,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 136192,
+            "nll_sum": 2028.7496269879994,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 137216,
+            "nll_sum": 1830.9679062176128,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 138240,
+            "nll_sum": 1886.6634451879781,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 139264,
+            "nll_sum": 2024.3158944289753,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 140288,
+            "nll_sum": 1931.6736601058092,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 141312,
+            "nll_sum": 2071.9840796196386,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 142336,
+            "nll_sum": 1916.1738502976496,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 143360,
+            "nll_sum": 1626.8176823975757,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 144384,
+            "nll_sum": 1848.2326032301776,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 145408,
+            "nll_sum": 1611.9001935992437,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 146432,
+            "nll_sum": 2059.461791906828,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 147456,
+            "nll_sum": 2525.4399844103373,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 148480,
+            "nll_sum": 2401.6584744084466,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 149504,
+            "nll_sum": 2573.877705424902,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 150528,
+            "nll_sum": 2409.1833788883896,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 151552,
+            "nll_sum": 1689.9227303230864,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 152576,
+            "nll_sum": 1941.2062371676675,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 153600,
+            "nll_sum": 1778.9776744459623,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 154624,
+            "nll_sum": 2393.3965549153945,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 155648,
+            "nll_sum": 2056.521304929547,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 156672,
+            "nll_sum": 1989.9382780051328,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 157696,
+            "nll_sum": 2276.936848160389,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 158720,
+            "nll_sum": 1876.2833582175936,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 159744,
+            "nll_sum": 1935.4858571816112,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 160768,
+            "nll_sum": 2316.7347689276176,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 161792,
+            "nll_sum": 2339.514335018079,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 162816,
+            "nll_sum": 2083.173845394256,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 163840,
+            "nll_sum": 2186.165928360412,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 164864,
+            "nll_sum": 2387.3130731057026,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 165888,
+            "nll_sum": 1832.5549690406551,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 166912,
+            "nll_sum": 1751.3730009607698,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 167936,
+            "nll_sum": 1717.9994305427972,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 168960,
+            "nll_sum": 2002.6858169521074,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 169984,
+            "nll_sum": 1952.7036365068652,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 171008,
+            "nll_sum": 1857.873346788403,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 172032,
+            "nll_sum": 1861.4325503171135,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 173056,
+            "nll_sum": 1745.4214087849577,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 174080,
+            "nll_sum": 2095.2137994242253,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 175104,
+            "nll_sum": 2119.730933376548,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 176128,
+            "nll_sum": 1877.7556012341934,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 177152,
+            "nll_sum": 1805.0870154825125,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 178176,
+            "nll_sum": 2206.4764089461087,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 179200,
+            "nll_sum": 1839.8191654366892,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 180224,
+            "nll_sum": 2482.677656711341,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 181248,
+            "nll_sum": 2225.820705002282,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 182272,
+            "nll_sum": 1977.4477511364457,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 183296,
+            "nll_sum": 2138.907399520667,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 184320,
+            "nll_sum": 2177.7962835046565,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 185344,
+            "nll_sum": 2837.475497893456,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 186368,
+            "nll_sum": 3040.43991772594,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 187392,
+            "nll_sum": 2789.770292664236,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 188416,
+            "nll_sum": 2959.8731178846124,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 189440,
+            "nll_sum": 2458.4748287058346,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 190464,
+            "nll_sum": 2715.181508374282,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 191488,
+            "nll_sum": 2494.8127214807173,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 192512,
+            "nll_sum": 2737.8682113247432,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 193536,
+            "nll_sum": 2521.9755091100774,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 194560,
+            "nll_sum": 2672.6083441496303,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 195584,
+            "nll_sum": 2765.88285137405,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 196608,
+            "nll_sum": 1895.8783984093425,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 197632,
+            "nll_sum": 2761.276891972341,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 198656,
+            "nll_sum": 2557.179361402861,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 199680,
+            "nll_sum": 2011.2889274373301,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 200704,
+            "nll_sum": 2120.674529423375,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 201728,
+            "nll_sum": 2189.136053244893,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 202752,
+            "nll_sum": 2362.3510019371115,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 203776,
+            "nll_sum": 2149.422433829621,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 204800,
+            "nll_sum": 1420.4677617560126,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 205824,
+            "nll_sum": 1616.0931187386898,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 206848,
+            "nll_sum": 2271.707929477181,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 207872,
+            "nll_sum": 2006.0161865294863,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 208896,
+            "nll_sum": 2263.8235321080692,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 209920,
+            "nll_sum": 2068.2034017554215,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 210944,
+            "nll_sum": 1804.8571759738988,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 211968,
+            "nll_sum": 2291.635133577183,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 212992,
+            "nll_sum": 2130.9747285921403,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 214016,
+            "nll_sum": 1979.7377022857127,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 215040,
+            "nll_sum": 2048.696960813174,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 216064,
+            "nll_sum": 2067.6704058968153,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 217088,
+            "nll_sum": 2604.132565323507,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 218112,
+            "nll_sum": 2260.988891550518,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 219136,
+            "nll_sum": 2299.918547731302,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 220160,
+            "nll_sum": 1938.6362937509311,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 221184,
+            "nll_sum": 2067.735276212821,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 222208,
+            "nll_sum": 2231.2981025131003,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 223232,
+            "nll_sum": 2128.142765364795,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 224256,
+            "nll_sum": 2210.8948031641557,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 225280,
+            "nll_sum": 2010.2321006661386,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 226304,
+            "nll_sum": 1886.1672206117619,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 227328,
+            "nll_sum": 1933.920767960355,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 228352,
+            "nll_sum": 1930.9109248062632,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 229376,
+            "nll_sum": 1789.9394351251394,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 230400,
+            "nll_sum": 1786.1515437843373,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 231424,
+            "nll_sum": 2207.064052105572,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 232448,
+            "nll_sum": 2716.400871862821,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 233472,
+            "nll_sum": 1877.1786846495934,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 234496,
+            "nll_sum": 2179.7221329048134,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 235520,
+            "nll_sum": 2304.757808856757,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 236544,
+            "nll_sum": 2241.572074600741,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 237568,
+            "nll_sum": 2539.296043094151,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 238592,
+            "nll_sum": 2159.8597817214113,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 239616,
+            "nll_sum": 1889.5707939565423,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 240640,
+            "nll_sum": 2012.551110814531,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 241664,
+            "nll_sum": 2229.878329824303,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 242688,
+            "nll_sum": 1785.6572009191623,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 243712,
+            "nll_sum": 2466.2504446156636,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 244736,
+            "nll_sum": 2373.7710632436083,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 245760,
+            "nll_sum": 2277.3144704646,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 246784,
+            "nll_sum": 2063.730997863797,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 247808,
+            "nll_sum": 1753.6688412612539,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 248832,
+            "nll_sum": 1959.2568931209387,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 249856,
+            "nll_sum": 1836.315769017947,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 250880,
+            "nll_sum": 1870.1255662609983,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 251904,
+            "nll_sum": 2265.3863525520483,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 252928,
+            "nll_sum": 2050.851220276323,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 253952,
+            "nll_sum": 2060.3399274551484,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 254976,
+            "nll_sum": 2412.0769082439474,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 256000,
+            "nll_sum": 2368.9371930968646,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 257024,
+            "nll_sum": 1928.6882474705308,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 258048,
+            "nll_sum": 2112.555728985146,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 259072,
+            "nll_sum": 2294.1519116960444,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 260096,
+            "nll_sum": 1909.2012520983976,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 261120,
+            "nll_sum": 1947.2585546750988,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 262144,
+            "nll_sum": 2028.4580621156601,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 263168,
+            "nll_sum": 2277.5135172357914,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 264192,
+            "nll_sum": 2228.583510684666,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 265216,
+            "nll_sum": 1733.4865202211076,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 266240,
+            "nll_sum": 2135.7604559734555,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 267264,
+            "nll_sum": 2184.550240578139,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 268288,
+            "nll_sum": 1869.5072789488668,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 269312,
+            "nll_sum": 2160.6836729939296,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 270336,
+            "nll_sum": 2102.1786616082263,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 271360,
+            "nll_sum": 2209.065373474483,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 272384,
+            "nll_sum": 2319.574188020568,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 273408,
+            "nll_sum": 2182.6818324879514,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 274432,
+            "nll_sum": 2394.9967882797137,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 275456,
+            "nll_sum": 1938.353083565602,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 276480,
+            "nll_sum": 2132.659596886392,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 277504,
+            "nll_sum": 1557.1656556241232,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 278528,
+            "nll_sum": 1884.5133199975608,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 279552,
+            "nll_sum": 1317.8509243087638,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 280576,
+            "nll_sum": 1269.4594536130644,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 281600,
+            "nll_sum": 2344.361803816726,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 282624,
+            "nll_sum": 2259.1327477662053,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 283648,
+            "nll_sum": 2329.9645266220573,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 284672,
+            "nll_sum": 2448.7294431629207,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 285696,
+            "nll_sum": 2705.9035790705975,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 286720,
+            "nll_sum": 2259.933948510671,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 287744,
+            "nll_sum": 1882.7474152167365,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 288768,
+            "nll_sum": 1854.1550698822607,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 289792,
+            "nll_sum": 2165.5196789400316,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 290816,
+            "nll_sum": 2329.3377711889134,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 291840,
+            "nll_sum": 2100.783434149415,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 292864,
+            "nll_sum": 2079.474833568707,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 293888,
+            "nll_sum": 2465.6516650254616,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 294912,
+            "nll_sum": 2583.068599662267,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 295936,
+            "nll_sum": 1972.7458660925467,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 296960,
+            "nll_sum": 543.0123929436668,
+            "count": 232
+          },
+          {
+            "kind": "continuation",
+            "length": 8192,
+            "nll_sum": 1095.9324708902873,
+            "count": 512
+          },
+          {
+            "kind": "continuation",
+            "length": 32768,
+            "nll_sum": 1073.932201822574,
+            "count": 512
+          },
+          {
+            "kind": "continuation",
+            "length": 65536,
+            "nll_sum": 649.4648420640328,
+            "count": 512
+          },
+          {
+            "kind": "continuation",
+            "length": 131072,
+            "nll_sum": 980.0907207509513,
+            "count": 512
+          },
+          {
+            "kind": "continuation",
+            "length": 250000,
+            "nll_sum": 681.363305694232,
+            "count": 512
+          }
+        ],
+        "functional_passed": 47,
+        "functional_failures": [
+          "ragged-refill-REQUEST_002",
+          "ragged-refill-REQUEST_005",
+          "ragged-refill-REQUEST_020"
+        ],
+        "cancel_state_passed": true,
+        "image_id": "sha256:1c11cf5139e67f42a76d68bb40d3a8dcb68b8e9643338f4bd24ec823e463a026"
+      },
+      "new": {
+        "scores": {
+          "mbpp": {
+            "passed": 366,
+            "total": 500
+          },
+          "gsm8k": {
+            "passed": 1268,
+            "total": 1319
+          }
+        },
+        "ppl": 7.757252799667104,
+        "nll_cases": [
+          {
+            "kind": "wikitext",
+            "start": 0,
+            "nll_sum": 1669.486849410986,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 1024,
+            "nll_sum": 2230.6601967380966,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 2048,
+            "nll_sum": 2128.284005240872,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 3072,
+            "nll_sum": 2320.7683682393094,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 4096,
+            "nll_sum": 2560.3909490282986,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 5120,
+            "nll_sum": 2182.7295627275043,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 6144,
+            "nll_sum": 2204.1456296511124,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 7168,
+            "nll_sum": 2171.207794051381,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 8192,
+            "nll_sum": 1715.5140740884794,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 9216,
+            "nll_sum": 2020.1862015599334,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 10240,
+            "nll_sum": 1705.7763307488226,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 11264,
+            "nll_sum": 1176.3366635374555,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 12288,
+            "nll_sum": 1310.033777970326,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 13312,
+            "nll_sum": 1398.9742462381219,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 14336,
+            "nll_sum": 1781.7892624992219,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 15360,
+            "nll_sum": 1813.768083023082,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 16384,
+            "nll_sum": 1970.6014762600862,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 17408,
+            "nll_sum": 2221.635200835484,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 18432,
+            "nll_sum": 2167.883290450338,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 19456,
+            "nll_sum": 2047.9055029703522,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 20480,
+            "nll_sum": 2046.15725907261,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 21504,
+            "nll_sum": 2094.133105486155,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 22528,
+            "nll_sum": 1978.242945133978,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 23552,
+            "nll_sum": 2433.895389755957,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 24576,
+            "nll_sum": 2064.687180027593,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 25600,
+            "nll_sum": 2185.3564822205444,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 26624,
+            "nll_sum": 2358.999500383208,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 27648,
+            "nll_sum": 2236.8536500326536,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 28672,
+            "nll_sum": 2144.258402681124,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 29696,
+            "nll_sum": 2288.526578626361,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 30720,
+            "nll_sum": 2348.0213587148137,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 31744,
+            "nll_sum": 2385.222855587206,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 32768,
+            "nll_sum": 2612.828314948136,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 33792,
+            "nll_sum": 2217.070585821317,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 34816,
+            "nll_sum": 2072.664076817491,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 35840,
+            "nll_sum": 2362.7755015418807,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 36864,
+            "nll_sum": 2283.4153662191775,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 37888,
+            "nll_sum": 2048.340470632456,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 38912,
+            "nll_sum": 2235.974208989159,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 39936,
+            "nll_sum": 1444.3948722895107,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 40960,
+            "nll_sum": 1955.912365449376,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 41984,
+            "nll_sum": 1964.1397820810207,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 43008,
+            "nll_sum": 2325.9228418098646,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 44032,
+            "nll_sum": 2102.254984540301,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 45056,
+            "nll_sum": 1834.9985491760317,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 46080,
+            "nll_sum": 2183.901681141215,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 47104,
+            "nll_sum": 2285.86069864194,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 48128,
+            "nll_sum": 1997.5307117326965,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 49152,
+            "nll_sum": 2042.6831102348733,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 50176,
+            "nll_sum": 2367.9919187951455,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 51200,
+            "nll_sum": 2268.698037466871,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 52224,
+            "nll_sum": 1960.0884709050224,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 53248,
+            "nll_sum": 2139.924827222494,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 54272,
+            "nll_sum": 2673.1662768356473,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 55296,
+            "nll_sum": 2611.9945280680467,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 56320,
+            "nll_sum": 2586.071421686267,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 57344,
+            "nll_sum": 2462.6767806169737,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 58368,
+            "nll_sum": 2254.604117681987,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 59392,
+            "nll_sum": 1963.7777411910038,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 60416,
+            "nll_sum": 1933.1162456563266,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 61440,
+            "nll_sum": 1956.8982513770716,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 62464,
+            "nll_sum": 1700.8280772849685,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 63488,
+            "nll_sum": 1784.169575216095,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 64512,
+            "nll_sum": 1671.1263171372411,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 65536,
+            "nll_sum": 1608.0330032148968,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 66560,
+            "nll_sum": 1797.9628749679648,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 67584,
+            "nll_sum": 1996.477830351154,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 68608,
+            "nll_sum": 2026.088362037614,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 69632,
+            "nll_sum": 1812.737415013482,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 70656,
+            "nll_sum": 2152.864034197999,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 71680,
+            "nll_sum": 2166.9960096394598,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 72704,
+            "nll_sum": 2124.223921199861,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 73728,
+            "nll_sum": 1420.7796540221611,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 74752,
+            "nll_sum": 1412.2595491867605,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 75776,
+            "nll_sum": 1364.0797972219484,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 76800,
+            "nll_sum": 1664.6456804832915,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 77824,
+            "nll_sum": 1731.92380432599,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 78848,
+            "nll_sum": 1540.9268075953137,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 79872,
+            "nll_sum": 1525.0287269242594,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 80896,
+            "nll_sum": 1478.2138117112536,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 81920,
+            "nll_sum": 1742.548946162597,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 82944,
+            "nll_sum": 1829.204591700996,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 83968,
+            "nll_sum": 1813.3030608230683,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 84992,
+            "nll_sum": 2334.7605549439704,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 86016,
+            "nll_sum": 2558.8551483786887,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 87040,
+            "nll_sum": 2926.156904054633,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 88064,
+            "nll_sum": 2670.183006769797,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 89088,
+            "nll_sum": 2799.6387856432993,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 90112,
+            "nll_sum": 2744.65444304049,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 91136,
+            "nll_sum": 1977.8303146399007,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 92160,
+            "nll_sum": 2220.980334235195,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 93184,
+            "nll_sum": 2102.1318035600525,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 94208,
+            "nll_sum": 2286.160867408671,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 95232,
+            "nll_sum": 2133.449040909896,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 96256,
+            "nll_sum": 2533.1166661524576,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 97280,
+            "nll_sum": 2165.8893435537175,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 98304,
+            "nll_sum": 2588.3886024968742,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 99328,
+            "nll_sum": 2441.7806126297437,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 100352,
+            "nll_sum": 1933.6518012499419,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 101376,
+            "nll_sum": 1987.4672093355712,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 102400,
+            "nll_sum": 2372.1715752700948,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 103424,
+            "nll_sum": 2454.3902025199213,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 104448,
+            "nll_sum": 1986.4335124283616,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 105472,
+            "nll_sum": 1722.3678936967408,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 106496,
+            "nll_sum": 1859.7991477230732,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 107520,
+            "nll_sum": 1982.715180706724,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 108544,
+            "nll_sum": 1773.0712362079707,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 109568,
+            "nll_sum": 1951.0655826849088,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 110592,
+            "nll_sum": 1687.5003438832682,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 111616,
+            "nll_sum": 1705.7299075849041,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 112640,
+            "nll_sum": 1871.6039507145242,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 113664,
+            "nll_sum": 1840.4398222961927,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 114688,
+            "nll_sum": 1772.7300083197188,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 115712,
+            "nll_sum": 1499.9052316881043,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 116736,
+            "nll_sum": 1623.3276703048957,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 117760,
+            "nll_sum": 1851.1635367107901,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 118784,
+            "nll_sum": 1861.427957473199,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 119808,
+            "nll_sum": 1886.0077386189496,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 120832,
+            "nll_sum": 1646.1945485263032,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 121856,
+            "nll_sum": 2027.9117177882445,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 122880,
+            "nll_sum": 2057.531938698452,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 123904,
+            "nll_sum": 2178.443231526124,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 124928,
+            "nll_sum": 2395.078404238273,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 125952,
+            "nll_sum": 2259.661303652507,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 126976,
+            "nll_sum": 2481.720156323783,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 128000,
+            "nll_sum": 2488.478022330979,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 129024,
+            "nll_sum": 2534.1114143076593,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 130048,
+            "nll_sum": 2498.188661254885,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 131072,
+            "nll_sum": 1655.8754930198465,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 132096,
+            "nll_sum": 1579.6540763838802,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 133120,
+            "nll_sum": 1941.6896877762993,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 134144,
+            "nll_sum": 2294.2338330581215,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 135168,
+            "nll_sum": 2116.648979932136,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 136192,
+            "nll_sum": 2028.7496269879994,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 137216,
+            "nll_sum": 1830.9679062176128,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 138240,
+            "nll_sum": 1886.6634451879781,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 139264,
+            "nll_sum": 2024.3158944289753,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 140288,
+            "nll_sum": 1931.6736601058092,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 141312,
+            "nll_sum": 2071.9840796196386,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 142336,
+            "nll_sum": 1916.1738502976496,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 143360,
+            "nll_sum": 1626.8176823975757,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 144384,
+            "nll_sum": 1848.2326032301776,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 145408,
+            "nll_sum": 1611.9001935992437,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 146432,
+            "nll_sum": 2059.461791906828,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 147456,
+            "nll_sum": 2525.4399844103373,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 148480,
+            "nll_sum": 2401.6584744084466,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 149504,
+            "nll_sum": 2573.877705424902,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 150528,
+            "nll_sum": 2409.1833788883896,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 151552,
+            "nll_sum": 1689.9227303230864,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 152576,
+            "nll_sum": 1941.2062371676675,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 153600,
+            "nll_sum": 1778.9776744459623,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 154624,
+            "nll_sum": 2393.3965549153945,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 155648,
+            "nll_sum": 2056.521304929547,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 156672,
+            "nll_sum": 1989.9382780051328,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 157696,
+            "nll_sum": 2276.936848160389,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 158720,
+            "nll_sum": 1876.2833582175936,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 159744,
+            "nll_sum": 1935.4858571816112,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 160768,
+            "nll_sum": 2316.7347689276176,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 161792,
+            "nll_sum": 2339.514335018079,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 162816,
+            "nll_sum": 2083.173845394256,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 163840,
+            "nll_sum": 2186.165928360412,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 164864,
+            "nll_sum": 2387.3130731057026,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 165888,
+            "nll_sum": 1832.5549690406551,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 166912,
+            "nll_sum": 1751.3730009607698,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 167936,
+            "nll_sum": 1717.9994305427972,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 168960,
+            "nll_sum": 2002.6858169521074,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 169984,
+            "nll_sum": 1952.7036365068652,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 171008,
+            "nll_sum": 1857.873346788403,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 172032,
+            "nll_sum": 1861.4325503171135,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 173056,
+            "nll_sum": 1745.4214087849577,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 174080,
+            "nll_sum": 2095.2137994242253,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 175104,
+            "nll_sum": 2119.730933376548,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 176128,
+            "nll_sum": 1877.7556012341934,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 177152,
+            "nll_sum": 1805.0870154825125,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 178176,
+            "nll_sum": 2206.4764089461087,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 179200,
+            "nll_sum": 1839.8191654366892,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 180224,
+            "nll_sum": 2482.677656711341,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 181248,
+            "nll_sum": 2225.820705002282,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 182272,
+            "nll_sum": 1977.4477511364457,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 183296,
+            "nll_sum": 2138.907399520667,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 184320,
+            "nll_sum": 2177.7962835046565,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 185344,
+            "nll_sum": 2837.475497893456,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 186368,
+            "nll_sum": 3040.43991772594,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 187392,
+            "nll_sum": 2789.770292664236,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 188416,
+            "nll_sum": 2959.8731178846124,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 189440,
+            "nll_sum": 2458.4748287058346,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 190464,
+            "nll_sum": 2715.181508374282,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 191488,
+            "nll_sum": 2494.8127214807173,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 192512,
+            "nll_sum": 2737.8682113247432,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 193536,
+            "nll_sum": 2521.9755091100774,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 194560,
+            "nll_sum": 2672.6083441496303,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 195584,
+            "nll_sum": 2765.88285137405,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 196608,
+            "nll_sum": 1895.8783984093425,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 197632,
+            "nll_sum": 2761.276891972341,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 198656,
+            "nll_sum": 2557.179361402861,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 199680,
+            "nll_sum": 2011.2889274373301,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 200704,
+            "nll_sum": 2120.674529423375,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 201728,
+            "nll_sum": 2189.136053244893,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 202752,
+            "nll_sum": 2362.3510019371115,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 203776,
+            "nll_sum": 2149.422433829621,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 204800,
+            "nll_sum": 1420.4677617560126,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 205824,
+            "nll_sum": 1616.0931187386898,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 206848,
+            "nll_sum": 2271.707929477181,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 207872,
+            "nll_sum": 2006.0161865294863,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 208896,
+            "nll_sum": 2263.8235321080692,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 209920,
+            "nll_sum": 2068.2034017554215,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 210944,
+            "nll_sum": 1804.8571759738988,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 211968,
+            "nll_sum": 2291.635133577183,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 212992,
+            "nll_sum": 2130.9747285921403,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 214016,
+            "nll_sum": 1979.7377022857127,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 215040,
+            "nll_sum": 2048.696960813174,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 216064,
+            "nll_sum": 2067.6704058968153,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 217088,
+            "nll_sum": 2604.132565323507,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 218112,
+            "nll_sum": 2260.988891550518,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 219136,
+            "nll_sum": 2299.918547731302,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 220160,
+            "nll_sum": 1938.6362937509311,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 221184,
+            "nll_sum": 2067.735276212821,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 222208,
+            "nll_sum": 2231.2981025131003,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 223232,
+            "nll_sum": 2128.142765364795,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 224256,
+            "nll_sum": 2210.8948031641557,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 225280,
+            "nll_sum": 2010.2321006661386,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 226304,
+            "nll_sum": 1886.1672206117619,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 227328,
+            "nll_sum": 1933.920767960355,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 228352,
+            "nll_sum": 1930.9109248062632,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 229376,
+            "nll_sum": 1789.9394351251394,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 230400,
+            "nll_sum": 1786.1515437843373,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 231424,
+            "nll_sum": 2207.064052105572,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 232448,
+            "nll_sum": 2716.400871862821,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 233472,
+            "nll_sum": 1877.1786846495934,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 234496,
+            "nll_sum": 2179.7221329048134,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 235520,
+            "nll_sum": 2304.757808856757,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 236544,
+            "nll_sum": 2241.572074600741,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 237568,
+            "nll_sum": 2539.296043094151,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 238592,
+            "nll_sum": 2159.8597817214113,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 239616,
+            "nll_sum": 1889.5707939565423,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 240640,
+            "nll_sum": 2012.551110814531,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 241664,
+            "nll_sum": 2229.878329824303,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 242688,
+            "nll_sum": 1785.6572009191623,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 243712,
+            "nll_sum": 2466.2504446156636,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 244736,
+            "nll_sum": 2373.7710632436083,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 245760,
+            "nll_sum": 2277.3144704646,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 246784,
+            "nll_sum": 2063.730997863797,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 247808,
+            "nll_sum": 1753.6688412612539,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 248832,
+            "nll_sum": 1959.2568931209387,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 249856,
+            "nll_sum": 1836.315769017947,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 250880,
+            "nll_sum": 1870.1255662609983,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 251904,
+            "nll_sum": 2265.3863525520483,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 252928,
+            "nll_sum": 2050.851220276323,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 253952,
+            "nll_sum": 2060.3399274551484,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 254976,
+            "nll_sum": 2412.0769082439474,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 256000,
+            "nll_sum": 2368.9371930968646,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 257024,
+            "nll_sum": 1928.6882474705308,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 258048,
+            "nll_sum": 2112.555728985146,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 259072,
+            "nll_sum": 2294.1519116960444,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 260096,
+            "nll_sum": 1909.2012520983976,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 261120,
+            "nll_sum": 1947.2585546750988,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 262144,
+            "nll_sum": 2028.4580621156601,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 263168,
+            "nll_sum": 2277.5135172357914,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 264192,
+            "nll_sum": 2228.583510684666,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 265216,
+            "nll_sum": 1733.4865202211076,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 266240,
+            "nll_sum": 2135.7604559734555,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 267264,
+            "nll_sum": 2184.550240578139,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 268288,
+            "nll_sum": 1869.5072789488668,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 269312,
+            "nll_sum": 2160.6836729939296,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 270336,
+            "nll_sum": 2102.1786616082263,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 271360,
+            "nll_sum": 2209.065373474483,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 272384,
+            "nll_sum": 2319.574188020568,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 273408,
+            "nll_sum": 2182.6818324879514,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 274432,
+            "nll_sum": 2394.9967882797137,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 275456,
+            "nll_sum": 1938.353083565602,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 276480,
+            "nll_sum": 2132.659596886392,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 277504,
+            "nll_sum": 1557.1656556241232,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 278528,
+            "nll_sum": 1884.5133199975608,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 279552,
+            "nll_sum": 1317.8509243087638,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 280576,
+            "nll_sum": 1269.4594536130644,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 281600,
+            "nll_sum": 2344.361803816726,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 282624,
+            "nll_sum": 2259.1327477662053,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 283648,
+            "nll_sum": 2329.9645266220573,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 284672,
+            "nll_sum": 2448.7294431629207,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 285696,
+            "nll_sum": 2705.9035790705975,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 286720,
+            "nll_sum": 2259.933948510671,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 287744,
+            "nll_sum": 1882.7474152167365,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 288768,
+            "nll_sum": 1854.1550698822607,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 289792,
+            "nll_sum": 2165.5196789400316,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 290816,
+            "nll_sum": 2329.3377711889134,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 291840,
+            "nll_sum": 2100.783434149415,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 292864,
+            "nll_sum": 2079.474833568707,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 293888,
+            "nll_sum": 2465.6516650254616,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 294912,
+            "nll_sum": 2583.068599662267,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 295936,
+            "nll_sum": 1972.7458660925467,
+            "count": 1023
+          },
+          {
+            "kind": "wikitext",
+            "start": 296960,
+            "nll_sum": 543.0123929436668,
+            "count": 232
+          },
+          {
+            "kind": "continuation",
+            "length": 8192,
+            "nll_sum": 1095.9324708902873,
+            "count": 512
+          },
+          {
+            "kind": "continuation",
+            "length": 32768,
+            "nll_sum": 1073.932201822574,
+            "count": 512
+          },
+          {
+            "kind": "continuation",
+            "length": 65536,
+            "nll_sum": 649.4648420640328,
+            "count": 512
+          },
+          {
+            "kind": "continuation",
+            "length": 131072,
+            "nll_sum": 980.0907207509513,
+            "count": 512
+          },
+          {
+            "kind": "continuation",
+            "length": 250000,
+            "nll_sum": 681.363305694232,
+            "count": 512
+          }
+        ],
+        "functional_passed": 47,
+        "functional_failures": [
+          "ragged-refill-REQUEST_002",
+          "ragged-refill-REQUEST_005",
+          "ragged-refill-REQUEST_020"
+        ],
+        "cancel_state_passed": true,
+        "image_id": "sha256:78675b92ac8d599af905cf5e474c4f95209984dde5e309f6c9860fe1811e76b2"
+      }
+    },
+    "comparison": {
+      "category_gate_passed": true,
+      "ppl_relative_change": 0.0,
+      "max_per_case_mean_nll_abs_change": 0.0,
+      "message_changed_case_ids": [],
+      "actual_token_logprobs_compared": 784465,
+      "max_actual_token_logprob_abs_change": 0.0,
+      "grade_changed_case_ids": [],
+      "functional_verdict_changed_labels": [],
+      "all_messages_identical": true,
+      "all_grades_identical": true
+    },
+    "gates": {
+      "quality": "Candidate grade count per category is at least the Bsafe-next count on the same1819 frozen cases.",
+      "ppl_relative_change_max": 1e-06,
+      "nll_absolute_change_max": 1e-05,
+      "functional": "Compare all50 existing fixture verdicts and preserve common marker failures.",
+      "cancellation": "Actual physical-slot reuse and clean-reference output/state must pass.",
+      "grader_image_id": "sha256:8110fe8e0f228f698711703312bfcfb5a40d6063c1be8d734d5ceb7278602ae9",
+      "quality_cases_sha256": "94ffb6959301ed2e27fe034de918333edcf60e21d35eef0ebe15a42f7df823f7",
+      "wikitext_sha256": "696cca6b65a171b0a358a4be6732cdfdf2dd6164a32e20fd70e3c13fc4dfae83"
+    },
+    "limits": "Known marker omissions remain visible in all50 functional verdicts. Paired agreement does not establish unquantized equivalence or absolute model correctness."
+  },
+  "native_memcheck": {
+    "complete": true,
+    "rows": [
+      {
+        "key": "attention_qkv-m4096-scale1.0",
+        "baseline_byte_equal": true,
+        "output_sha256": "32e4738796b8c4d26e795b292cc01c69fca730b47bc158c88d914111b2d66bb8",
+        "graph_replay": true
+      },
+      {
+        "key": "attention_qkv-m8192-scale1.0",
+        "baseline_byte_equal": true,
+        "output_sha256": "29072e1065dc2a953c66115964914704c02b3c1aeba5b59d69edaf25d82bd3b7",
+        "graph_replay": true
+      },
+      {
+        "key": "gdn_qkvzba-m4096-scale1.0",
+        "baseline_byte_equal": true,
+        "output_sha256": "42b3f8737b0a4dfa89fdb6cef84a4d7fe3d49e2cd3e546937027b69513bf247b",
+        "graph_replay": true
+      },
+      {
+        "key": "gdn_qkvzba-m8192-scale1.0",
+        "baseline_byte_equal": true,
+        "output_sha256": "324003997356aead20b5cd018669b676e535c64ef6b1311880e19d74c7e8eb25",
+        "graph_replay": true
+      },
+      {
+        "key": "mlp_gate_up-m4096-scale1.0",
+        "baseline_byte_equal": true,
+        "output_sha256": "e527319c9db9a659fa9cd6c54b0248f0a26436727cfc083564276044bcaa2e85",
+        "graph_replay": true
+      },
+      {
+        "key": "mlp_gate_up-m8192-scale1.0",
+        "baseline_byte_equal": true,
+        "output_sha256": "efa0f228fded875a91d4e510f1d4854049f696d96bb6dd879ca37c78b8fbcdca",
+        "graph_replay": true
+      }
+    ],
+    "library_sha256": "c5567901bb4a4b542756e861e004af9153ac97fc9eefdfd19d1dd18381c00ed7",
+    "scope": "Six selected real projection shapes, eager/capture/replay under external compute-sanitizer memcheck. Sanitizer log is required to establish memory-check success.",
+    "tool": "compute-sanitizer memcheck",
+    "error_count": 0,
+    "image_id": "sha256:78675b92ac8d599af905cf5e474c4f95209984dde5e309f6c9860fe1811e76b2",
+    "command": [
+      "docker",
+      "run",
+      "--name",
+      "1cat-v152-next-native-memcheck",
+      "--gpus",
+      "device=6",
+      "--ipc=host",
+      "--network",
+      "none",
+      "-v",
+      "/home/llm/1cat-v152-opt-20261111:/workspace",
+      "-v",
+      "/data/models:/data/models:ro",
+      "-w",
+      "/tmp",
+      "--entrypoint",
+      "/usr/local/cuda/compute-sanitizer/compute-sanitizer",
+      "sha256:78675b92ac8d599af905cf5e474c4f95209984dde5e309f6c9860fe1811e76b2",
+      "--tool",
+      "memcheck",
+      "--error-exitcode",
+      "99",
+      "/workspace/.venv/bin/python",
+      "/workspace/bench_results/v152_next_20261112/incoming/next_native_memcheck_smoke.py"
+    ],
+    "script_sha256": "7830b7b7b18faa5f569188eff32c0d28b548edc63223047e7e5eb1127b3cdfe4"
+  },
+  "native_dso_admission": {
+    "complete": true,
+    "cases_per_arm": 60,
+    "candidate_native_sha256": "c5567901bb4a4b542756e861e004af9153ac97fc9eefdfd19d1dd18381c00ed7",
+    "byte_equal_cases": 60,
+    "route_owner_checks": 20,
+    "scope": "Actual shipped native registration, original and rebuilt DSOs in independent processes. Service A/B admission still pending."
+  },
+  "batch_accounting": {
+    "complete": true,
+    "cases": [
+      {
+        "case": "c1-tail33",
+        "source_sha256": "4fdabd17acd52c4341d463f25a2da442ffc0e7685db197739fd29cfc63919484",
+        "unique_engine_batches": 16,
+        "raw_post_rejection_gpu_tokens": 43,
+        "api_committed_tokens": 33,
+        "api_excluded_raw_tail": 10,
+        "prefill_first_or_other_non_decode_commits": 1,
+        "strict_decode_api_commits": 32,
+        "raw_proposed_tokens": 105,
+        "raw_accepted_proposals": 27,
+        "visible_accepted_proposals": 19,
+        "visible_all_accepted_bonus": 0,
+        "visible_rejection_correction": 13,
+        "non_spec_gpu_samples": 1,
+        "pure_decode_unique_batches": 15,
+        "pure_decode_batch_api_commits": 32,
+        "pure_decode_batch_instrumented_ms": 4101.332674026489,
+        "mixed_prefill_decode_batches": 0,
+        "mixed_batch_decode_api_commits": 0,
+        "commits_per_unique_batch": [
+          1,
+          2,
+          1,
+          1,
+          1,
+          1,
+          3,
+          5,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          0
+        ],
+        "stop_reasons": [
+          "length"
+        ],
+        "requested_output_budgets": [
+          33
+        ],
+        "actual_output_tokens": [
+          33
+        ],
+        "nonoverlap_verified": true
+      },
+      {
+        "case": "c2-mixed-tail33",
+        "source_sha256": "5d22106d3b9f0e994af3ad7a0cb5c29485e254892bf9a195249edbc3d9ac911f",
+        "unique_engine_batches": 26,
+        "raw_post_rejection_gpu_tokens": 79,
+        "api_committed_tokens": 66,
+        "api_excluded_raw_tail": 13,
+        "prefill_first_or_other_non_decode_commits": 2,
+        "strict_decode_api_commits": 64,
+        "raw_proposed_tokens": 147,
+        "raw_accepted_proposals": 56,
+        "visible_accepted_proposals": 46,
+        "visible_all_accepted_bonus": 3,
+        "visible_rejection_correction": 15,
+        "non_spec_gpu_samples": 2,
+        "pure_decode_unique_batches": 16,
+        "pure_decode_batch_api_commits": 40,
+        "pure_decode_batch_instrumented_ms": 381.2722568511963,
+        "mixed_prefill_decode_batches": 5,
+        "mixed_batch_decode_api_commits": 24,
+        "commits_per_unique_batch": [
+          1,
+          8,
+          6,
+          6,
+          8,
+          4,
+          0,
+          0,
+          0,
+          0,
+          1,
+          3,
+          2,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          8,
+          4,
+          3,
+          2,
+          0
+        ],
+        "stop_reasons": [
+          "length",
+          "length"
+        ],
+        "requested_output_budgets": [
+          33,
+          33
+        ],
+        "actual_output_tokens": [
+          33,
+          33
+        ],
+        "nonoverlap_verified": true
+      },
+      {
+        "case": "natural-eos",
+        "source_sha256": "b424a313a1cfd441d578f4c4beda85d4f7b846b9c8a56a264d69e2408bc290ff",
+        "unique_engine_batches": 9,
+        "raw_post_rejection_gpu_tokens": 33,
+        "api_committed_tokens": 31,
+        "api_excluded_raw_tail": 2,
+        "prefill_first_or_other_non_decode_commits": 1,
+        "strict_decode_api_commits": 30,
+        "raw_proposed_tokens": 56,
+        "raw_accepted_proposals": 24,
+        "visible_accepted_proposals": 24,
+        "visible_all_accepted_bonus": 0,
+        "visible_rejection_correction": 6,
+        "non_spec_gpu_samples": 1,
+        "pure_decode_unique_batches": 8,
+        "pure_decode_batch_api_commits": 30,
+        "pure_decode_batch_instrumented_ms": 175.1931858062744,
+        "mixed_prefill_decode_batches": 0,
+        "mixed_batch_decode_api_commits": 0,
+        "commits_per_unique_batch": [
+          1,
+          5,
+          6,
+          4,
+          2,
+          1,
+          7,
+          5,
+          0
+        ],
+        "stop_reasons": [
+          "stop"
+        ],
+        "requested_output_budgets": [
+          512
+        ],
+        "actual_output_tokens": [
+          31
+        ],
+        "nonoverlap_verified": true
+      }
+    ],
+    "scope": "Real default async service. Unique worker batch IDs and nonoverlapping main-stream event intervals are counted once. Exact returned token IDs assign API-visible commits to sampling batches. Instrumentation fences and CPU build concurrency prevent formal speed interpretation."
+  },
+  "fresh_cpu_accounting_tests": {
+    "tests": 22,
+    "failures": 0,
+    "xml": "mixed-gap-accounting-cpu.xml"
+  },
+  "resample": {
+    "status": "Correctness stage admitted, performance stage pending",
+    "bprev_commit": "0a9ca74bc4897b8a8c3a2b9cbf7c345a77d063b9",
+    "bprev_image": "sha256:0850a9d5267c92e5efe21a229cfbd6d9e7b2748b0f9f5b362c67d9cec2f22c15",
+    "bsafe_next": {
+      "image_id": "sha256:1c11cf5139e67f42a76d68bb40d3a8dcb68b8e9643338f4bd24ec823e463a026",
+      "source_commit": "1c56d045dca02a72453dd27c104d9dd0a88c9979",
+      "base_image_id": "sha256:0850a9d5267c92e5efe21a229cfbd6d9e7b2748b0f9f5b362c67d9cec2f22c15",
+      "runtime_overlay": {
+        "vllm/v1/worker/gpu/spec_decode/rejection_sampler_utils.py": "766d0ff8e745a065ba643c32784f839636d51cbbddd2737332c4e3404a500361"
+      },
+      "native_scope": "All native libraries inherited unchanged from the qualified Bprev image, including the page2048 FA2 binary.",
+      "scope": "Release-dependency overlay. Independent60-case unit qualification complete, production startup/cancel integration pending.",
+      "build_frontend": "DOCKER_BUILDKIT=0 to resolve the local immutable base configuration ID",
+      "base_source": "Qualified image retained on v100_llm. Obtain it by docker image save with the recorded immutable ID. Bprev build/source identities are in the previous evidence archive."
+    },
+    "resample": {
+      "baseline_tests_passed": 60,
+      "fixed_tests_passed": 60,
+      "baseline_race_reproduced": false,
+      "scope": "q1-8, ragged boundaries, greedy/sampled point-mass independent oracle, each rejection position, ordinary/dense/reference and graph replay. The launch guard is selected from upstream1464."
+    },
+    "cpu_tests": {
+      "cli_source_identity_sse": 15,
+      "observer_keyword_and_state_columns": 2
+    },
+    "production_startup": {
+      "sampled_concurrencies": [
+        1,
+        2,
+        3
+      ],
+      "sampler_graph_buckets": 3,
+      "scope": "Fresh service capture through normal entry points. No pytest RNG-priming fixture."
+    },
+    "cancellation": {
+      "reference_output_tokens": 64,
+      "followup_output_tokens": 64,
+      "output_tokens_equal": true,
+      "nonempty_chunks_before_cancel": 3,
+      "rank_checks": [
+        {
+          "rank": 0,
+          "reused_slot": 6,
+          "old_removed_before_new_add": true,
+          "state_hashes_equal": true
+        },
+        {
+          "rank": 1,
+          "reused_slot": 3,
+          "old_removed_before_new_add": true,
+          "state_hashes_equal": true
+        },
+        {
+          "rank": 2,
+          "reused_slot": 2,
+          "old_removed_before_new_add": true,
+          "state_hashes_equal": true
+        },
+        {
+          "rank": 3,
+          "reused_slot": 3,
+          "old_removed_before_new_add": true,
+          "state_hashes_equal": true
+        }
+      ],
+      "state_scope": "One actual GDN layer per rank. Canonical conv history and accepted temporal column match the clean reference bitwise. Worker counters may contain work beyond final API truncation and are not relabeled as strict engine-committed counts.",
+      "diagnostic_failures": [
+        "Attempt1 observer keyword mismatch",
+        "Attempt2 observer selected an unused scratch conv block"
+      ],
+      "failure_records_preserved": true
+    },
+    "history_correction": {
+      "shallow_repository": "true",
+      "shallow_boundaries": [
+        "2bb8c2b9cd7c1696630b6be464052027f0dd0147",
+        "2bb8c2b9cd7c1696630b6be464052027f0dd0147"
+      ],
+      "actual_commit_parents": [
+        "9f970d62885d4d73698d9e7a9859632a65704985"
+      ],
+      "interpretation": "B0 is an explicit shallow boundary with a parent in the commit object. Missing traversable ancestry is not proof of a genuine root commit."
+    },
+    "next_performance_owners": [
+      "q8 E4M3 finite pair conversion replacing shared LUT reads",
+      "Volta nvfp4_qpn4_sm70.cu contiguous[K,N] dense dequant then mm_out"
+    ],
+    "co_residency": "All pre-existing services retained, including MinerU and ComfyUI.",
+    "next_stage_limits": "At most two active performance candidates. Existing3 marker omissions remain. Original artifacts retain their historical interpretations, with corrections recorded here.",
+    "source_hashes": {
+      "benchmarks/functional_v152.py": "ccff2a7673bfc96571c6940ee92ed4cb09c165d18f921c24cb5a6b038bc0dd26",
+      "benchmarks/v152_validation.py": "386cdd40b1d3214b70cffe60553fb9b371ff73f2d63e03487a71fd8ac4ffd2df",
+      "benchmarks/v152_worker_probe.py": "120bdabb88b6dcaaf299e3733e37c47d6d68b392f8272d26a8be302a226fea91",
+      "benchmarks/functional_v152_cancel_state.py": "3ef16d7e8f02ddebce9fbb96f9762c71d1f4464040b23fb4e2096dfa3f99eb42",
+      "tests/benchmarks/test_v152_state_probe.py": "4ba17c64b838c32b725e9a1104c138bb446e36c9417b0f21c5a05e345fe5e3fe",
+      "tests/benchmarks/test_v152_accounting.py": "df7a2211be2b5ce5a5a5170f2c9a18d8822de0d18c2e362a51f0ea2a10a6a7c7"
+    }
+  },
+  "cache_and_mixed": "EFFICIENCY_SUMMARY.json",
+  "previous_validation": {
+    "path": "previous/VALIDATION_SUMMARY.json",
+    "gpu_regression_cases": 379,
+    "cache_cpu_cases": 133,
+    "memcheck_cases": 24,
+    "limits": "Historical tests retain original scope. Memcheck alone does not prove race freedom. Original fixture initialization failures and three common marker omissions remain in raw evidence."
+  }
+}

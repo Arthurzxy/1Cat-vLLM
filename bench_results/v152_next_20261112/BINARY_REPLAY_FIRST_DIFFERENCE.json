@@ -1,0 +1,52 @@
+{
+  "original_files": 2854,
+  "replay_files": 2854,
+  "missing": [],
+  "extra": [],
+  "different": [
+    {
+      "path": "_sm70_sampler_C.abi3.so",
+      "original": {
+        "mode": 436,
+        "sha256": "27528bc6db3c3af77350aed0b197845cd68e832e63123ec4b1991592afd83846"
+      },
+      "replay": {
+        "mode": 420,
+        "sha256": "27528bc6db3c3af77350aed0b197845cd68e832e63123ec4b1991592afd83846"
+      }
+    },
+    {
+      "path": "_C.abi3.so",
+      "original": {
+        "mode": 436,
+        "sha256": "70ab2aa389cdb98de287a813a79fa1dd1555db90d028b6689fe1e9c25572fbfe"
+      },
+      "replay": {
+        "mode": 420,
+        "sha256": "70ab2aa389cdb98de287a813a79fa1dd1555db90d028b6689fe1e9c25572fbfe"
+      }
+    },
+    {
+      "path": "_C_stable_libtorch.abi3.so",
+      "original": {
+        "mode": 436,
+        "sha256": "8af214ffb58aabf5aac361788efae1a49091abf075ebe1c47d1c3d84895ea172"
+      },
+      "replay": {
+        "mode": 420,
+        "sha256": "8af214ffb58aabf5aac361788efae1a49091abf075ebe1c47d1c3d84895ea172"
+      }
+    },
+    {
+      "path": "vllm_flash_attn/_vllm_fa2_C.abi3.so",
+      "original": {
+        "mode": 436,
+        "sha256": "2febf1935796fb5c13ea2d8bdbaf44a2c047aad0678841af3c0f6e34ac035074"
+      },
+      "replay": {
+        "mode": 420,
+        "sha256": "2febf1935796fb5c13ea2d8bdbaf44a2c047aad0678841af3c0f6e34ac035074"
+      }
+    }
+  ]
+}

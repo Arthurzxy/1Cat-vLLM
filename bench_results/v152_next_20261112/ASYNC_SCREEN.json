@@ -1,0 +1,45 @@
+{
+  "complete": true,
+  "screen": {
+    "default8192-a1": {
+      "short_empirical_p95_s": 19.701963418978266,
+      "short_count": 36,
+      "resident_mean_wall_s": 75.4983489010483,
+      "resident_chunk_gap_p95_s": 0.25059273198712617,
+      "resident_max_chunk_gap_s": 0.9157834210200235,
+      "insert32k_mean_ttft_s": 14.462720679041619,
+      "whole_workload_mean_output_tps": 54.262661451364686,
+      "independent_processes": 1,
+      "trials": 3
+    },
+    "chunk4096-b1": {
+      "short_empirical_p95_s": 20.12973422301002,
+      "short_count": 36,
+      "resident_mean_wall_s": 78.55341599800158,
+      "resident_chunk_gap_p95_s": 0.24691270489711314,
+      "resident_max_chunk_gap_s": 0.8925957670435309,
+      "insert32k_mean_ttft_s": 14.353703979984857,
+      "whole_workload_mean_output_tps": 52.14794448258911,
+      "independent_processes": 1,
+      "trials": 3
+    },
+    "floor4096-c1": {
+      "short_empirical_p95_s": 13.312294734991156,
+      "short_count": 36,
+      "resident_mean_wall_s": 69.73788871398817,
+      "resident_chunk_gap_p95_s": 0.04687605693470687,
+      "resident_max_chunk_gap_s": 1.208002850995399,
+      "insert32k_mean_ttft_s": 8.637469529368294,
+      "whole_workload_mean_output_tps": 58.74955784348184,
+      "independent_processes": 1,
+      "trials": 3
+    }
+  },
+  "promising": false,
+  "candidate": [
+    "floor4096-c1",
+    8192,
+    4096
+  ],
+  "selection": "At least5% lower short empirical p95 with at most5% observed regressions in max resident chunk gap, inserted32K TTFT and whole workload output throughput."
+}

@@ -323,12 +323,47 @@ ages = [
     if request["output_tokens"] > 0 and request["last_output_age_s"] is not None
 ]
 assert ages
+resident_ids = {
+    request["request_id"]
+    for row in schedules
+    for request in row["running_before"]
+    if request["prompt_tokens"] == 131072
+}
+assert len(resident_ids) == 1
+diagnostic = json.loads(
+    (out / "efficiency/async-age-diagnostic/mixed.json").read_text()
+)
+assert len(diagnostic["trials"]) == 1
+injected = diagnostic["trials"][0]["inserted"]
+resident_updates = [
+    {"at": row["at"], "tokens": request["committed_tokens"]}
+    for row in trace
+    if row["event"] == "update"
+    for request in row["emitted"]
+    if request["request_id"] in resident_ids
+]
+resident_updates.sort(key=lambda row: row["at"])
+expected_tokens = len(diagnostic["trials"][0]["requests"][0]["tokens"])
+assert sum(row["tokens"] for row in resident_updates) == expected_tokens == 2048
+commit_intervals = [
+    {"end": right["at"], "elapsed_s": right["at"] - left["at"]}
+    for left, right in zip(resident_updates, resident_updates[1:])
+]
+commit_gaps = [row["elapsed_s"] for row in commit_intervals]
+injected_gaps = [row["elapsed_s"] for row in commit_intervals if row["end"] >= injected]
+assert commit_gaps and injected_gaps
 age_summary = {
     "scheduler_classes": sorted({row["class"] for row in schedules}),
     "schedule_records": len(schedules),
     "completed_feedback_records": len(feedback),
-    "resident_age_p95_s": quantile(ages, 0.95),
-    "resident_age_max_s": max(ages),
+    "post_commit_schedule_age_p95_s": quantile(ages, 0.95),
+    "post_commit_schedule_age_max_s": max(ages),
+    "resident_request_ids": sorted(resident_ids),
+    "resident_cpu_committed_tokens": expected_tokens,
+    "resident_cpu_commit_gap_p95_s": quantile(commit_gaps, 0.95),
+    "resident_cpu_commit_gap_max_s": max(commit_gaps),
+    "resident_cpu_commit_gap_after_injection_p95_s": quantile(injected_gaps, 0.95),
+    "resident_cpu_commit_gap_after_injection_max_s": max(injected_gaps),
     "mixed_schedule_records": sum(
         row["mixed_prefill_tokens"] > 0 and row["mixed_decode_tokens"] > 0
         for row in schedules
@@ -339,9 +374,12 @@ age_summary = {
     "feedback_elapsed_ms_min": min(row["elapsed_ms"] for row in feedback),
     "feedback_elapsed_ms_max": max(row["elapsed_ms"] for row in feedback),
     "scope": (
-        "Opt-in CPU scheduler age since last observed committed output, with "
-        "nonblocking completed GPU feedback. These records describe diagnostic "
-        "scheduling and chunk granularity."
+        "The schedule-entry age is sampled immediately after output processing "
+        "and describes CPU loop delay. Actual resident progress stalls are "
+        "recomputed between successive nonempty CPU commit callbacks, including "
+        "the interval crossing injection. These intervals include GPU waiting "
+        "and CPU processing and retain their diagnostic scope. Nonblocking GPU "
+        "feedback is recorded separately."
     ),
 }
 selection = json.loads((out / "ASYNC_SELECTION.json").read_text())

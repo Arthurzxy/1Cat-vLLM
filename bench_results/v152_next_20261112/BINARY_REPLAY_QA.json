@@ -1,0 +1,52 @@
+{
+  "complete": true,
+  "passed": true,
+  "images": {
+    "bprev": {
+      "original_image": "sha256:0850a9d5267c92e5efe21a229cfbd6d9e7b2748b0f9f5b362c67d9cec2f22c15",
+      "replay_image": "sha256:1299f99e7940da3c5f5be5296511f27929a04aa50ccf21002d1a3190e7a465f7",
+      "runtime_files_compared": 2854,
+      "all_bytes_and_modes_equal": true,
+      "runtime_inventory_sha256": "703b824d4b3cba269ddc88a199ec7d6e842423d0d5996934ec09adf43bd989b3",
+      "configuration_equal": true
+    },
+    "bsafe": {
+      "original_image": "sha256:1c11cf5139e67f42a76d68bb40d3a8dcb68b8e9643338f4bd24ec823e463a026",
+      "replay_image": "sha256:658af266df10e60303d122d0d398541968c9f4dfbbdf449607af8bd6565b81fa",
+      "runtime_files_compared": 2854,
+      "all_bytes_and_modes_equal": true,
+      "runtime_inventory_sha256": "abe69434b2f174f55098434737c9503078de754336981354e4070a1935036597",
+      "configuration_equal": true
+    },
+    "bnew": {
+      "original_image": "sha256:78675b92ac8d599af905cf5e474c4f95209984dde5e309f6c9860fe1811e76b2",
+      "replay_image": "sha256:dc594a31935f391d6be8316faef16fc3586df09e992c0e39521c0ce8d4d59699",
+      "runtime_files_compared": 2854,
+      "all_bytes_and_modes_equal": true,
+      "runtime_inventory_sha256": "66d161da1d3e5c1afca934699dda477cb136a14aed1e122ab869ccd7c2c50ab4",
+      "configuration_equal": true
+    }
+  },
+  "context_files_sha256": {
+    ".dockerignore": "42164caf0ec3fd79e6dd4058d4212aa47e9855fe09cdec27d62fc70c8cb1a67b",
+    "Dockerfile.replay-bnew": "c009e18ea4eb3aec584c678d99bed5250f2996ea6d05b036a5cf4405e463f2d8",
+    "Dockerfile.replay-bprev": "bd001fd0d10c14cdc5503dc04d74e4e1cde1e07b590fe6a480bed9d353858e0b",
+    "Dockerfile.replay-bsafe": "9651135977106f61439bc1a1aafbd2d47b0e023be4db77efdc67dbc361ecd742",
+    "previous/native/baseline/vllm/_C.abi3.so": "70ab2aa389cdb98de287a813a79fa1dd1555db90d028b6689fe1e9c25572fbfe",
+    "previous/native/baseline/vllm/_C_stable_libtorch.abi3.so": "8af214ffb58aabf5aac361788efae1a49091abf075ebe1c47d1c3d84895ea172",
+    "previous/native/baseline/vllm/_sm70_sampler_C.abi3.so": "27528bc6db3c3af77350aed0b197845cd68e832e63123ec4b1991592afd83846",
+    "previous/native/baseline/vllm/vllm_flash_attn/_vllm_fa2_C.abi3.so": "cdc28290452c7301704826c78964c4515ab58c8152cc206a8e612c2de0739d14",
+    "previous/native/page2048/vllm/vllm_flash_attn/_vllm_fa2_C.abi3.so": "2febf1935796fb5c13ea2d8bdbaf44a2c047aad0678841af3c0f6e34ac035074",
+    "previous/python/vllm/sm70_profiles/qwen38_27b_nvfp4_dflash2.json": "a3be02e0e2fc6da7a7fa61d6d25ac86f3c65ac8ab5cfd2d83f5c613d7d9c8f8b",
+    "previous/python/vllm/v1/core/kv_cache_coordinator.py": "e6ca7b75c117de83b1600a9eae1b3eb3f858ed33e2f8d8142b53c269269f5927",
+    "previous/python/vllm/v1/core/single_type_kv_cache_manager.py": "8e2fa8ad451c07753159fe05946169e4fedaa3ef006751eef555a5d4d6e58a71",
+    "previous/python/vllm/v1/worker/gpu/sample/prompt_logprob.py": "f570823921e9a644bc899ab7a744d2284979c504e2d56bc0b1367dc66c10c344",
+    "previous/python/vllm/v1/worker/gpu/sample/states.py": "24f40ca7c192499afd870a4f2013400868392b9cfd9ef5271342d2afc5b87c83",
+    "previous/python/vllm/v1/worker/gpu/spec_decode/dflash2/sampler_graph.py": "921e094e69a7793104938553fa8eb773fa8711b23d1dead4a3a4548ac95c742c",
+    "raw/bsafe-next/image-context/Dockerfile": "e4af69bc36ba0ce1b19f67b3cd4481c335d723f8632a198ff459a2348987a06e",
+    "raw/bsafe-next/image-context/vllm/v1/worker/gpu/spec_decode/rejection_sampler_utils.py": "766d0ff8e745a065ba643c32784f839636d51cbbddd2737332c4e3404a500361",
+    "raw/native-lt-image/image-context/Dockerfile": "cbcd5da05c86841d8c51b3f66edd997f0580167e19e9eafc6ef8d9f9595bdd68",
+    "raw/native-lt-image/image-context/_C.abi3.so": "c5567901bb4a4b542756e861e004af9153ac97fc9eefdfd19d1dd18381c00ed7"
+  },
+  "scope": "CPU-only reconstruction. Every installed vllm file byte and mode is compared, excluding derived pycache. Model quality qualification belongs to the original images with identical runtime content."
+}

@@ -2,4 +2,9 @@ FROM sha256:8110fe8e0f228f698711703312bfcfb5a40d6063c1be8d734d5ceb7278602ae9
 COPY previous/python/vllm/ /opt/venv/lib/python3.12/site-packages/vllm/
 COPY previous/native/baseline/vllm/ /opt/venv/lib/python3.12/site-packages/vllm/
 COPY previous/native/page2048/vllm/ /opt/venv/lib/python3.12/site-packages/vllm/
+RUN chmod 0664 \
+    /opt/venv/lib/python3.12/site-packages/vllm/_C.abi3.so \
+    /opt/venv/lib/python3.12/site-packages/vllm/_C_stable_libtorch.abi3.so \
+    /opt/venv/lib/python3.12/site-packages/vllm/_sm70_sampler_C.abi3.so \
+    /opt/venv/lib/python3.12/site-packages/vllm/vllm_flash_attn/_vllm_fa2_C.abi3.so
 COPY raw/bsafe-next/image-context/vllm/ /opt/venv/lib/python3.12/site-packages/vllm/

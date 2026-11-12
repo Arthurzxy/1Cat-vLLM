@@ -1,0 +1,33 @@
+{
+  "complete": true,
+  "passed": true,
+  "source_commit": "a972fa693661184c760977dfc21b328cb106e551",
+  "fresh_checkout": "/home/llm/1cat-v152-opt-20261111/rebuild-bootstrap-next-20261112/source",
+  "command": [
+    "bash",
+    "/home/llm/1cat-v152-opt-20261111/rebuild-bootstrap-next-20261112/artifacts/raw/incoming/rebuild_next_component.sh",
+    "/home/llm/1cat-v152-opt-20261111/rebuild-bootstrap-next-20261112/artifacts",
+    "/home/llm/1cat-v152-opt-20261111/rebuild-bootstrap-next-20261112/source",
+    "a972fa693661184c760977dfc21b328cb106e551"
+  ],
+  "started_epoch_s": 1794505584.0054703,
+  "finished_epoch_s": 1794507795.687971,
+  "script_sha256": "a281577c882802cbf3b38af9d343125aac2e3383bfe1a581c8a9e6c7281f0ccf",
+  "component_inputs_identical": true,
+  "component": {
+    "source_commit": "a972fa693661184c760977dfc21b328cb106e551",
+    "source_identity": {
+      "root": "/workspace",
+      "commit": "a972fa693661184c760977dfc21b328cb106e551",
+      "tree": "d50c2fe0dd7744e34fc113e28c0708e784da9e4f",
+      "is_shallow": true,
+      "tracked_dirty_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "library": "/workspace/bench_results/rebuild-next-component/install/vllm/_C.abi3.so",
+    "library_sha256": "43a6ee82567785be9017a03afe99090c56b2b9ea874172d7e8ead59fdf89a7b0",
+    "complete": true,
+    "target": "_C",
+    "scope": "standard CMake component, model admission pending"
+  },
+  "scope": "A fresh Git clone with no project venv successfully executes the delivered bootstrap and builds only_C with the pinned dependency sources. The retained GPU-qualified image continues to use its original frozen DSO. This additional build establishes source reconstruction, independently of binary replay."
+}

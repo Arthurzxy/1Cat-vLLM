@@ -1,0 +1,43 @@
+{
+  "complete": true,
+  "rows": [
+    {
+      "key": "attention_qkv-m4096-scale1.0",
+      "baseline_byte_equal": true,
+      "output_sha256": "32e4738796b8c4d26e795b292cc01c69fca730b47bc158c88d914111b2d66bb8",
+      "graph_replay": true
+    },
+    {
+      "key": "attention_qkv-m8192-scale1.0",
+      "baseline_byte_equal": true,
+      "output_sha256": "29072e1065dc2a953c66115964914704c02b3c1aeba5b59d69edaf25d82bd3b7",
+      "graph_replay": true
+    },
+    {
+      "key": "gdn_qkvzba-m4096-scale1.0",
+      "baseline_byte_equal": true,
+      "output_sha256": "42b3f8737b0a4dfa89fdb6cef84a4d7fe3d49e2cd3e546937027b69513bf247b",
+      "graph_replay": true
+    },
+    {
+      "key": "gdn_qkvzba-m8192-scale1.0",
+      "baseline_byte_equal": true,
+      "output_sha256": "324003997356aead20b5cd018669b676e535c64ef6b1311880e19d74c7e8eb25",
+      "graph_replay": true
+    },
+    {
+      "key": "mlp_gate_up-m4096-scale1.0",
+      "baseline_byte_equal": true,
+      "output_sha256": "e527319c9db9a659fa9cd6c54b0248f0a26436727cfc083564276044bcaa2e85",
+      "graph_replay": true
+    },
+    {
+      "key": "mlp_gate_up-m8192-scale1.0",
+      "baseline_byte_equal": true,
+      "output_sha256": "efa0f228fded875a91d4e510f1d4854049f696d96bb6dd879ca37c78b8fbcdca",
+      "graph_replay": true
+    }
+  ],
+  "library_sha256": "c5567901bb4a4b542756e861e004af9153ac97fc9eefdfd19d1dd18381c00ed7",
+  "scope": "Six selected real projection shapes, eager/capture/replay under external compute-sanitizer memcheck. Sanitizer log is required to establish memory-check success."
+}

@@ -1,0 +1,78 @@
+{
+  "complete": true,
+  "offered_http_concurrency": 8,
+  "input_tokens_per_request": 32768,
+  "actual_output_tokens": 8192,
+  "preemptions": 0.0,
+  "batch_wall_s": 126.84429109503981,
+  "observations": [
+    {
+      "at_epoch_s": 1794505454.185664,
+      "running": 1,
+      "waiting": 7
+    },
+    {
+      "at_epoch_s": 1794505464.186105,
+      "running": 3,
+      "waiting": 5
+    },
+    {
+      "at_epoch_s": 1794505474.18766,
+      "running": 4,
+      "waiting": 4
+    },
+    {
+      "at_epoch_s": 1794505484.188526,
+      "running": 4,
+      "waiting": 4
+    },
+    {
+      "at_epoch_s": 1794505494.189675,
+      "running": 5,
+      "waiting": 3
+    },
+    {
+      "at_epoch_s": 1794505504.191125,
+      "running": 6,
+      "waiting": 2
+    },
+    {
+      "at_epoch_s": 1794505514.19289,
+      "running": 6,
+      "waiting": 2
+    },
+    {
+      "at_epoch_s": 1794505524.19875,
+      "running": 7,
+      "waiting": 1
+    },
+    {
+      "at_epoch_s": 1794505534.203792,
+      "running": 8,
+      "waiting": 0
+    },
+    {
+      "at_epoch_s": 1794505544.204278,
+      "running": 8,
+      "waiting": 0
+    },
+    {
+      "at_epoch_s": 1794505554.205472,
+      "running": 8,
+      "waiting": 0
+    },
+    {
+      "at_epoch_s": 1794505564.207402,
+      "running": 6,
+      "waiting": 0
+    },
+    {
+      "at_epoch_s": 1794505574.209527,
+      "running": 2,
+      "waiting": 0
+    }
+  ],
+  "max_running_observed": 8,
+  "max_waiting_observed": 7,
+  "scope": "C denotes offered concurrent HTTP requests. Periodic logs are sampled observations and may miss instantaneous peaks. Queued requests are not counted as simultaneously resident."
+}

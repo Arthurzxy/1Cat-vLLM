@@ -1,0 +1,10 @@
+{
+  "complete": true,
+  "scope": "Four independently started Bsafe cache attribution arms. All timing is instrumented diagnostic.",
+  "profiles": [
+    "original-window-logic",
+    "partial-only",
+    "checkpoint-only",
+    "combined"
+  ]
+}
