@@ -1,0 +1,132 @@
+{
+  "complete": true,
+  "verified_utc": "2026-11-12T19:16:18.1549110Z",
+  "local_directory": "C:\\Users\\Administrator\\Documents\\Codex\\2026-11-11\\v100\\outputs\\next-20261112",
+  "archive_sha256": "3fae6c04a7e44784263bae152ee5ba95475f20b597ca26eba73b7840999f41bf",
+  "archive_bytes": 1901952724,
+  "archive_entries_verified": 20798,
+  "external_mirrors_checked_against_archive_index": 23,
+  "source_final_commit": "d22780dbed368559f629a8f7518e4d0041ac62b7",
+  "fork_branch": "https://github.com/Arthurzxy/1Cat-vLLM/tree/codex/v152-opt-20261111",
+  "qualified_image_id": "sha256:78675b92ac8d599af905cf5e474c4f95209984dde5e309f6c9860fe1811e76b2",
+  "previous_archive_sha256": "28427ba260a458bf4185d096ce3b60cff67b2c1f28b6a5f6f928f79887b73ce3",
+  "previous_archive_unchanged": true,
+  "original_services_preserved": true,
+  "mineru_health": "healthy",
+  "files": {
+    "ARCHIVE_MODE_SMOKE.json": {
+      "bytes": 1113,
+      "sha256": "e968b174b1ebd7d84b45765b302998f8358ce5e48dee99412673e1fc2873b45b"
+    },
+    "ARCHIVE_VERIFICATION.json": {
+      "bytes": 211,
+      "sha256": "eaee645a2d70ccebb1de494cf3d713407508bb12b93e06978072bc540ed2e310"
+    },
+    "BINARY_REPLAY_QA.json": {
+      "bytes": 3973,
+      "sha256": "62fe0e15f4fac160ba9520e8e7edc291242bb0ec1ff3866c3b50642f0cd9eb97"
+    },
+    "BUILD_MANIFEST.json": {
+      "bytes": 109349,
+      "sha256": "6bcbff52cbf4cebb0ff11136d1ed13a69497d2b3948a5462728e9c9c487e1ad8"
+    },
+    "CLEANUP.json": {
+      "bytes": 12279,
+      "sha256": "0d533e5e8aaa676e044d36ce6b58d1564934d213557132ee2d789207d7f6ff81"
+    },
+    "EFFICIENCY_SUMMARY.json": {
+      "bytes": 355862,
+      "sha256": "cd4cef6eb46c4a86dbb2ac2effa038eff8afa741cf26ac88829b019fd1cafc33"
+    },
+    "EXPERIMENTS.json": {
+      "bytes": 6109,
+      "sha256": "5e1fe1a0594ae9cc0ec879999ae7b3278d41041421bc443764f967ff0988dc85"
+    },
+    "FILES.json": {
+      "bytes": 4433119,
+      "sha256": "8ceccf006a594ca10e0d5adaaf37f7687c14af7f9bc613f9bb53f5aa5d840ae1"
+    },
+    "FINAL_QUALIFICATION.json": {
+      "bytes": 17647,
+      "sha256": "aa52fe6eabf614b479c25b310db10896fb0412be685c5efa50d53a7808c24c42"
+    },
+    "FINAL_QUALITY_SUMMARY.json": {
+      "bytes": 86694,
+      "sha256": "5ac1355a7aaa9457b9aa4061fc76413305e85960d84b68f8fd8f5d8321efd61d"
+    },
+    "FINAL_REPORT.txt": {
+      "bytes": 19522,
+      "sha256": "73950aafc95559cbbbacc2211683d434ec3ed94c514e678af8993373f08f1a8b"
+    },
+    "FORMAL_SERVICE_SUMMARY.json": {
+      "bytes": 311034,
+      "sha256": "858dd55c6a63477897edc560321917145c0c3f0552a58424239d85ecbaded9e3"
+    },
+    "NATIVE_MEMCHECK_ADMISSION.json": {
+      "bytes": 2444,
+      "sha256": "dda290180743e7ab2410f03ebfddc0a1854b000698ef821a8e34446a1b182847"
+    },
+    "next-runtime.patch": {
+      "bytes": 8062,
+      "sha256": "4700d880467d476382b72abb1338f472b777ab67b5c9c4280dd76f9debf0d7ee"
+    },
+    "PACKAGING.json": {
+      "bytes": 93637,
+      "sha256": "94451c15a91b3386ef106ee1a683102b6f7f2dacb9f735979d47874cf78d5f88"
+    },
+    "PATCH_APPLICABILITY_QA.json": {
+      "bytes": 1071,
+      "sha256": "8fee54d3b8588c0e92e0555116cc3cef1a7fd0b0beaf3197326accc0fb6d2064"
+    },
+    "REBUILD_BOOTSTRAP_QA.json": {
+      "bytes": 1765,
+      "sha256": "e17a247aebb64edfd0a924c8b57dc1a81c7c1f619d8a09b015f4e545ed9b2110"
+    },
+    "REBUILD_TOOLCHAIN_QA.json": {
+      "bytes": 1618,
+      "sha256": "ee96e5b10ed37713b38e3d671e850c32d1ca34a8ebb2a8d057945fa05ff29083"
+    },
+    "REPRODUCE.txt": {
+      "bytes": 10185,
+      "sha256": "e811686b433e688cbefb0e28ce4ff00c0bc82fea24c69fda5e2f2bd7fbdc92eb"
+    },
+    "RESIDENCY_OBSERVATION.json": {
+      "bytes": 1638,
+      "sha256": "927065b791bd2c449eb790d74ea3bd006d06853856701eb89e3c871c2f731847"
+    },
+    "RESUME.txt": {
+      "bytes": 991,
+      "sha256": "ecc95a9c4a6463014defeaef9ad67cd34c4942d6b97990679383472338ec0ab7"
+    },
+    "retained-source.patch": {
+      "bytes": 3477335,
+      "sha256": "f7e9763782d9c2d0aa815234c91fa52f39d191265babaabf45941c388ffbf199"
+    },
+    "SHA256SUMS.txt": {
+      "bytes": 93,
+      "sha256": "27a9fa3734eccf9b4c3e084b2ac2f3ffbfe18b586978260f3a89d90da67d78b1"
+    },
+    "SHORT_CONFIRM_SUMMARY.json": {
+      "bytes": 97364,
+      "sha256": "94427ecad7dac79c0726e847ab5126549d609e8ec8f87c5f3814b8b87ee55255"
+    },
+    "UPSTREAM_LEDGER.json": {
+      "bytes": 46160,
+      "sha256": "29760fa434da17cfeb04dccce39988947547c7b34a90ebc3d8a53e138bc865b3"
+    },
+    "v152-next-artifacts.tar.gz": {
+      "bytes": 1901952724,
+      "sha256": "3fae6c04a7e44784263bae152ee5ba95475f20b597ca26eba73b7840999f41bf"
+    },
+    "VALIDATION_SUMMARY.json": {
+      "bytes": 106837,
+      "sha256": "8064a3b2b2085bd2cbb9e9e8db26a6a548fae95f01abaa19667359273876f6cf"
+    },
+    "verify_next_archive.py": {
+      "bytes": 2182,
+      "sha256": "d1341bee22aa0eb0d496135f300b3710213f9ab5093455ecf155313e556be4f5"
+    }
+  },
+  "receipt_commit_record": "Git commit containing this receipt",
+  "inventory_scope": "Downloaded archive, index/control files and readable mirrors. This receipt is excluded from its own hash inventory. Subsequent publication receipt is recorded separately."
+}

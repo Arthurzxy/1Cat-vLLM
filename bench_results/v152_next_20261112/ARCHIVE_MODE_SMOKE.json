@@ -1,0 +1,31 @@
+{
+  "complete": true,
+  "passed": true,
+  "cases": {
+    "regular": {
+      "kind": "file",
+      "bytes": 3,
+      "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+      "mode": 420
+    },
+    "executable": {
+      "kind": "file",
+      "bytes": 3,
+      "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+      "mode": 493
+    },
+    "long-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx": {
+      "kind": "file",
+      "bytes": 3,
+      "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+      "mode": 436
+    },
+    "relative-symlink": {
+      "kind": "symlink",
+      "target": "regular",
+      "mode": 511
+    }
+  },
+  "package_script_sha256": "827990b41f8773ff32177e4750422cff79c52a9f9c1b575536f557c9635a8371",
+  "scope": "Actual packaging functions exercised for stat-type modes, executable permissions, long PAX names and a relative symlink. Strict archive/index equality is retained."
+}

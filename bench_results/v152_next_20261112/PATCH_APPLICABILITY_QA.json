@@ -1,0 +1,29 @@
+{
+  "complete": true,
+  "patches": {
+    "retained-source.patch": {
+      "anchor": "2bb8c2b9cd7c1696630b6be464052027f0dd0147",
+      "source_final_commit": "d22780dbed368559f629a8f7518e4d0041ac62b7",
+      "paths": [
+        "all tracked task files"
+      ],
+      "sha256": "f7e9763782d9c2d0aa815234c91fa52f39d191265babaabf45941c388ffbf199",
+      "bytes": 3477335,
+      "temporary_index_applied_tree": "8eca8283e60b55c8babb64dda4c4e8faa85e3869",
+      "exact_tree_effect_verified_in_scope": true
+    },
+    "next-runtime.patch": {
+      "anchor": "0a9ca74bc4897b8a8c3a2b9cbf7c345a77d063b9",
+      "source_final_commit": "d22780dbed368559f629a8f7518e4d0041ac62b7",
+      "paths": [
+        "csrc",
+        "vllm"
+      ],
+      "sha256": "4700d880467d476382b72abb1338f472b777ab67b5c9c4280dd76f9debf0d7ee",
+      "bytes": 8062,
+      "temporary_index_applied_tree": "62f68010e47e2bf4324af878d139fccbfe871c20",
+      "exact_tree_effect_verified_in_scope": true
+    }
+  },
+  "scope": "Independent temporary Git indexes. The checkout and normal index remain unchanged."
+}
